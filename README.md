@@ -1,44 +1,43 @@
-# two-health-bars
+## Global Game Jam 2022
 
-## Character
-###### 1. Movement
+This is the repository of the game by the team REDACTED for the GGJ22.
 
-###### 2. Shooting
+### Character
 
-###### 3. Camera
+###### [ ] Movement
+###### [ ] Shooting
+###### [ ] Camera Control
+###### [ ] Stats
+- [ ] Health
+- [ ] Speed (Mobility)
+- [ ] Projectile Speed
+- [ ] Projectile Size
+- [ ] Projectile Range
+- [ ] Projectile Spread
+- [ ] Projectile Count
+- [ ] Jump Height
+- [ ] Jump Speed
+- [ ] Shield Decay
+- [ ] Shield Regen
+- [ ] Shield MAX
 
-###### 4. Stats
-- Health
-- Speed (Mobility)
-- Projectile Speed
-- Projectile Size
-- Projectile Range
-- Projectile Spread
-- Projectile Count
-- Jump Height
-- Jump Speed
-- Shield Decay
-- Shield Regen
-- Shield MAX
+### Enemies
 
-## Enemies
-###### 1. Flying
-###### 2. Kamikaze
+###### [ ] Drone (shooter)
+###### [ ] Kamikaze (banzai)
 
-## Stages
-###### 1. Timer
-###### 2. Level Design
-###### 3. Chaos/Order types
-###### 4. Loss trigger and Procedure
-###### 5. Win trigger and Procedure
+### Stages/Arenas
 
-## UI
-###### 1. Start Screen
-###### 2. Pause Screen
-###### 3. Win Screen
-Fade to Black when transitioning to Chaos Arena
-Fade to White when transitioning to Order Arena
-###### 4. Lose Screen
-###### 5. HUD
+###### [ ] Timer
+###### [ ] Type: Chaos/Order (different visual design)
+###### [ ] Win Condition: kill all enemies
+###### [ ] Lose Condition: timer runs out
+###### [ ] Level Design
 
+### UI
 
+###### [ ] Main/Start screen
+###### [ ] Pause screen
+###### [ ] Win screen
+###### [ ] Lose screen
+###### [ ] HUD: health, shield & ammo/mana indicator

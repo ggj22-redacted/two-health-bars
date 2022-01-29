@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2890094692017628900}
   - component: {fileID: 1023748676812103283}
   - component: {fileID: 4060580488001947819}
-  - component: {fileID: -3670361582766233290}
+  - component: {fileID: 8653661138935371127}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
@@ -113,7 +113,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-3670361582766233290
+--- !u!114 &8653661138935371127
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,21 +122,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3359030420365714461}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ee4245962a357244a566d056142f68e, type: 3}
+  m_Script: {fileID: 11500000, guid: 782a2a8fc88e71b499f3c61ed3e397eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectileCollision:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11500000, guid: b3a390cd73693794aa96f645eef88ad3, type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []

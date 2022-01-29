@@ -9,6 +9,11 @@ public class EntityState : MonoBehaviour
     private ThirdPersonController controller;
 
     public event Action<EntityState> OnDied;
+
+    public event Action<float, float> OnHealthChanged;
+
+    public event Action<float, float> OnSpeedChanged; 
+
     public Transform HPBar;
 
     public bool allowfire = true;
@@ -45,13 +50,18 @@ public class EntityState : MonoBehaviour
         set
         {
             value = Mathf.Clamp(value, 0, maxHealth);
+            float previous = _currentHealth;
             _currentHealth = value;
             if(HPBar) { HPBar.localScale = new Vector3(0.3f, _currentHealth / maxHealth, 0.3f); }
+
+            OnHealthChanged?.Invoke(previous, _currentHealth);
 
             if (_currentHealth <= 0)
                 OnDied?.Invoke(this);
         }
     }
+
+    public float MaxHealth => maxHealth;
 
     public float Speed
     {

@@ -9,22 +9,25 @@ namespace Game.Common.Projectiles
         [SerializeField]
         private float damage;
 
-        [SerializeField]
+        [SerializeField, Min(0)]
         private float fireRate;
 
-        [SerializeField]
+        [SerializeField, Min(0)]
         private float speed;
 
-        [SerializeField]
+        [SerializeField, Min(0)]
         private float size;
 
-        [SerializeField]
+        [SerializeField, Min(0)]
+        private int count;
+
+        [SerializeField, Min(0)]
         private float range;
 
-        [SerializeField]
+        [SerializeField, Min(0)]
         private float spread;
 
-        [SerializeField]
+        [SerializeField, Min(0)]
         private float lifetime;
 
         public float Damage
@@ -49,6 +52,12 @@ namespace Game.Common.Projectiles
         {
             get => size;
             set => size = value;
+        }
+
+        public int Count
+        {
+            get => count;
+            set => count = value;
         }
 
         public float Range

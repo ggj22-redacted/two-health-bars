@@ -1,9 +1,13 @@
 using System;
 using Game.Common.Projectiles;
+using StarterAssets;
 using UnityEngine;
 
 public class EntityState : MonoBehaviour
 {
+    [SerializeField]
+    private ThirdPersonController controller;
+
     public event Action<EntityState> OnDied;
     public Transform HPBar;
 
@@ -11,6 +15,20 @@ public class EntityState : MonoBehaviour
 
     [SerializeField]
     private int maxHealth = 100;
+
+    [Header("Movement")]
+    [SerializeField]
+    private float speed = 1;
+
+    [SerializeField]
+    private float accelerationFactor = 1;
+
+    [Header("Jumping")]
+    [SerializeField]
+    private float jumpHeight = 1;
+
+    [SerializeField]
+    private float gravity = -9.81f;
 
     [Header("Projectiles")]
     [SerializeField]
@@ -35,12 +53,49 @@ public class EntityState : MonoBehaviour
         }
     }
 
+    public float Speed
+    {
+        get => speed;
+        set
+        {
+            speed = value;
+
+            controller.MoveSpeed = speed;
+            controller.SpeedChangeRate = accelerationFactor * speed;
+        }
+    }
+
+    public float JumpHeight
+    {
+        get => jumpHeight;
+        set
+        {
+            jumpHeight = value;
+
+            controller.JumpHeight = jumpHeight;
+        }
+    }
+
+    public float Gravity
+    {
+        get => gravity;
+        set
+        {
+            gravity = value;
+
+            controller.Gravity = gravity;
+        }
+    }
+
     public ProjectileState ProjectileState => projectileState;
 
     public Transform ProjectileGunBarrel => projectileGunBarrel;
 
     private void Start ()
     {
-        _currentHealth = maxHealth;
+        Health = maxHealth;
+        Speed = speed;
+        JumpHeight = jumpHeight;
+        Gravity = gravity;
     }
 }

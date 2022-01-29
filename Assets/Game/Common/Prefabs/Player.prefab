@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 8543867755564928817}
   - component: {fileID: 657153824873659741}
   - component: {fileID: 3595592990477139851}
-  - component: {fileID: 7944482377331080333}
   - component: {fileID: 3664297256592486292}
   - component: {fileID: 8077003878407321782}
   m_Layer: 6
@@ -242,22 +241,6 @@ MonoBehaviour:
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
---- !u!114 &7944482377331080333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 657153824873659729}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e04303d7816c4d3ca893b1c20e6bf1fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  headPivot: {fileID: 865229025953654244}
-  minTargetDistance: 11
-  maxTargetDistance: 25
-  mainCamera: {fileID: 0}
 --- !u!114 &3664297256592486292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,13 +253,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70a030f205a1c674f82e2f2e085f6514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 657153824873659738}
   allowfire: 1
   maxHealth: 100
+  speed: 12
+  accelerationFactor: 0.5
+  jumpHeight: 3.5
+  gravity: -98
   projectileState:
     damage: 25
     fireRate: 10
     speed: 50
     size: 0
+    count: 0
     range: 0
     spread: 0
     lifetime: 1
@@ -428,6 +417,7 @@ GameObject:
   - component: {fileID: 8621297027259054823}
   - component: {fileID: 4062556639504775642}
   - component: {fileID: 1233191729698374302}
+  - component: {fileID: 2680212101897488842}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -499,6 +489,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2680212101897488842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7405115391183464786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e04303d7816c4d3ca893b1c20e6bf1fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headPivot: {fileID: 865229025953654244}
+  minTargetDistance: 11
+  maxTargetDistance: 25
+  mainCamera: {fileID: 0}
 --- !u!1001 &728160893067796453
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,9 +1,13 @@
+using System;
 using UnityEngine;
-public class BaseProjectile
+using UnityEngine.Events;
+
+public class BaseProjectile : MonoBehaviour
 {
-    private SphereCollider hitbox;
-    private float speed;
-    private float sizeModifier;
-    private float maxDistance;
-    private int timeToLive;
+    [SerializeField] private UnityEvent projectileCollision;
+    public event Action<BaseProjectile, Collider> onProjectileHit;
+    private void OnTriggerEnter(Collider other) {
+        projectileCollision.Invoke();
+        onProjectileHit?.Invoke(this, other);
+    }
 }

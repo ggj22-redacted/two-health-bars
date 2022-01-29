@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Game.Common.Shooting;
 
 namespace Game.Common.Enemies
 {
@@ -7,6 +8,9 @@ namespace Game.Common.Enemies
     {
         [SerializeField]
         private Transform referenceTransform;
+
+        [SerializeField]
+        private EntityState entityState;
 
         [SerializeField]
         private MovementControl movementControl;
@@ -18,6 +22,12 @@ namespace Game.Common.Enemies
         private float maxDistance;
 
         private Transform _target;
+
+        private ShootingControl shootingControl;
+
+        private void Start() {
+            shootingControl = gameObject.GetComponent<ShootingControl>();
+        }
 
         private void OnTriggerStay (Collider other)
         {
@@ -35,6 +45,9 @@ namespace Game.Common.Enemies
 
             if (distance < minDistance)
                 movementControl.MoveTo(targetPosition - direction * minDistance);
+
+            if (shootingControl)
+                shootingControl.OnShoot();
         }
 
         private void OnTriggerExit (Collider other)

@@ -18,6 +18,8 @@ namespace Game.Common.Entities
         {
             entityState.Health -= state.Damage;
 
+            if(HPBar)
+                HPBar.localScale = new Vector3(0.3f, entityState.Health / entityState.MaxHealth, 0.3f);
 
             // TODO: Add some kind of animation
             if (entityState.Health <= 0)

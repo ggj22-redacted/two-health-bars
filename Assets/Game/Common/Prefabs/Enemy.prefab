@@ -87,9 +87,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70a030f205a1c674f82e2f2e085f6514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HPBar: {fileID: 3754539790776056281}
+  controller: {fileID: 0}
   allowfire: 1
   maxHealth: 100
+  speed: 1
+  accelerationFactor: 1
+  jumpHeight: 1
+  gravity: -9.81
   projectileState:
     damage: 0
     fireRate: 0
@@ -123,7 +127,6 @@ GameObject:
   - component: {fileID: 3754539790776056281}
   - component: {fileID: 4731146425775974992}
   - component: {fileID: 7688981457369651995}
-  - component: {fileID: 4718399472369800135}
   m_Layer: 5
   m_Name: HPBar
   m_TagString: Untagged
@@ -194,20 +197,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &4718399472369800135
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 647033092109799353}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &2539152203085362743
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,7 +208,6 @@ GameObject:
   - component: {fileID: 6347872682130527580}
   - component: {fileID: 6448803596639476780}
   - component: {fileID: 1310854257710704285}
-  - component: {fileID: 7957936998313444435}
   m_Layer: 7
   m_Name: EntityControl
   m_TagString: Untagged
@@ -267,19 +255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityState: {fileID: 9137870335550141098}
---- !u!114 &7957936998313444435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2539152203085362743}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 523085211b354f51ad6df7b36a077334, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  entityState: {fileID: 9137870335550141098}
+  HPBar: {fileID: 0}
 --- !u!1 &3969788955585692825
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,6 +298,7 @@ GameObject:
   - component: {fileID: 1480447116095521700}
   - component: {fileID: 5421399867381345649}
   - component: {fileID: 2346318290771199967}
+  - component: {fileID: 4883816064271281742}
   m_Layer: 11
   m_Name: PlayerDetector
   m_TagString: Untagged
@@ -369,6 +346,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTransform: {fileID: 2671714842021524031}
+  entityState: {fileID: 0}
   movementControl: {fileID: 649326040917789296}
   minDistance: 9
   maxDistance: 12
+--- !u!114 &4883816064271281742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5140026357759738017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 523085211b354f51ad6df7b36a077334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entityState: {fileID: 9137870335550141098}

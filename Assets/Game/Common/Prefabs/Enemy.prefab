@@ -87,7 +87,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70a030f205a1c674f82e2f2e085f6514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
   allowfire: 1
   maxHealth: 100
   speed: 1
@@ -95,15 +94,15 @@ MonoBehaviour:
   jumpHeight: 1
   gravity: -9.81
   projectileState:
-    damage: 0
-    fireRate: 0
-    speed: 0
+    damage: 10
+    fireRate: 10
+    speed: 15
     size: 0
     count: 0
     range: 0
     spread: 0
-    lifetime: 0
-  projectileGunBarrel: {fileID: 0}
+    lifetime: 5
+  projectileGunBarrel: {fileID: 19267364848910656}
 --- !u!114 &649326040917789296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,6 +196,36 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1479241155771889797
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 19267364848910656}
+  m_Layer: 7
+  m_Name: GunBarrel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &19267364848910656
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479241155771889797}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.388, y: -0.092, z: 0.642}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2671714842021524031}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2539152203085362743
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,7 +284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityState: {fileID: 9137870335550141098}
-  HPBar: {fileID: 0}
+  HPBar: {fileID: 3754539790776056281}
 --- !u!1 &3969788955585692825
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,6 +313,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3754539790776056281}
+  - {fileID: 19267364848910656}
   m_Father: {fileID: 5195862383388780044}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -346,7 +376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceTransform: {fileID: 2671714842021524031}
-  entityState: {fileID: 0}
+  entityState: {fileID: 9137870335550141098}
   movementControl: {fileID: 649326040917789296}
   minDistance: 9
   maxDistance: 12

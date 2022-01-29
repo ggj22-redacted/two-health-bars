@@ -10,7 +10,13 @@ public class BaseProjectile : MonoBehaviour
 
     public event Action<BaseProjectile, Collider> OnProjectileHit;
 
+    public Renderer rendererComponent;
+
     public ProjectileState State { get; set; }
+
+    private void Awake() {
+        rendererComponent = GetComponent<Renderer>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {

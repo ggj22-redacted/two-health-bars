@@ -6,6 +6,8 @@ namespace Game.Common.Projectiles
     [Serializable]
     public struct ProjectileState
     {
+        public Material material;
+
         [SerializeField]
         private float damage;
 

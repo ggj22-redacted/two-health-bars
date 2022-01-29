@@ -6,33 +6,25 @@ using UnityEngine;
 
 public class ProjectileSystem : MonoBehaviour
 {
-    public BaseProjectile playerProjectilePrefab;
-    public BaseProjectile enemyProjectilePrefab;
+    public BaseProjectile projectilePrefab;
 
     [Header("Settings")]
-    public int maxPlayerProjectiles;
-
-    public int maxEnemyProjectiles;
+    public int maxGameProjectiles;
 
     [SerializeField]
     private int maxInstantiationsPerFrame = 10;
 
-    private BaseProjectile[] _enemyProjectiles;
-
-    private BaseProjectile[] _playerProjectiles;
+    private BaseProjectile[] _projectilePool;
 
     private void Start ()
     {
-        _playerProjectiles = new BaseProjectile[maxPlayerProjectiles];
-        _enemyProjectiles = new BaseProjectile[maxEnemyProjectiles];
+        _projectilePool = new BaseProjectile[maxGameProjectiles];
 
         StartCoroutine(
-            InstantiatePool(_playerProjectiles, playerProjectilePrefab, LayerMask.NameToLayer("PlayerProjectiles")));
-        StartCoroutine(
-            InstantiatePool(_enemyProjectiles, enemyProjectilePrefab, LayerMask.NameToLayer("EnemyProjectiles")));
+            InstantiatePool(_projectilePool, projectilePrefab));
     }
 
-    private IEnumerator InstantiatePool (IList<BaseProjectile> pool, BaseProjectile projectilePrefab, int layerID)
+    private IEnumerator InstantiatePool (IList<BaseProjectile> pool, BaseProjectile projectilePrefab)
     {
         int currentInstantiations = 0;
         for (int i = 0; i < pool.Count; i++) {
@@ -41,7 +33,6 @@ public class ProjectileSystem : MonoBehaviour
 
             GameObject o = inst.gameObject;
             o.SetActive(false);
-            o.layer = layerID;
 
             pool[i] = inst;
 
@@ -75,11 +66,16 @@ public class ProjectileSystem : MonoBehaviour
     private IEnumerator Shoot (EntityState shooter)
     {
         shooter.allowfire = false;
-        var usePool = shooter.gameObject.name == "Player" ? _playerProjectiles : _enemyProjectiles;
-        var projectileToUse = Array.Find(usePool, (projectile) => !projectile.gameObject.activeSelf);
+        var projectileToUse = Array.Find(_projectilePool, (projectile) => !projectile.gameObject.activeSelf);
         ProjectileState projectileState = shooter.ProjectileState;
 
         if (projectileToUse) {
+            
+            projectileToUse.gameObject.layer = shooter.gameObject.name == "Player"
+                ? LayerMask.NameToLayer("PlayerProjectiles")
+                : LayerMask.NameToLayer("EnemyProjectiles");
+
+            projectileToUse.rendererComponent.material = projectileState.material;
             projectileToUse.transform.position = shooter.ProjectileGunBarrel.position;
             projectileToUse.gameObject.SetActive(true);
             projectileToUse.State = projectileState;

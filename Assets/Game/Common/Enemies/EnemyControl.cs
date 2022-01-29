@@ -46,7 +46,7 @@ namespace Game.Common.Enemies
             if (distance < minDistance)
                 movementControl.MoveTo(targetPosition - direction * minDistance);
 
-            if (shootingControl)
+            if (entityState.allowfire)
                 shootingControl.OnShoot();
         }
 

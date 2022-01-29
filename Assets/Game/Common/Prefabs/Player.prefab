@@ -254,8 +254,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70a030f205a1c674f82e2f2e085f6514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 657153824873659738}
-  HPBar: {fileID: 0}
   allowfire: 1
   maxHealth: 100
   speed: 12
@@ -263,6 +261,7 @@ MonoBehaviour:
   jumpHeight: 3.5
   gravity: -98
   projectileState:
+    material: {fileID: 2100000, guid: 2b68ec13d67e5a34baa8a6ef252ce28d, type: 2}
     damage: 25
     fireRate: 10
     speed: 50

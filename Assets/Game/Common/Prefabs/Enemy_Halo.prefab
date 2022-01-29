@@ -98,7 +98,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3754539790776056281, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5195862383388780044, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
       propertyPath: m_RootOrder
@@ -148,6 +148,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 9137870335550141098, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
+      propertyPath: projectileState.material
+      value: 
+      objectReference: {fileID: 2100000, guid: 355e227b4ef46a144a0b4c5c53e2805b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
 --- !u!4 &7928770866119841367 stripped

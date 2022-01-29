@@ -235,9 +235,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e04303d7816c4d3ca893b1c20e6bf1fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  head: {fileID: 2804023821148322685}
   headPivot: {fileID: 7348588284703663944}
-  headSpeed: 1
+  minTargetDistance: 11
+  maxTargetDistance: 100
   mainCamera: {fileID: 0}
 --- !u!1 &1415465721076348632
 GameObject:

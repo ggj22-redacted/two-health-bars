@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ProjectileSystem : MonoBehaviour
 {
-    public EntityState player;
     public Transform gunBarrel;
-    public BaseProjectile baseProjectilePrefab;
+    public BaseProjectile playerProjectilePrefab;
+    public BaseProjectile enemyProjectilePrefab;
     public int maxPlayerProjectiles;
     public int maxEnemyProjectiles;
     private GameObject[] enemyProjectiles;
@@ -15,8 +15,8 @@ public class ProjectileSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InstantiatePool(ref playerProjectiles, maxPlayerProjectiles, baseProjectilePrefab, 8);
-        InstantiatePool(ref enemyProjectiles, maxEnemyProjectiles, baseProjectilePrefab, 9);
+        InstantiatePool(ref playerProjectiles, maxPlayerProjectiles, playerProjectilePrefab, 8);
+        InstantiatePool(ref enemyProjectiles, maxEnemyProjectiles, enemyProjectilePrefab, 9);
     }
 
     void InstantiatePool(ref GameObject[] pool, int amount, BaseProjectile projectilePrefab, int layerID)
@@ -32,21 +32,13 @@ public class ProjectileSystem : MonoBehaviour
     }
 
     public void HandleProjectileCollision(BaseProjectile projectile, Collider targetHit) {
-        Debug.Log("Projectile HIT");
-        Debug.Log(targetHit.name);
+        Debug.Log("Projectile HIT: " + targetHit.name);
         projectile.gameObject.SetActive(false);
-
-        if (targetHit.gameObject.name == "player"
-        || targetHit.gameObject.name == "horn"
-        || targetHit.gameObject.name == "halo")
-        {
-            //targetHit.gameObject.GetComponent<HealthSystem>()
-        }
     }
 
     public void OnShoot(EntityState shooter) {
         if(shooter.allowfire){
-            StartCoroutine(Shoot(player, gunBarrel));
+            StartCoroutine(Shoot(shooter, gunBarrel));
         }
     }
 
@@ -68,13 +60,11 @@ public class ProjectileSystem : MonoBehaviour
             rigidbody.velocity = new Vector3(0,0,0);
             rigidbody.AddForce(gunBarrel.forward.normalized * 1000f);
             StartCoroutine(DeactivateProjectile(projectileToUse, 1.0f));
-        }
-        else
-        {
+        } else {
             Debug.Log("Exceeding available projectiles, increase pool size or lower fire rate/projectile time to live");
         }
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.1f);
         shooter.allowfire = true;
     }
 

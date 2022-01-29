@@ -5,7 +5,7 @@ This is the repository of the game by the team REDACTED for the GGJ22.
 ### Character
 
 - [x] Movement
-- [ ] Shooting
+- [] Shooting
 - [x] Camera Control
 - [ ] Stats
   - [ ] Health

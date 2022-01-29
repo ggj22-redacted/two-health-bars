@@ -59,9 +59,17 @@ namespace StarterAssets
 		[Tooltip("For locking the camera position on all axis")]
 		public bool LockCameraPosition = false;
 
+		[SerializeField]
+		private Vector3 lookAheadOffset;
+
+		[SerializeField, Range(0, 2)]
+		private float lookAheadDamping;
+
 		// cinemachine
 		private float _cinemachineTargetYaw;
 		private float _cinemachineTargetPitch;
+		private Vector3 _startCameraLocalPosition;
+		private Vector3 _currentCameraTargetOffset;
 
 		// player
 		private float _speed;
@@ -70,6 +78,7 @@ namespace StarterAssets
 		private float _rotationVelocity;
 		private float _verticalVelocity;
 		private float _terminalVelocity = 53.0f;
+		private Vector3 _previousDirection;
 
 		// timeout deltatime
 		private float _jumpTimeoutDelta;
@@ -111,6 +120,7 @@ namespace StarterAssets
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
+			_startCameraLocalPosition = CinemachineCameraTarget.transform.localPosition;
 		}
 
 		private void Update()
@@ -164,6 +174,12 @@ namespace StarterAssets
 
 			// Cinemachine will follow this target
 			CinemachineCameraTarget.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + CameraAngleOverride, _cinemachineTargetYaw, 0.0f);
+
+			Vector3 movementDirection = _controller.velocity / SprintSpeed;
+			movementDirection = CinemachineCameraTarget.transform.InverseTransformDirection(movementDirection);
+			movementDirection.Scale(lookAheadOffset);
+			_currentCameraTargetOffset = Vector3.LerpUnclamped(_currentCameraTargetOffset, movementDirection, Time.deltaTime / lookAheadDamping);
+			CinemachineCameraTarget.transform.localPosition = _startCameraLocalPosition + _currentCameraTargetOffset;
 		}
 
 		private void Move()
@@ -200,20 +216,19 @@ namespace StarterAssets
 			_animationBlend = Mathf.Lerp(_animationBlend, targetSpeed, Time.deltaTime * SpeedChangeRate);
 
 			// normalise input direction
-			Vector3 inputDirection = new Vector3(_input.move.x, 0.0f, _input.move.y).normalized;
+			Vector3 inputDirection;
+			inputDirection = _input.move.sqrMagnitude > 0.01f
+				? new Vector3(_input.move.x, 0.0f, _input.move.y).normalized
+				: _previousDirection;
 
-			// note: Vector2's != operator uses approximation so is not floating point error prone, and is cheaper than magnitude
-			// if there is a move input rotate player when the player is moving
-			if (_input.move != Vector2.zero)
-			{
-				_targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg + _mainCamera.transform.eulerAngles.y;
-				float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity, RotationSmoothTime);
+			_targetRotation = _mainCamera.transform.eulerAngles.y;
+			float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity, RotationSmoothTime);
 
-				// rotate to face input direction relative to camera position
-				transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
-			}
+			// rotate to face input direction relative to camera position
+			transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
 
 
+			_targetRotation += Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg;
 			Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
 
 			// move the player
@@ -225,6 +240,8 @@ namespace StarterAssets
 				_animator.SetFloat(_animIDSpeed, _animationBlend);
 				_animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
 			}
+
+			_previousDirection = inputDirection;
 		}
 
 		private void JumpAndGravity()

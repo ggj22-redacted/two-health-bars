@@ -20,7 +20,8 @@ namespace Game.Common.Player
 
         private void Update ()
         {
-            Vector3 origin = mainCamera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0f)) + mainCamera.transform.forward * minTargetDistance;
+            Vector3 origin = mainCamera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0f))
+                             + mainCamera.transform.forward * minTargetDistance;
             if (Physics.Raycast(origin, mainCamera.transform.forward, out RaycastHit hit, maxTargetDistance)) {
                 _target = hit.point;
             } else {

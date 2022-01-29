@@ -8,13 +8,13 @@ namespace Game.Common.Game
     public class GameStateSystem : MonoBehaviour
     {
         public event Action<GameRound> OnGameRoundChanged;
-        public event Action<GameStage> OnGameStateChanged;
+        public event Action<GameStage> OnGameStageChanged;
 
         [SerializeField]
         private GameRoundContainer[] gameRounds;
 
         [Inject]
-        private GameStage[] gameStages;
+        private GameStage[] _gameStages;
 
         private int _round = 0;
 
@@ -27,7 +27,7 @@ namespace Game.Common.Game
             get
             {
                 EnemyType enemyType = CurrentRound.enemyType;
-                foreach (GameStage gameStage in gameStages)
+                foreach (GameStage gameStage in _gameStages)
                     if (gameStage.EnemyType == enemyType)
                         return gameStage;
 
@@ -41,7 +41,7 @@ namespace Game.Common.Game
                 _round = gameRounds.Length - 1;
 
             OnGameRoundChanged?.Invoke(CurrentRound);
-            OnGameStateChanged?.Invoke(CurrentStage);
+            OnGameStageChanged?.Invoke(CurrentStage);
         }
     }
 }

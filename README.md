@@ -5,16 +5,19 @@ This is the repository of the game by the team REDACTED for the GGJ22.
 ### Character
 
 - [x] Movement
-- [] Shooting
+- [ ] Shooting
+  - [x] Player
+  - [ ] Enemy
 - [x] Camera Control
 - [ ] Stats
-  - [ ] Health
+  - [x] Health
   - [ ] Speed (Mobility)
-  - [ ] Projectile Speed
+  - [x] Projectile Speed
   - [ ] Projectile Size
   - [ ] Projectile Range
   - [ ] Projectile Spread
   - [ ] Projectile Count
+  - [x] Projectile Fire Rate
   - [ ] Jump Height
   - [ ] Jump Speed
   - [ ] Shield Decay
@@ -23,6 +26,7 @@ This is the repository of the game by the team REDACTED for the GGJ22.
 
 ### Enemies
 
+- [x] Movement
 - [ ] Drone (shooter)
 - [ ] Kamikaze (banzai)
 

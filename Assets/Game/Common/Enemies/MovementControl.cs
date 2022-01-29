@@ -23,10 +23,5 @@ namespace Game.Common.Enemies
         {
             _agent.SetDestination(_agent.nextPosition);
         }
-
-        private void Start ()
-        {
-            MoveTo(transform.position + transform.forward * 10);
-        }
     }
 }

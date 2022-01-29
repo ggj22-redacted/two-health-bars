@@ -254,7 +254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   headPivot: {fileID: 7348588284703663944}
   minTargetDistance: 11
-  maxTargetDistance: 100
+  maxTargetDistance: 25
   mainCamera: {fileID: 0}
 --- !u!1 &1415465721076348632
 GameObject:

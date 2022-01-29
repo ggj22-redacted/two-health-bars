@@ -99,7 +99,7 @@ MonoBehaviour:
   GroundedRadius: 0.28
   GroundLayers:
     serializedVersion: 2
-    m_Bits: 513
+    m_Bits: 1537
   CinemachineCameraTarget: {fileID: 5181592417993212938}
   TopClamp: 70
   BottomClamp: -30
@@ -269,7 +269,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70a030f205a1c674f82e2f2e085f6514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSystem: {fileID: 0}
   allowfire: 1
   maxHealth: 100
   projectileState:

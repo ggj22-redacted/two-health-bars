@@ -180,6 +180,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d06467e6decd43641948bd1ce7e15649, type: 3}
+--- !u!4 &1015638067 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8727863250622846538, guid: 4e3de6fc0ade8c9418f919acf62cd0f5, type: 3}
+  m_PrefabInstance: {fileID: 7012467405556266333}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2975504413222510246
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -459,6 +464,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1958846794354724922, guid: 40e70e7a580a90d44a68ce27b9b3cfdf, type: 3}
+      propertyPath: m_Follow
+      value: 
+      objectReference: {fileID: 1015638067}
+    - target: {fileID: 1958846794354724923, guid: 40e70e7a580a90d44a68ce27b9b3cfdf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.20000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958846794354724923, guid: 40e70e7a580a90d44a68ce27b9b3cfdf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.375
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958846794354724923, guid: 40e70e7a580a90d44a68ce27b9b3cfdf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3606053460533700737, guid: 40e70e7a580a90d44a68ce27b9b3cfdf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.20000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 3606053460533700737, guid: 40e70e7a580a90d44a68ce27b9b3cfdf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.375
+      objectReference: {fileID: 0}
+    - target: {fileID: 3606053460533700737, guid: 40e70e7a580a90d44a68ce27b9b3cfdf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4
+      objectReference: {fileID: 0}
     - target: {fileID: 8679215148173950462, guid: 40e70e7a580a90d44a68ce27b9b3cfdf, type: 3}
       propertyPath: m_Name
       value: Cameras

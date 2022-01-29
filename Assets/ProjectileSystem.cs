@@ -63,7 +63,7 @@ public class ProjectileSystem : MonoBehaviour
             projectileToUse.SetActive(true);
             var rigidbody = projectileToUse.GetComponent<Rigidbody>();
             rigidbody.velocity = new Vector3(0,0,0);
-            rigidbody.AddForce(gunBarrel.forward.normalized * 10f);
+            rigidbody.AddForce(gunBarrel.forward.normalized * 1000f);
             StartCoroutine(DeactivateProjectile(projectileToUse, 1.0f));
         }
         else

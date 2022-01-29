@@ -196,11 +196,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3a390cd73693794aa96f645eef88ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1454471567}
-  gunBarrel: {fileID: 0}
-  baseProjectilePrefab: {fileID: 0}
-  maxPlayerProjectiles: 0
-  maxEnemyProjectiles: 0
+  player: {fileID: 1454471575}
+  gunBarrel: {fileID: 483161002}
+  baseProjectilePrefab: {fileID: 8653661138935371127, guid: cd879e6259a59c541bbbae0d3f4de891, type: 3}
+  maxPlayerProjectiles: 200
+  maxEnemyProjectiles: 2000
 --- !u!4 &826288075 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1738050207731362106, guid: 4e3de6fc0ade8c9418f919acf62cd0f5, type: 3}
@@ -363,7 +363,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4028894654227967766, guid: 4e3de6fc0ade8c9418f919acf62cd0f5, type: 3}
   m_PrefabInstance: {fileID: 7012467405556266333}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1454471567
+--- !u!114 &1454471575
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -375,7 +375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70a030f205a1c674f82e2f2e085f6514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSystem: {fileID: 0}
+  projectileSystem: {fileID: 621492570}
   allowfire: 1
 --- !u!4 &1679593717 stripped
 Transform:

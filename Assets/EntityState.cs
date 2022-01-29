@@ -12,6 +12,7 @@ public class EntityState : MonoBehaviour
     float projectileSpreadMod = 0f;
 
     public void OnShoot() {
+        Debug.Log("onShoot");
         projectileSystem.OnPlayerShoot();
     }
 

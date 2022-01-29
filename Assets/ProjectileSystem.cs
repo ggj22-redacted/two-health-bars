@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ProjectileSystem : MonoBehaviour
 {
-    private BaseProjectile[2000] enemyProjectiles;
-    private BaseProjectile[1000] playerProjectiles;
+    private BaseProjectile[] enemyProjectiles = new BaseProjectile[2000];
+    private BaseProjectile[] playerProjectiles = new BaseProjectile[1000];
 
     // Start is called before the first frame update
     void Start()

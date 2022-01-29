@@ -1,15 +1,24 @@
 using System;
+using Game.Common.Projectiles;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class BaseProjectile : MonoBehaviour
 {
-    [SerializeField] private UnityEvent projectileCollision;
-    public event Action<BaseProjectile, Collider> onProjectileHit;
-    private void OnTriggerEnter(Collider other) {
-        Debug.Log("onTriggerEnter");
-        Debug.Log(other.gameObject.name);
+    [SerializeField]
+    private UnityEvent projectileCollision;
+
+    public event Action<BaseProjectile, Collider> OnProjectileHit;
+
+    public ProjectileState State { get; set; }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        IHittable[] hittables = other.GetComponents<IHittable>();
+        foreach (IHittable hittable in hittables)
+            hittable.OnHit(State);
+
         projectileCollision.Invoke();
-        onProjectileHit?.Invoke(this, other);
+        OnProjectileHit?.Invoke(this, other);
     }
 }

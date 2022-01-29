@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,89 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &483161001
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 483161002}
-  m_Layer: 0
-  m_Name: GunBarrel
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &483161002
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 483161001}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2.58}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 826288075}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &621492568
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 621492569}
-  - component: {fileID: 621492570}
-  m_Layer: 0
-  m_Name: Projectiles
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &621492569
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 621492568}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1679593717}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &621492570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 621492568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3a390cd73693794aa96f645eef88ad3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1454471575}
-  gunBarrel: {fileID: 483161002}
-  baseProjectilePrefab: {fileID: 8653661138935371127, guid: cd879e6259a59c541bbbae0d3f4de891, type: 3}
-  maxPlayerProjectiles: 200
-  maxEnemyProjectiles: 2000
---- !u!4 &826288075 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1738050207731362106, guid: 4e3de6fc0ade8c9418f919acf62cd0f5, type: 3}
-  m_PrefabInstance: {fileID: 7012467405556266333}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &971070806
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -261,6 +178,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Systems
       objectReference: {fileID: 0}
+    - target: {fileID: 2822251492723502124, guid: d06467e6decd43641948bd1ce7e15649, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6534020318861824120, guid: d06467e6decd43641948bd1ce7e15649, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8154032973118531338, guid: d06467e6decd43641948bd1ce7e15649, type: 3}
+      propertyPath: baseProjectilePrefab
+      value: 
+      objectReference: {fileID: 8653661138935371127, guid: cd879e6259a59c541bbbae0d3f4de891, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d06467e6decd43641948bd1ce7e15649, type: 3}
 --- !u!4 &1015638067 stripped
@@ -357,30 +286,6 @@ PrefabInstance:
 Camera:
   m_CorrespondingSourceObject: {fileID: 3606053460533700742, guid: 40e70e7a580a90d44a68ce27b9b3cfdf, type: 3}
   m_PrefabInstance: {fileID: 1079784894}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1454471566 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4028894654227967766, guid: 4e3de6fc0ade8c9418f919acf62cd0f5, type: 3}
-  m_PrefabInstance: {fileID: 7012467405556266333}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1454471575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1454471566}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70a030f205a1c674f82e2f2e085f6514, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectileSystem: {fileID: 621492570}
-  allowfire: 1
---- !u!4 &1679593717 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2102793860022697628, guid: d06467e6decd43641948bd1ce7e15649, type: 3}
-  m_PrefabInstance: {fileID: 971070806}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2975504413222510246
 PrefabInstance:
@@ -628,6 +533,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 877389711482191315, guid: 4e3de6fc0ade8c9418f919acf62cd0f5, type: 3}
+      propertyPath: projectileSystem
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4028894654227967770, guid: 4e3de6fc0ade8c9418f919acf62cd0f5, type: 3}
       propertyPath: m_ActionEvents.Array.size
       value: 5
@@ -639,6 +548,14 @@ PrefabInstance:
     - target: {fileID: 4028894654227967770, guid: 4e3de6fc0ade8c9418f919acf62cd0f5, type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_ActionName
       value: Player/Shoot[/Mouse/leftButton]
+      objectReference: {fileID: 0}
+    - target: {fileID: 4369145826829284780, guid: 4e3de6fc0ade8c9418f919acf62cd0f5, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5518997915896331435, guid: 4e3de6fc0ade8c9418f919acf62cd0f5, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5816213216743861962, guid: 4e3de6fc0ade8c9418f919acf62cd0f5, type: 3}
       propertyPath: mainCamera

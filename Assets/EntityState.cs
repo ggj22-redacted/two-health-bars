@@ -5,14 +5,15 @@ using UnityEngine;
 
 public class EntityState : MonoBehaviour
 {
-    [SerializeField]
-    private ThirdPersonController controller;
-
     public event Action<EntityState> OnDied;
 
     public event Action<float, float> OnHealthChanged;
 
-    public event Action<float, float> OnSpeedChanged; 
+    public event Action<float, float> OnSpeedChanged;
+
+    public event Action<float, float> OnJumpHeightChanged;
+
+    public event Action<float, float> OnGravityChanged;
 
     public Transform HPBar;
 
@@ -44,6 +45,8 @@ public class EntityState : MonoBehaviour
 
     private float _currentHealth;
 
+    public float MaxHealth => maxHealth;
+
     public float Health
     {
         get => _currentHealth;
@@ -61,28 +64,29 @@ public class EntityState : MonoBehaviour
         }
     }
 
-    public float MaxHealth => maxHealth;
-
     public float Speed
     {
         get => speed;
         set
         {
+            float previous = speed; 
             speed = value;
 
-            controller.MoveSpeed = speed;
-            controller.SpeedChangeRate = accelerationFactor * speed;
+            OnSpeedChanged?.Invoke(previous, speed);
         }
     }
+
+    public float Acceleration => accelerationFactor * speed;
 
     public float JumpHeight
     {
         get => jumpHeight;
         set
         {
+            float previous = jumpHeight;
             jumpHeight = value;
 
-            controller.JumpHeight = jumpHeight;
+            OnJumpHeightChanged?.Invoke(previous, jumpHeight);
         }
     }
 
@@ -91,9 +95,10 @@ public class EntityState : MonoBehaviour
         get => gravity;
         set
         {
+            float previous = gravity;
             gravity = value;
 
-            controller.Gravity = gravity;
+            OnGravityChanged?.Invoke(previous, gravity);
         }
     }
 

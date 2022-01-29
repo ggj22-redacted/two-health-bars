@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3595592990477139851}
   - component: {fileID: 3664297256592486292}
   - component: {fileID: 8077003878407321782}
+  - component: {fileID: 7745165678707024726}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -254,6 +255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 657153824873659738}
+  HPBar: {fileID: 0}
   allowfire: 1
   maxHealth: 100
   speed: 12
@@ -283,6 +285,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityState: {fileID: 3664297256592486292}
+--- !u!114 &7745165678707024726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 657153824873659729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c5d42b57a3745be950845bc1b1742e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entityState: {fileID: 3664297256592486292}
+  controller: {fileID: 657153824873659738}
 --- !u!1 &3003456615375953658
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,7 +520,6 @@ MonoBehaviour:
   headPivot: {fileID: 865229025953654244}
   minTargetDistance: 11
   maxTargetDistance: 25
-  mainCamera: {fileID: 0}
 --- !u!1001 &728160893067796453
 PrefabInstance:
   m_ObjectHideFlags: 0

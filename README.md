@@ -44,4 +44,5 @@ This is the repository of the game by the team REDACTED for the GGJ22.
 - [ ] Pause screen
 - [ ] Win screen
 - [ ] Lose screen
+- [x] Enemy HP bar
 - [ ] HUD: health, shield & ammo/mana indicator

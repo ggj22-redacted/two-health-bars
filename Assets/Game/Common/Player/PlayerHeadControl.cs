@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Zenject;
 
 namespace Game.Common.Player
 {
@@ -13,7 +14,7 @@ namespace Game.Common.Player
         [SerializeField, Min(0)]
         private float maxTargetDistance;
 
-        [SerializeField]
+        [Inject]
         private Camera mainCamera;
 
         private Vector3 _target;

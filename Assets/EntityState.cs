@@ -10,6 +10,10 @@ public class EntityState : MonoBehaviour
 
     public event Action<EntityState> OnDied;
 
+    public event Action<float, float> OnHealthChanged;
+
+    public event Action<float, float> OnSpeedChanged; 
+
     public bool allowfire = true;
 
     [SerializeField]
@@ -44,12 +48,17 @@ public class EntityState : MonoBehaviour
         set
         {
             value = Mathf.Clamp(value, 0, maxHealth);
+            float previous = _currentHealth;
             _currentHealth = value;
+
+            OnHealthChanged?.Invoke(previous, _currentHealth);
 
             if (_currentHealth <= 0)
                 OnDied?.Invoke(this);
         }
     }
+
+    public float MaxHealth => maxHealth;
 
     public float Speed
     {

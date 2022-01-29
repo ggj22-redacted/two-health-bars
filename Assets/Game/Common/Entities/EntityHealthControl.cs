@@ -8,7 +8,7 @@ namespace Game.Common.Entities
         [SerializeField]
         private EntityState entityState;
 
-        public void OnHit (ProjectileState state)
+        void IHittable.OnHit (ProjectileState state)
         {
             HandleHealth(state);
         }

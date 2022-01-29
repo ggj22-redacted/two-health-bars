@@ -108,7 +108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3a390cd73693794aa96f645eef88ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseProjectilePrefab: {fileID: 0}
+  playerProjectilePrefab: {fileID: 8653661138935371127, guid: cd879e6259a59c541bbbae0d3f4de891, type: 3}
+  enemyProjectilePrefab: {fileID: 6908930238421464426, guid: 575be946d9b0cd5479c99ae944dc9aad, type: 3}
   maxPlayerProjectiles: 200
   maxEnemyProjectiles: 2000
   maxInstantiationsPerFrame: 10

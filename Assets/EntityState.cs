@@ -5,7 +5,8 @@ public class EntityState : MonoBehaviour
 {
     public ProjectileSystem projectileSystem;
     public bool allowfire = true;
-    int health = 100;
+    int maxHP = 100;
+    int currentHP = 100;
     float projectileSpeedMod = 0f;
     float projectileSizeMod = 0f;
     float projectileRangeMod = 0f;
@@ -16,4 +17,7 @@ public class EntityState : MonoBehaviour
         projectileSystem.OnShoot(this);
     }
 
+    public void OnTriggerEnter(Collider other) {
+
+    }
 }

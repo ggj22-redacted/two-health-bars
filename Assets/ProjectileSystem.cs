@@ -58,13 +58,13 @@ public class ProjectileSystem : MonoBehaviour
             Debug.Log(projectileToUse.layer);
             var rigidbody = projectileToUse.GetComponent<Rigidbody>();
             rigidbody.velocity = new Vector3(0,0,0);
-            rigidbody.AddForce(gunBarrel.forward.normalized * 1000f);
+            rigidbody.AddForce(gunBarrel.forward.normalized * 3000f);
             StartCoroutine(DeactivateProjectile(projectileToUse, 1.0f));
         } else {
             Debug.Log("Exceeding available projectiles, increase pool size or lower fire rate/projectile time to live");
         }
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.01f);
         shooter.allowfire = true;
     }
 

@@ -9,7 +9,6 @@ public class EntityState : MonoBehaviour
     private ThirdPersonController controller;
 
     public event Action<EntityState> OnDied;
-    public Transform HPBar;
 
     public bool allowfire = true;
 
@@ -46,7 +45,6 @@ public class EntityState : MonoBehaviour
         {
             value = Mathf.Clamp(value, 0, maxHealth);
             _currentHealth = value;
-            if(HPBar) { HPBar.localScale = new Vector3(0.3f, _currentHealth / maxHealth, 0.3f); }
 
             if (_currentHealth <= 0)
                 OnDied?.Invoke(this);

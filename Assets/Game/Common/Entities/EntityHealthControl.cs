@@ -7,6 +7,7 @@ namespace Game.Common.Entities
     {
         [SerializeField]
         private EntityState entityState;
+        public Transform HPBar;
 
         void IHittable.OnHit (ProjectileState state)
         {
@@ -16,6 +17,7 @@ namespace Game.Common.Entities
         private void HandleHealth (ProjectileState state)
         {
             entityState.Health -= state.Damage;
+
 
             // TODO: Add some kind of animation
             if (entityState.Health <= 0)

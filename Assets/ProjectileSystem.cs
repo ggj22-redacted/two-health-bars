@@ -15,8 +15,8 @@ public class ProjectileSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InstantiatePool(ref playerProjectiles, maxPlayerProjectiles, baseProjectilePrefab, 9);
-        InstantiatePool(ref enemyProjectiles, maxEnemyProjectiles, baseProjectilePrefab, 8);
+        InstantiatePool(ref playerProjectiles, maxPlayerProjectiles, baseProjectilePrefab, 8);
+        InstantiatePool(ref enemyProjectiles, maxEnemyProjectiles, baseProjectilePrefab, 9);
     }
 
     void InstantiatePool(ref GameObject[] pool, int amount, BaseProjectile projectilePrefab, int layerID)
@@ -44,8 +44,10 @@ public class ProjectileSystem : MonoBehaviour
         }
     }
 
-    public void OnPlayerShoot() {
-        StartCoroutine(Shoot(player, gunBarrel));
+    public void OnShoot(EntityState shooter) {
+        if(shooter.allowfire){
+            StartCoroutine(Shoot(player, gunBarrel));
+        }
     }
 
     // Update is called once per frame
@@ -61,6 +63,7 @@ public class ProjectileSystem : MonoBehaviour
         if(projectileToUse) {
             projectileToUse.transform.position = gunBarrel.position;
             projectileToUse.SetActive(true);
+            Debug.Log(projectileToUse.layer);
             var rigidbody = projectileToUse.GetComponent<Rigidbody>();
             rigidbody.velocity = new Vector3(0,0,0);
             rigidbody.AddForce(gunBarrel.forward.normalized * 1000f);

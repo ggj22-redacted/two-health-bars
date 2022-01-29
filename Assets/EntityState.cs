@@ -13,7 +13,7 @@ public class EntityState : MonoBehaviour
 
     public void OnShoot() {
         Debug.Log("onShoot");
-        projectileSystem.OnPlayerShoot();
+        projectileSystem.OnShoot(this);
     }
 
 }

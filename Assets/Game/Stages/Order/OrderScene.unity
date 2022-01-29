@@ -18,8 +18,8 @@ RenderSettings:
   m_FogColor: {r: 0.28235295, g: 0.2901961, b: 0.54901963, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.01
-  m_LinearFogStart: 5.4
-  m_LinearFogEnd: 50
+  m_LinearFogStart: 5.5
+  m_LinearFogEnd: 25
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
@@ -270,6 +270,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40e70e7a580a90d44a68ce27b9b3cfdf, type: 3}
+--- !u!20 &1079784895 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 3606053460533700742, guid: 40e70e7a580a90d44a68ce27b9b3cfdf, type: 3}
+  m_PrefabInstance: {fileID: 1079784894}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2975504413222510246
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -323,10 +328,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2975504413616202251, guid: 526ebdb5b9660204cadf61ffb7807625, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2975504413997173280, guid: 526ebdb5b9660204cadf61ffb7807625, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -484,6 +485,10 @@ PrefabInstance:
       value: Environment
       objectReference: {fileID: 0}
     - target: {fileID: 8375364244706498484, guid: 4cbdfbb6064480541b94bbb8bbb10d35, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8375364244706498484, guid: 4cbdfbb6064480541b94bbb8bbb10d35, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -508,6 +513,10 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[4].m_ActionName
       value: Player/Shoot[/Mouse/leftButton]
       objectReference: {fileID: 0}
+    - target: {fileID: 5816213216743861962, guid: 4e3de6fc0ade8c9418f919acf62cd0f5, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 1079784895}
     - target: {fileID: 7012467406065102156, guid: 4e3de6fc0ade8c9418f919acf62cd0f5, type: 3}
       propertyPath: m_Name
       value: Gameplay

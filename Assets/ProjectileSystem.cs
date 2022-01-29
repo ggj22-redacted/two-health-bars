@@ -1,76 +1,108 @@
 using System.Collections;
 using System;
+using System.Collections.Generic;
+using Game.Common.Projectiles;
 using UnityEngine;
 
 public class ProjectileSystem : MonoBehaviour
 {
-    public Transform gunBarrel;
     public BaseProjectile playerProjectilePrefab;
     public BaseProjectile enemyProjectilePrefab;
+
+    [Header("Settings")]
     public int maxPlayerProjectiles;
+
     public int maxEnemyProjectiles;
-    private GameObject[] enemyProjectiles;
-    private GameObject[] playerProjectiles;
 
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private int maxInstantiationsPerFrame = 10;
+
+    private BaseProjectile[] _enemyProjectiles;
+
+    private BaseProjectile[] _playerProjectiles;
+
+    private void Start ()
     {
-        InstantiatePool(ref playerProjectiles, maxPlayerProjectiles, playerProjectilePrefab, 8);
-        InstantiatePool(ref enemyProjectiles, maxEnemyProjectiles, enemyProjectilePrefab, 9);
+        _playerProjectiles = new BaseProjectile[maxPlayerProjectiles];
+        _enemyProjectiles = new BaseProjectile[maxEnemyProjectiles];
+
+        StartCoroutine(
+            InstantiatePool(_playerProjectiles, playerProjectilePrefab, LayerMask.NameToLayer("PlayerProjectiles")));
+        StartCoroutine(
+            InstantiatePool(_enemyProjectiles, enemyProjectilePrefab, LayerMask.NameToLayer("EnemyProjectiles")));
     }
 
-    void InstantiatePool(ref GameObject[] pool, int amount, BaseProjectile projectilePrefab, int layerID)
+    private IEnumerator InstantiatePool (IList<BaseProjectile> pool, BaseProjectile projectilePrefab, int layerID)
     {
-        pool = new GameObject[amount];
-        for (int i = 0; i < amount; i++) {
+        int currentInstantiations = 0;
+        for (int i = 0; i < pool.Count; i++) {
             var inst = Instantiate(projectilePrefab);
-            inst.gameObject.SetActive(false);
-            inst.gameObject.layer = layerID;
-            pool[i] = inst.gameObject;
-            inst.onProjectileHit += HandleProjectileCollision;
+            inst.OnProjectileHit += HandleProjectileCollision;
+
+            GameObject o = inst.gameObject;
+            o.SetActive(false);
+            o.layer = layerID;
+
+            pool[i] = inst;
+
+            currentInstantiations++;
+            if (currentInstantiations < maxInstantiationsPerFrame)
+                continue;
+
+            currentInstantiations = 0;
+            yield return null;
         }
     }
 
-    public void HandleProjectileCollision(BaseProjectile projectile, Collider targetHit) {
-        Debug.Log("Projectile HIT: " + targetHit.name);
-        projectile.gameObject.SetActive(false);
-    }
-
-    public void OnShoot(EntityState shooter) {
-        if(shooter.allowfire){
-            StartCoroutine(Shoot(shooter, gunBarrel));
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
+    private void HandleProjectileCollision (BaseProjectile projectile, Collider targetHit)
     {
+        projectile.gameObject.SetActive(false);
+
+        if (targetHit.gameObject.name == "player"
+            || targetHit.gameObject.name == "horn"
+            || targetHit.gameObject.name == "halo") {
+            //targetHit.gameObject.GetComponent<HealthSystem>()
+        }
     }
 
-    IEnumerator Shoot(EntityState shooter, Transform gunBarrel) {
-        shooter.allowfire = false;
-        var usePool = shooter.gameObject.name == "Player" ? playerProjectiles : enemyProjectiles;
-        var projectileToUse = Array.Find(usePool, (projectile) => !projectile.activeSelf);
+    public void OnShoot (EntityState shooter)
+    {
+        if (shooter.allowfire) {
+            StartCoroutine(Shoot(shooter));
+        }
+    }
 
-        if(projectileToUse) {
-            projectileToUse.transform.position = gunBarrel.position;
-            projectileToUse.SetActive(true);
-            Debug.Log(projectileToUse.layer);
+    private IEnumerator Shoot (EntityState shooter)
+    {
+        shooter.allowfire = false;
+        var usePool = shooter.gameObject.name == "Player" ? _playerProjectiles : _enemyProjectiles;
+        var projectileToUse = Array.Find(usePool, (projectile) => !projectile.gameObject.activeSelf);
+        ProjectileState projectileState = shooter.ProjectileState;
+
+        if (projectileToUse) {
+            projectileToUse.transform.position = shooter.ProjectileGunBarrel.position;
+            projectileToUse.gameObject.SetActive(true);
+            projectileToUse.State = projectileState;
+
             var rigidbody = projectileToUse.GetComponent<Rigidbody>();
-            rigidbody.velocity = new Vector3(0,0,0);
-            rigidbody.AddForce(gunBarrel.forward.normalized * 3000f);
-            StartCoroutine(DeactivateProjectile(projectileToUse, 1.0f));
-        } else {
+            rigidbody.velocity = Vector3.zero;
+            rigidbody.AddForce(shooter.ProjectileGunBarrel.forward * projectileState.Speed, ForceMode.VelocityChange);
+
+            StartCoroutine(DeactivateProjectile(projectileToUse, projectileState.Lifetime));
+        }
+        else
+        {
             Debug.Log("Exceeding available projectiles, increase pool size or lower fire rate/projectile time to live");
         }
 
-        yield return new WaitForSeconds(0.01f);
+        yield return new WaitForSeconds(1f / projectileState.FireRate);
+
         shooter.allowfire = true;
     }
 
-    IEnumerator DeactivateProjectile(GameObject projectile, float secondsToLive) {
+    private IEnumerator DeactivateProjectile (BaseProjectile projectile, float secondsToLive)
+    {
         yield return new WaitForSeconds(secondsToLive);
-        projectile.SetActive(false);
+        projectile.gameObject.SetActive(false);
     }
-
 }

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3595592990477139851}
   - component: {fileID: 7944482377331080333}
   - component: {fileID: 3664297256592486292}
+  - component: {fileID: 8077003878407321782}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -280,6 +281,19 @@ MonoBehaviour:
     spread: 0
     lifetime: 1
   projectileGunBarrel: {fileID: 7773768968944697273}
+--- !u!114 &8077003878407321782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 657153824873659729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 523085211b354f51ad6df7b36a077334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entityState: {fileID: 3664297256592486292}
 --- !u!1 &3003456615375953658
 GameObject:
   m_ObjectHideFlags: 0

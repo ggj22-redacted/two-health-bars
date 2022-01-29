@@ -1,7 +1,6 @@
 using System;
 using Game.Common.Projectiles;
 using UnityEngine;
-using Zenject;
 
 public class EntityState : MonoBehaviour
 {
@@ -20,9 +19,6 @@ public class EntityState : MonoBehaviour
     private Transform projectileGunBarrel;
 
     private float _currentHealth;
-
-    [Inject]
-    private ProjectileSystem _projectileSystem;
 
     public float Health
     {
@@ -44,10 +40,5 @@ public class EntityState : MonoBehaviour
     private void Start ()
     {
         _currentHealth = maxHealth;
-    }
-
-    public void OnShoot() {
-        Debug.Log("onShoot");
-        _projectileSystem.OnShoot(this);
     }
 }

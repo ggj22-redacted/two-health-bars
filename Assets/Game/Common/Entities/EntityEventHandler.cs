@@ -13,6 +13,8 @@ namespace Game.Common.Entities
         [SerializeField]
         private UnityEntityEvent onHealthChanged;
 
+        private void Awake () => InitializeEntityState();
+
         private void OnEnable ()
         {
             _entityState.OnHealthChanged += onHealthChanged.Invoke;
@@ -21,6 +23,12 @@ namespace Game.Common.Entities
         private void OnDisable ()
         {
             _entityState.OnHealthChanged -= onHealthChanged.Invoke;
+        }
+
+        private void InitializeEntityState ()
+        {
+            if (!_entityState)
+                _entityState = GetComponentInParent<EntityState>();
         }
     }
 

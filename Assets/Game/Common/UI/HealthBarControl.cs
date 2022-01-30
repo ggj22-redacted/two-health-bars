@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using Zenject;
 
@@ -14,6 +15,8 @@ namespace Game.Common.UI
 
         [Inject]
         private EntityState _entityState;
+
+        private void Awake () => InitializeEntityState();
 
         private void Start () {
             UpdateHealth(0f, _entityState.Health);
@@ -39,6 +42,12 @@ namespace Game.Common.UI
 
             if(healthLabel)
                 healthLabel.text = $"{_entityState.Health}/{_entityState.MaxHealth}";
+        }
+
+        private void InitializeEntityState ()
+        {
+            if (!_entityState)
+                _entityState = GetComponentInParent<EntityState>();
         }
     }
 }

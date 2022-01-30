@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: GameRound_01
   m_EditorClassIdentifier: 
   gameRound:
-    enemyCount: 10
-    enemyType: {fileID: 11400000, guid: 8dd4be19a9a81f14c8b6718b4caea4ab, type: 2}
+    enemyCount: 20
+    enemyType: {fileID: 11400000, guid: c92682749dc090a4dac10372e4a1e3ca, type: 2}

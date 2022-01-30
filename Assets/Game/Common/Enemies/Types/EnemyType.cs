@@ -7,5 +7,7 @@ namespace Game.Common.Enemies.Types
     {
         [SerializeField]
         private EntityState entityState;
+
+        public EntityState EntityState => entityState;
     }
 }

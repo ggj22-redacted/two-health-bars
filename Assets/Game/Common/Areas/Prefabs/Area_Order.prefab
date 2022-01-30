@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Area_Order
       objectReference: {fileID: 0}
+    - target: {fileID: 4905928574997111962, guid: 6cf28233c3e712544bfe5c00559d3122, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 12.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5907333021617120509, guid: 6cf28233c3e712544bfe5c00559d3122, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

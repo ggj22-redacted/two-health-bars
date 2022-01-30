@@ -288,6 +288,7 @@ MonoBehaviour:
     spread: 0.05
     lifetime: 1
     shootClip: {fileID: 8300000, guid: 1595bce82c0792940895b971a6a4f5ef, type: 3}
+    hitClip: {fileID: 8300000, guid: 990b9b116538dcf4da23be493e45d336, type: 3}
   projectileGunBarrel: {fileID: 7773768968944697273}
 --- !u!114 &8077003878407321782
 MonoBehaviour:
@@ -680,7 +681,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0

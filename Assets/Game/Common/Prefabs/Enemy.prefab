@@ -137,8 +137,9 @@ MonoBehaviour:
     size: 3
     count: 0
     range: 0
-    spread: 0
+    spread: 0.05
     lifetime: 5
+    shootClip: {fileID: 0}
   projectileGunBarrel: {fileID: 19267364848910656}
 --- !u!114 &649326040917789296
 MonoBehaviour:
@@ -554,8 +555,9 @@ MonoBehaviour:
   referenceTransform: {fileID: 2671714842021524031}
   entityState: {fileID: 9137870335550141098}
   movementControl: {fileID: 649326040917789296}
-  minDistance: 9
-  maxDistance: 17
+  minDistance: 15
+  maxDistance: 20
+  accuracy: 0.05
 --- !u!114 &4883816064271281742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -569,6 +571,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityState: {fileID: 9137870335550141098}
+  onShoot:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &5622006203979046402
 PrefabInstance:
   m_ObjectHideFlags: 0

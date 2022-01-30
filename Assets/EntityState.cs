@@ -52,6 +52,8 @@ public class EntityState : MonoBehaviour
 
     private float _currentShield;
 
+    public bool IsDead => Health <= 0;
+
     public float MaxHealth => maxHealth;
 
     public float MaxShield => maxShield;

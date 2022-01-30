@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7728113340117044384}
   - component: {fileID: 7830969149108987154}
+  - component: {fileID: 3234592128375435469}
   m_Layer: 0
   m_Name: GameStage
   m_TagString: Untagged
@@ -43,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbdd88922a7645bf877c977d361b2a13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shieldDelta: 0
+  shieldUpdateRate: 5
   enemyType: {fileID: 0}
   spawnOrigin: {fileID: 7728113340117044384}
   spawnArea:
@@ -51,3 +54,41 @@ MonoBehaviour:
     y: 10
     width: 100
     height: 100
+--- !u!114 &3234592128375435469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6812636940495079941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ab82a9e7f86484d90f23c70efd41e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  updateRate: 0
+  mutationRate: 0
+  speedMin: 6
+  speedMax: 18
+  speedMutationDelta: 1
+  jumpHeightMin: 0.5
+  jumpHeightMax: 5
+  jumpHeightMutationDelta: 0.5
+  gravityMin: -49
+  gravityMax: -147
+  gravityMutationDelta: 9.8
+  projectileSpeedMin: 5
+  projectileSpeedMax: 50
+  projectileSpeedMutationDelta: 5
+  projectileDamageMin: 5
+  projectileDamageMax: 50
+  projectileDamageMutationDelta: 5
+  projectileRangeMin: 5
+  projectileRangeMax: 50
+  projectileRangeMutationDelta: 0.5
+  projectileFireRateMin: 0.5
+  projectileFireRateMax: 20
+  projectileFireRateMutationDelta: 0.05
+  projectileSpreadMin: 0.03
+  projectileSpreadMax: 0.3
+  projectileSpreadMutationDelta: 0.03

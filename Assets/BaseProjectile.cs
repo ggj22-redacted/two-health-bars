@@ -6,6 +6,8 @@ using UnityEngine.Serialization;
 
 public class BaseProjectile : MonoBehaviour
 {
+    public event Action<BaseProjectile, Collider> OnProjectileHit;
+
     [SerializeField]
     private UnityEvent projectileCollision;
 
@@ -17,8 +19,6 @@ public class BaseProjectile : MonoBehaviour
 
     [SerializeField]
     private AudioSource hitAudioSource;
-
-    public event Action<BaseProjectile, Collider> OnProjectileHit;
 
     public Renderer rendererComponent;
 
@@ -35,7 +35,9 @@ public class BaseProjectile : MonoBehaviour
         foreach (IHittable hittable in hittables)
             hittable.OnHit(State);
 
+        if (hittables.Length > 0)
         projectileCollision.Invoke();
+
         OnProjectileHit?.Invoke(this, other);
     }
 

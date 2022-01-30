@@ -1,4 +1,5 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System;
+using Cysharp.Threading.Tasks;
 using Game.Common.Areas;
 using UnityEngine;
 using Zenject;
@@ -15,6 +16,8 @@ namespace Game.Common.Enemies
 
         [Inject]
         private EntityState _entityState;
+
+        private void Awake () => InitializeEntityState();
 
         public void Spawn ()
         {
@@ -33,6 +36,12 @@ namespace Game.Common.Enemies
             await UniTask.WaitUntil(() => Time.time >= endMoment);
 
             Instantiate(area, position, Quaternion.identity);
+        }
+
+        private void InitializeEntityState ()
+        {
+            if (!_entityState)
+                _entityState = GetComponentInParent<EntityState>();
         }
     }
 }

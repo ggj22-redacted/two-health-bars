@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Game.Common.Enemies.Types;
 using UnityEngine;
 using Zenject;
@@ -15,8 +16,7 @@ namespace Game.Common.Game
         [SerializeField]
         private GameRoundContainer[] gameRounds;
 
-        [Inject]
-        private GameStage[] _gameStages;
+        private readonly List<GameStage> _gameStages = new List<GameStage>();
 
         private int _round = -1;
 
@@ -29,6 +29,17 @@ namespace Game.Common.Game
 
         public GameRound CurrentRound => _round < 0 ? new GameRound() : gameRounds[_round].GameRound;
 
+        public GameRound NextRound
+        {
+            get
+            {
+                int nextRound = _round + 1;
+                return nextRound >= gameRounds.Length
+                    ? gameRounds[gameRounds.Length - 1].GameRound
+                    : gameRounds[nextRound].GameRound;
+            }
+        }
+
         public GameStage CurrentStage
         {
             get
@@ -37,6 +48,19 @@ namespace Game.Common.Game
                     return null;
 
                 EnemyType enemyType = CurrentRound.enemyType;
+                foreach (GameStage gameStage in _gameStages)
+                    if (gameStage.EnemyType == enemyType)
+                        return gameStage;
+
+                return null;
+            }
+        }
+
+        public GameStage NextStage
+        {
+            get
+            {
+                EnemyType enemyType = NextRound.enemyType;
                 foreach (GameStage gameStage in _gameStages)
                     if (gameStage.EnemyType == enemyType)
                         return gameStage;
@@ -59,6 +83,27 @@ namespace Game.Common.Game
 
             OnGameRoundChanged?.Invoke(CurrentRound);
             OnGameStageChanged?.Invoke(CurrentStage);
+        }
+
+        public void RestartRound ()
+        {
+            if (_round < 0)
+                return;
+
+            OnGameRoundChanged?.Invoke(CurrentRound);
+            OnGameStageChanged?.Invoke(CurrentStage);
+        }
+
+        public void RegisterStage (GameStage gameStage)
+        {
+            if (!_gameStages.Contains(gameStage))
+                _gameStages.Add(gameStage);
+        }
+
+        public void UnregisterStage (GameStage gameStage)
+        {
+            if (_gameStages.Contains(gameStage))
+                _gameStages.Remove(gameStage);
         }
     }
 }

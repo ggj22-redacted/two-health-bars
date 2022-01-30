@@ -7,6 +7,8 @@ public class EntityState : MonoBehaviour
 {
     public event Action<EntityState> OnDied;
 
+    public event Action<EntityState> OnRespawned;
+
     public event Action<float, float> OnHealthChanged;
 
     public event Action<float, float> OnShieldChanged;
@@ -67,6 +69,9 @@ public class EntityState : MonoBehaviour
 
             if (_currentHealth <= 0)
                 OnDied?.Invoke(this);
+
+            if (previous <= 0 && _currentHealth > 0)
+                OnRespawned?.Invoke(this);
         }
     }
 

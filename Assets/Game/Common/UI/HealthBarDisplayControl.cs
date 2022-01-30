@@ -1,4 +1,5 @@
-﻿using Game.Common.Game;
+﻿using System;
+using Game.Common.Game;
 using UnityEngine;
 using Zenject;
 
@@ -18,12 +19,23 @@ namespace Game.Common.UI
         [Inject]
         private GameStateSystem _gameStateSystem;
 
+        private void Awake ()
+        {
+            InitializeGameStateSystem();
+        }
+
         private void Update ()
         {
             var playerState = _gameStateSystem.PlayerState;
             var distance = Vector3.Distance (playerState.transform.position, referenceTransform.position);
             var alpha = alphaOverDistance.Evaluate (distance);
             canvasGroup.alpha = alpha;
+        }
+
+        private void InitializeGameStateSystem ()
+        {
+            if (!_gameStateSystem)
+                _gameStateSystem = FindObjectOfType<GameStateSystem>();
         }
     }
 }

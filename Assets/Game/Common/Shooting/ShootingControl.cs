@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Zenject;
 
 namespace Game.Common.Shooting
@@ -13,6 +14,8 @@ namespace Game.Common.Shooting
         [Inject]
         private ProjectileSystem _projectileSystem;
 
+        private void Awake () => InitializeProjectileSystem();
+
         public void OnShoot()
         {
             shooting = !shooting;
@@ -26,6 +29,12 @@ namespace Game.Common.Shooting
         public void Update() {
             if (shooting)
                 _projectileSystem.OnShoot(entityState);
+        }
+
+        private void InitializeProjectileSystem ()
+        {
+            if (!_projectileSystem)
+                _projectileSystem = FindObjectOfType<ProjectileSystem>();
         }
     }
 }

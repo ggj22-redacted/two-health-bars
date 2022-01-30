@@ -6,6 +6,8 @@ namespace Game.Common.Areas
 {
     public class Area : MonoBehaviour
     {
+        public event Action<Stat, float> OnStatUpdated;
+
         [SerializeField]
         private float updateRate;
 
@@ -88,6 +90,8 @@ namespace Game.Common.Areas
         [SerializeField]
         private float projectileSpreadMutationDelta;
 
+        private AreaSystem _areaSystem;
+
         private EntityState _currentEntityState;
 
         private IStatProvider _statProvider;
@@ -115,9 +119,17 @@ namespace Game.Common.Areas
 
         private void Awake ()
         {
+            _areaSystem = FindObjectOfType<AreaSystem>();
+            _areaSystem.AddArea(this);
+
             _statProvider = GetComponent<IStatProvider>();
             _statMutator = GetComponent<IStatMutator>();
             _statUpdater = GetComponent<IStatUpdater>();
+        }
+
+        private void OnDestroy ()
+        {
+            _areaSystem.RemoveArea(this);
         }
 
         private void Update ()
@@ -141,39 +153,56 @@ namespace Game.Common.Areas
 
             Stat stat = _statProvider.GetStat(_currentEntityState);
 
+            float delta = 0f;
             ProjectileState projectileState = _currentEntityState.ProjectileState;
             switch (stat) {
                 case Stat.Speed:
+                    delta = _currentEntityState.Speed;
                     _currentEntityState.Speed =
                         _statMutator.Mutate(_currentEntityState, stat, _currentEntityState.Speed, speedMin, speedMax, speedMutationDelta);
+                    delta = _currentEntityState.Speed - delta;
                     break;
                 case Stat.JumpHeight:
+                    delta = _currentEntityState.JumpHeight;
                     _currentEntityState.JumpHeight =
                         _statMutator.Mutate(_currentEntityState, stat, _currentEntityState.JumpHeight, jumpHeightMin, jumpHeightMax, jumpHeightMutationDelta);
+                    delta = _currentEntityState.JumpHeight - delta;
                     break;
                 case Stat.Gravity:
+                    delta = _currentEntityState.Gravity;
                     _currentEntityState.Gravity =
                         _statMutator.Mutate(_currentEntityState, stat, _currentEntityState.Gravity, gravityMin, gravityMax, gravityMutationDelta);
+                    delta = _currentEntityState.Gravity - delta;
                     break;
                 case Stat.ProjectileSpeed:
+                    delta = projectileState.Speed;
                     projectileState.Speed =
                         _statMutator.Mutate(_currentEntityState, stat, projectileState.Speed, projectileSpeedMin, projectileSpeedMax, projectileSpeedMutationDelta);
+                    delta = projectileState.Speed - delta;
                     break;
                 case Stat.ProjectileDamage:
+                    delta = projectileState.Damage;
                     projectileState.Damage =
                         _statMutator.Mutate(_currentEntityState, stat, projectileState.Damage, projectileDamageMin, projectileDamageMax, projectileDamageMutationDelta);
+                    delta = projectileState.Damage - delta;
                     break;
                 case Stat.ProjectileRange:
+                    delta = projectileState.Range;
                     projectileState.Range =
                         _statMutator.Mutate(_currentEntityState, stat, projectileState.Range, projectileRangeMin, projectileRangeMax, projectileRangeMutationDelta);
+                    delta = projectileState.Range - delta;
                     break;
                 case Stat.ProjectileFireRate:
+                    delta = projectileState.FireRate;
                     projectileState.FireRate =
                         _statMutator.Mutate(_currentEntityState, stat, projectileState.FireRate, projectileFireRateMin, projectileFireRateMax, projectileFireRateMutationDelta);
+                    delta = projectileState.FireRate - delta;
                     break;
                 case Stat.ProjectileSpread:
+                    delta = projectileState.Spread;
                     projectileState.Spread =
                         _statMutator.Mutate(_currentEntityState, stat, projectileState.Spread, projectileSpreadMin, projectileSpreadMax, projectileSpreadMutationDelta);
+                    delta = projectileState.Spread - delta;
                     break;
                 case Stat.None:
                     break;
@@ -184,6 +213,8 @@ namespace Game.Common.Areas
             _currentEntityState.ProjectileState = projectileState;
 
             _nextMutationMoment = Time.time + 1f / mutationRate;
+
+            OnStatUpdated?.Invoke(stat, delta);
         }
     }
 }

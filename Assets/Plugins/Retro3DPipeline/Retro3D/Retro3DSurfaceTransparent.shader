@@ -1,11 +1,11 @@
-﻿Shader "Retro3D/Surface"
+﻿Shader "Retro3D/Surface (Transparent)"
 {
     Properties
     {
         _MainTex("Texture", 2D) = "white" {}
-        _Color("Tint", Color) = (0.5, 0.5, 0.5)
+        //_MainTex ("Color (RGB) Alpha (A)", 2D) = "white" {}
+        _Color("Tint", Color) = (0.5, 0.5, 0.5, 1)
         [Enum(UnityEngine.Rendering.CullMode)] _Cull ("Cull", Float) = 0
-        _CutOff("Cut off", float) = 0.1
     }
 
     HLSLINCLUDE
@@ -14,8 +14,7 @@
 
     sampler2D _MainTex;
     float4 _MainTex_ST;
-    half3 _Color;
-    uniform float _CutOff;
+    half4 _Color;
 
     struct Attributes
     {
@@ -47,10 +46,8 @@
         uv = floor(uv * 256) / 256;
         half4 c = tex2D(_MainTex, uv);
         c = floor(c * 16) / 16;
-        if (c.a < _CutOff)
-            discard;
-        c.rgb *= _Color;
         UNITY_APPLY_FOG(input.fogCoord, c);
+        c.rgba *= _Color;
         return c;
     }
 
@@ -60,12 +57,14 @@
     {
         Pass
         {
-            Tags { "LightMode" = "Base" }
+            Tags { "Queue" = "Transparent" "LightMode" = "Transparent" "IgnoreProjector" = "True" "RenderType" = "Transparent" }
             Cull [_Cull]
+            ZWrite off
+            Blend SrcAlpha OneMinusSrcAlpha
             HLSLPROGRAM
             #pragma multi_compile_fog
-            #pragma vertex Vertex
-            #pragma fragment Fragment
+            #pragma vertex Vertex alpha
+            #pragma fragment Fragment alpha
             ENDHLSL
         }
     }

@@ -61,6 +61,11 @@ namespace Retro3D
                 var settings = new DrawingSettings(new ShaderTagId("Base"), sorting);
                 var filter = FilteringSettings.defaultValue;
                 context.DrawRenderers(culled, ref settings, ref filter);
+                
+                sorting = new SortingSettings(camera);
+                settings = new DrawingSettings(new ShaderTagId("Transparent"), sorting);
+                filter = FilteringSettings.defaultValue;
+                context.DrawRenderers(culled, ref settings, ref filter);
 
                 // Blit the render result to the camera destination.
                 _cb.name = "Blit";

@@ -42,8 +42,7 @@ namespace Game.Common.Entities
 
             entityState.transform.position = respawnPosition.position;
             entityState.gameObject.SetActive(true);
-            entityState.Health += float.MaxValue;
-            entityState.Shield += float.MaxValue;
+            entityState.ResetStats();
 
             await UniTask.Delay(TimeSpan.FromSeconds(restartDelay));
 

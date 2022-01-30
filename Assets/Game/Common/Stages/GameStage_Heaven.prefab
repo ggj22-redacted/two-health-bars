@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3234592128375435469, guid: 1d7af750426d9cb459c8de47fc98b034, type: 3}
       propertyPath: mutationRate
-      value: 0.75
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6812636940495079941, guid: 1d7af750426d9cb459c8de47fc98b034, type: 3}
       propertyPath: m_Name

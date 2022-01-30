@@ -23,6 +23,8 @@ namespace Game.Common.Areas
 
         public float Mutate (EntityState entityState, Stat stat, float value, float min, float max, float rate)
         {
+            if (min > max)
+                (min, max) = (max, min);
             // generating delta and placing it in range [-1, 1]
             int delta = _random.Next(0, 2) * 2 - 1;
             value += delta * rate;

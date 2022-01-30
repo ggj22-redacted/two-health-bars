@@ -6,9 +6,9 @@ namespace Game.Common.Areas
 {
     public class Area : MonoBehaviour
     {
-        public event Action OnPlayerEntered;
+        public event Action<Area> OnPlayerEntered;
 
-        public event Action OnPlayerLeft;
+        public event Action<Area> OnPlayerLeft;
 
         public event Action<Stat, float> OnStatUpdated;
 
@@ -114,11 +114,10 @@ namespace Game.Common.Areas
         {
             EntityState = other.GetComponent<EntityState>();
 
-            _nextMutationMoment = Time.time + 1f / mutationRate;
-            _nextUpdateMoment = Time.time + 1f / updateRate;
+            UpdateMoments();
 
             if (EntityState)
-                OnPlayerEntered?.Invoke();
+                OnPlayerEntered?.Invoke(this);
         }
 
         private void OnTriggerExit (Collider other)
@@ -127,7 +126,7 @@ namespace Game.Common.Areas
                 return;
 
             EntityState = null;
-            OnPlayerLeft?.Invoke();
+            OnPlayerLeft?.Invoke(this);
         }
 
         private void Awake ()
@@ -145,20 +144,17 @@ namespace Game.Common.Areas
             _areaSystem.RemoveArea(this);
         }
 
-        private void Update ()
+        public void UpdateMoments ()
         {
-            if (!EntityState)
-                return;
-
-            if (Time.time >= _nextMutationMoment)
-                HandleStatMutation(EntityState);
-
-            if (Time.time >= _nextUpdateMoment)
-                HandleStatUpdate(EntityState);
+            _nextMutationMoment = Time.time + 1f / mutationRate;
+            _nextUpdateMoment = Time.time + 1f / updateRate;
         }
 
         public void HandleStatMutation (EntityState entityState)
         {
+            if (Time.time < _nextMutationMoment)
+                return;
+
             Stat stat = _statProvider.GetStat(entityState);
 
             float delta = 0f;
@@ -227,6 +223,9 @@ namespace Game.Common.Areas
 
         public void HandleStatUpdate (EntityState entityState)
         {
+            if (Time.time < _nextUpdateMoment)
+                return;
+
             _statUpdater.UpdateStats(entityState);
             _nextUpdateMoment = Time.time + 1f / updateRate;
         }

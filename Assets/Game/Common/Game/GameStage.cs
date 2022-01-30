@@ -9,12 +9,6 @@ namespace Game.Common.Game
     public class GameStage : MonoBehaviour
     {
         [SerializeField]
-        private float shieldDelta;
-
-        [SerializeField]
-        private float shieldUpdateRate;
-
-        [SerializeField]
         private EnemyType enemyType;
 
         [SerializeField]
@@ -39,10 +33,6 @@ namespace Game.Common.Game
                 return spawnOrigin.position + new Vector3(x, 0, z);
             }
         }
-
-        public float ShieldDelta => shieldDelta;
-
-        public float ShieldUpdateRate => shieldUpdateRate;
 
         public Area Area { get; private set; }
 

@@ -16,11 +16,13 @@ namespace Game.Common.Areas
         [Inject]
         private EntityState _playerState;
 
-        private int _playerAreaPresence;
+        private List<Area> _areas = new List<Area>();
 
-        private readonly List<Area> _areas = new List<Area>();
+        private readonly List<Area> _areasPresent = new List<Area>();
 
-        public bool IsPlayerInArea => _playerAreaPresence > 0;
+        public bool IsPlayerInArea => _areasPresent.Count > 0;
+
+        public Area CurrentArea => _areasPresent.Count > 0 ? _areasPresent[0] : null;
 
         private void OnEnable ()
         {
@@ -40,13 +42,20 @@ namespace Game.Common.Areas
 
         public void ResetAllAreas ()
         {
-            foreach (var area in _areas) {
-                if (!area.CanBeDestroyed)
+            List<Area> areas = new List<Area>(_areas.Count);
+            for (int i = _areas.Count - 1; i >= 0; i--) {
+                Area area = _areas[i];
+                if (!area.CanBeDestroyed) {
+                    areas.Add(area);
                     continue;
+                }
 
-                _areas.Remove(area);
                 Destroy(area.gameObject);
             }
+
+            _areas = areas;
+
+            _areasPresent.Clear();
         }
 
         public void AddArea(Area area)
@@ -73,9 +82,17 @@ namespace Game.Common.Areas
 
         private void OnPlayerRespawn (EntityState state) => ResetAllAreas();
 
-        private void OnPlayerAreaEnter () => _playerAreaPresence++;
+        private void OnPlayerAreaEnter (Area area)
+        {
+            if (!_areasPresent.Contains(area))
+                _areasPresent.Add(area);
+        }
 
-        private void OnPlayerAreaExit () => _playerAreaPresence--;
+        private void OnPlayerAreaExit (Area area)
+        {
+            if (_areasPresent.Contains(area))
+                _areasPresent.Remove(area);
+        }
 
         private void NotifyStatUpdated(Stat stat, float value) => OnStatUpdated?.Invoke(stat, value);
     }

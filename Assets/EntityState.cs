@@ -151,4 +151,14 @@ public class EntityState : MonoBehaviour
     {
         OriginalStats = new EntityStats(maxHealth, maxShield, speed, jumpHeight, gravity, projectileState);
     }
+
+    public void ResetStats ()
+    {
+        Health = OriginalStats.MaxHealth;
+        Shield = OriginalStats.MaxShield;
+        Speed = OriginalStats.Speed;
+        JumpHeight = OriginalStats.JumpHeight;
+        Gravity = OriginalStats.Gravity;
+        ProjectileState = OriginalStats.ProjectileState;
+    }
 }

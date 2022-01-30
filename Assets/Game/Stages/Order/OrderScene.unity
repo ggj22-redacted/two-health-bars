@@ -801,6 +801,10 @@ PrefabInstance:
       propertyPath: ShapeModule.radius.value
       value: 7.4
       objectReference: {fileID: 0}
+    - target: {fileID: 4892092202809018353, guid: 4e3de6fc0ade8c9418f919acf62cd0f5, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5518997915896331435, guid: 4e3de6fc0ade8c9418f919acf62cd0f5, type: 3}
       propertyPath: m_RootOrder
       value: 1

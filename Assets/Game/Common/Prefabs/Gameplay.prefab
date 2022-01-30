@@ -269,6 +269,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hell
       objectReference: {fileID: 0}
+    - target: {fileID: 6640702747872385787, guid: 0b8f25656dc5d8340a739a2c9093bfed, type: 3}
+      propertyPath: mutationRate
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b8f25656dc5d8340a739a2c9093bfed, type: 3}
 --- !u!4 &1012188973668146291 stripped

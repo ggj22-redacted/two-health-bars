@@ -15,17 +15,22 @@ namespace Game.Common.Game
         [Inject]
         private GameStateSystem _gameStateSystem;
 
-        private float _nextUpdateMoment;
+        
 
         private void Update ()
         {
-            if (_playerState.IsDead || _areaSystem.IsPlayerInArea || !_gameStateSystem.IsInRound || Time.time < _nextUpdateMoment)
+            if (_playerState.IsDead || !_gameStateSystem.IsInRound)
                 return;
+            if (_areaSystem.IsPlayerInArea) {
+                _areaSystem.CurrentArea.HandleStatMutation(_playerState);
+                _areaSystem.CurrentArea.HandleStatUpdate(_playerState);
+
+                _gameStateSystem.CurrentStage.Area.UpdateMoments();
+                return;
+            }
 
             _gameStateSystem.CurrentStage.Area.HandleStatMutation(_playerState);
             _gameStateSystem.CurrentStage.Area.HandleStatUpdate(_playerState);
-
-            _nextUpdateMoment = Time.time + 1f / _gameStateSystem.CurrentStage.ShieldUpdateRate;
         }
     }
 }

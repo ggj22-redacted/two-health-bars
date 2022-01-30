@@ -70,7 +70,7 @@ public class ProjectileSystem : MonoBehaviour
         ProjectileState projectileState = shooter.ProjectileState;
 
         if (projectileToUse) {
-            
+
             projectileToUse.gameObject.layer = shooter.gameObject.name == "Player"
                 ? LayerMask.NameToLayer("PlayerProjectiles")
                 : LayerMask.NameToLayer("EnemyProjectiles");

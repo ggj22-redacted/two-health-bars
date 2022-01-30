@@ -15,7 +15,7 @@ public class BaseProjectile : MonoBehaviour
     public ProjectileState State { get; set; }
 
     private void Awake() {
-        rendererComponent = GetComponent<Renderer>();
+        rendererComponent = GetComponent<ParticleSystemRenderer>();
     }
 
     private void OnTriggerEnter(Collider other)

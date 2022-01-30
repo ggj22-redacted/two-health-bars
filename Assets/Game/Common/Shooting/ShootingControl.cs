@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
 using Zenject;
 
 namespace Game.Common.Shooting
@@ -8,6 +9,9 @@ namespace Game.Common.Shooting
     {
         [SerializeField]
         private EntityState entityState;
+
+        [SerializeField]
+        private UnityEvent onShoot;
 
         private bool shooting = false;
 
@@ -26,9 +30,14 @@ namespace Game.Common.Shooting
             shooting = value;
         }
 
-        public void Update() {
-            if (shooting)
-                _projectileSystem.OnShoot(entityState);
+        public void Update()
+        {
+            if (!shooting)
+                return;
+
+            _projectileSystem.OnShoot(entityState);
+
+            onShoot.Invoke();
         }
 
         private void InitializeProjectileSystem ()

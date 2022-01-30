@@ -257,6 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allowfire: 1
   maxHealth: 100
+  maxShield: 100
   speed: 12
   accelerationFactor: 0.5
   jumpHeight: 3.5
@@ -313,6 +314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entityState: {fileID: 3664297256592486292}
   HPBar: {fileID: 0}
+  HPText: {fileID: 0}
 --- !u!1 &3003456615375953658
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,6 +415,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6628441154583045885}
+  - component: {fileID: 5393783503980536755}
   m_Layer: 6
   m_Name: Model
   m_TagString: Untagged
@@ -436,6 +439,25 @@ Transform:
   m_Father: {fileID: 168178277558675435}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &5393783503980536755
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6128731287202594150}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ba616c91642105e48a7ec5fadcac4c0a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7405115391183464786
 GameObject:
   m_ObjectHideFlags: 0

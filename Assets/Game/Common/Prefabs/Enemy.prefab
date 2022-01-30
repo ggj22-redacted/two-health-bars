@@ -557,7 +557,7 @@ MonoBehaviour:
   movementControl: {fileID: 649326040917789296}
   minDistance: 15
   maxDistance: 20
-  accuracy: 0.05
+  accuracy: 0.3
 --- !u!114 &4883816064271281742
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,7 +11,10 @@ namespace Game.Common.Game
         public event Action OnReset;
 
         public event Action<GameRound> OnGameRoundChanged;
+
         public event Action<GameStage> OnGameStageChanged;
+
+        public event Action OnTimerEnd;
 
         [SerializeField]
         private GameRoundContainer[] gameRounds;
@@ -20,14 +23,34 @@ namespace Game.Common.Game
 
         private int _round = -1;
 
+        private bool _isCountingTime;
+
+        private float _roundEndMoment = float.MaxValue;
+
         [Inject]
         public EntityState PlayerState { get; private set; }
 
+        public float CurrentTime
+        {
+            get
+            {
+                if (_isCountingTime)
+                    return Mathf.Max(_roundEndMoment - Time.time, 0);
+
+                if (Time.time >= _roundEndMoment)
+                    return 0;
+
+                return CurrentRound.duration;
+            }
+        }
+
         public bool IsLastRound => _round == gameRounds.Length - 1;
 
-        public bool IsInRound => _round >= 0;
+        public bool IsInRound => _isCountingTime;
 
-        public GameRound CurrentRound => _round < 0 ? new GameRound() : gameRounds[_round].GameRound;
+        public int CurrentRoundNumber => Mathf.Clamp(_round, 0, gameRounds.Length - 1) + 1;
+
+        public GameRound CurrentRound => gameRounds[Mathf.Clamp(_round, 0, gameRounds.Length - 1)].GameRound;
 
         public GameRound NextRound
         {
@@ -44,9 +67,6 @@ namespace Game.Common.Game
         {
             get
             {
-                if (!IsInRound)
-                    return null;
-
                 EnemyType enemyType = CurrentRound.enemyType;
                 foreach (GameStage gameStage in _gameStages)
                     if (gameStage.EnemyType == enemyType)
@@ -69,6 +89,15 @@ namespace Game.Common.Game
             }
         }
 
+        private void Update ()
+        {
+            if (!_isCountingTime || Time.time <= _roundEndMoment)
+                return;
+
+            _isCountingTime = false;
+            OnTimerEnd?.Invoke();
+        }
+
         public void Reset ()
         {
             _round = -1;
@@ -81,8 +110,12 @@ namespace Game.Common.Game
             if (++_round >= gameRounds.Length)
                 _round = gameRounds.Length - 1;
 
+            GameRound gameRound = CurrentRound;
             OnGameRoundChanged?.Invoke(CurrentRound);
             OnGameStageChanged?.Invoke(CurrentStage);
+
+            _roundEndMoment = Time.time + gameRound.duration;
+            _isCountingTime = true;
         }
 
         public void RestartRound ()
@@ -90,8 +123,18 @@ namespace Game.Common.Game
             if (_round < 0)
                 return;
 
-            OnGameRoundChanged?.Invoke(CurrentRound);
+            GameRound gameRound = CurrentRound;
+            OnGameRoundChanged?.Invoke(gameRound);
             OnGameStageChanged?.Invoke(CurrentStage);
+
+            _roundEndMoment = Time.time + gameRound.duration;
+            _isCountingTime = true;
+        }
+
+        public void StopRound ()
+        {
+            _roundEndMoment = float.MaxValue;
+            _isCountingTime = false;
         }
 
         public void RegisterStage (GameStage gameStage)

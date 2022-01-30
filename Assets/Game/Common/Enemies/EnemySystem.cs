@@ -19,6 +19,9 @@ namespace Game.Common.Enemies
         {
             get
             {
+                if (!_gameStateSystem.IsInRound)
+                    return _gameStateSystem.CurrentRound.enemyCount;
+
                 int alive = 0;
                 foreach (var e in _enemies)
                     if (e.Health > 0)
@@ -28,7 +31,7 @@ namespace Game.Common.Enemies
             }
         }
 
-        public int EnemiesCount => _enemies.Count;
+        public int EnemiesCount => _gameStateSystem.IsInRound ? _enemies.Count : _gameStateSystem.CurrentRound.enemyCount;
 
         private void OnEnable ()
         {
@@ -49,7 +52,7 @@ namespace Game.Common.Enemies
 
         private void SpawnEnemies (GameRound gameRound)
         {
-            _enemies.Clear();
+            DestroyEnemies(null);
             if (_enemies.Capacity < gameRound.enemyCount)
                 _enemies.Capacity = gameRound.enemyCount;
 

@@ -7,6 +7,9 @@ namespace Game.Common.Game
     [Serializable]
     public struct GameRound
     {
+        [Min(0)]
+        public float duration;
+
         [Min(1)]
         public int enemyCount;
 

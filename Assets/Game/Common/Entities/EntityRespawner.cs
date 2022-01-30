@@ -26,19 +26,28 @@ namespace Game.Common.Entities
         private void OnEnable()
         {
             entityState.OnDied += RestartOnDeath;
+            _gameStateSystem.OnTimerEnd += RestartOnTimerEnd;
         }
 
         private void OnDisable()
         {
             entityState.OnDied -= RestartOnDeath;
+            _gameStateSystem.OnTimerEnd -= RestartOnTimerEnd;
+        }
+
+        private void RestartOnTimerEnd ()
+        {
+            entityState.Health -= float.MaxValue;
         }
 
         private async void RestartOnDeath (EntityState state)
         {
             await UniTask.Delay(TimeSpan.FromSeconds(respawnDelay));
 
-            if (!entityState)
+            if (!entityState || !_gameStateSystem)
                 return;
+
+            _gameStateSystem.StopRound();
 
             entityState.transform.position = respawnPosition.position;
             entityState.gameObject.SetActive(true);

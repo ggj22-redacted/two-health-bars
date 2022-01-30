@@ -9,7 +9,7 @@ public class TextPopup : MonoBehaviour
     private TMP_Text textMesh;
 
     public void Setup(string statName, float amount) {
-        textMesh.SetText(statName + (amount > 0 ? " + " : " ") + amount);
+        textMesh.SetText(statName + (amount > 0 ? " + " : " ") + amount.ToString("F2"));
     }
 
     public void Update() {

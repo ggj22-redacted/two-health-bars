@@ -104,6 +104,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2851206392104266960, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
+      propertyPath: area
+      value: 
+      objectReference: {fileID: 763792976893509696, guid: 16af21fe30b1d6e40a06f47bf57be55f, type: 3}
     - target: {fileID: 3754539790776056281, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -156,9 +160,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6347872682130527580, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
+    - target: {fileID: 6186538496524922694, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347872682130527580, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9137870335550141098, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
       propertyPath: projectileState.material

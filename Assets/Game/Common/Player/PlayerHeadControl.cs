@@ -23,7 +23,7 @@ namespace Game.Common.Player
         {
             Vector3 origin = mainCamera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0f))
                              + mainCamera.transform.forward * minTargetDistance;
-            if (Physics.Raycast(origin, mainCamera.transform.forward, out RaycastHit hit, maxTargetDistance)) {
+            if (Physics.Raycast(origin, mainCamera.transform.forward, out RaycastHit hit, maxTargetDistance, 1 << LayerMask.NameToLayer("Enemy"))) {
                 _target = hit.point;
             } else {
                 _target = origin + mainCamera.transform.forward * maxTargetDistance;

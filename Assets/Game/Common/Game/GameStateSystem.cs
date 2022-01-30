@@ -7,6 +7,8 @@ namespace Game.Common.Game
 {
     public class GameStateSystem : MonoBehaviour
     {
+        public event Action OnReset;
+
         public event Action<GameRound> OnGameRoundChanged;
         public event Action<GameStage> OnGameStageChanged;
 
@@ -16,16 +18,21 @@ namespace Game.Common.Game
         [Inject]
         private GameStage[] _gameStages;
 
-        private int _round = 0;
+        private int _round = -1;
 
         public bool IsLastRound => _round == gameRounds.Length - 1;
 
-        public GameRound CurrentRound => gameRounds[_round].GameRound;
+        public bool IsInRound => _round >= 0;
+
+        public GameRound CurrentRound => _round < 0 ? new GameRound() : gameRounds[_round].GameRound;
 
         public GameStage CurrentStage
         {
             get
             {
+                if (!IsInRound)
+                    return null;
+
                 EnemyType enemyType = CurrentRound.enemyType;
                 foreach (GameStage gameStage in _gameStages)
                     if (gameStage.EnemyType == enemyType)
@@ -33,6 +40,13 @@ namespace Game.Common.Game
 
                 return null;
             }
+        }
+
+        public void Reset ()
+        {
+            _round = -1;
+
+            OnReset?.Invoke();
         }
 
         public void TriggerNextRound ()

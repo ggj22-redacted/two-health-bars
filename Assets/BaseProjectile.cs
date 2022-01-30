@@ -8,13 +8,20 @@ public class BaseProjectile : MonoBehaviour
     [SerializeField]
     private UnityEvent projectileCollision;
 
+    [SerializeField]
+    private UnityEvent onShoot;
+
+    [SerializeField]
+    private AudioSource audioSource;
+
     public event Action<BaseProjectile, Collider> OnProjectileHit;
 
     public Renderer rendererComponent;
 
-    public ProjectileState State { get; set; }
+    public ProjectileState State { get; private set; }
 
-    private void Awake() {
+    private void Awake()
+    {
         rendererComponent = GetComponent<ParticleSystemRenderer>();
     }
 
@@ -26,5 +33,14 @@ public class BaseProjectile : MonoBehaviour
 
         projectileCollision.Invoke();
         OnProjectileHit?.Invoke(this, other);
+    }
+
+    public void Shoot (ProjectileState state)
+    {
+        State = state;
+
+        audioSource.clip = state.ShootClip;
+
+        onShoot.Invoke();
     }
 }

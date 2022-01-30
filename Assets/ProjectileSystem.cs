@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using Game.Common.Projectiles;
 using UnityEngine;
+using Random = System.Random;
 
 public class ProjectileSystem : MonoBehaviour
 {
@@ -16,12 +17,16 @@ public class ProjectileSystem : MonoBehaviour
 
     private BaseProjectile[] _projectilePool;
 
+    private Random _random;
+
     private void Start ()
     {
         _projectilePool = new BaseProjectile[maxGameProjectiles];
 
         StartCoroutine(
             InstantiatePool(_projectilePool, projectilePrefab));
+
+        _random = new Random();
     }
 
     private IEnumerator InstantiatePool (IList<BaseProjectile> pool, BaseProjectile projectilePrefab)
@@ -70,7 +75,6 @@ public class ProjectileSystem : MonoBehaviour
         ProjectileState projectileState = shooter.ProjectileState;
 
         if (projectileToUse) {
-
             projectileToUse.gameObject.layer = shooter.gameObject.name == "Player"
                 ? LayerMask.NameToLayer("PlayerProjectiles")
                 : LayerMask.NameToLayer("EnemyProjectiles");
@@ -78,12 +82,16 @@ public class ProjectileSystem : MonoBehaviour
             projectileToUse.rendererComponent.material = projectileState.material;
             projectileToUse.transform.position = shooter.ProjectileGunBarrel.position;
             projectileToUse.gameObject.SetActive(true);
-            projectileToUse.State = projectileState;
+            projectileToUse.Shoot(projectileState);
+
+            Vector3 direction = shooter.ProjectileGunBarrel.forward;
+            direction.x += ((float)_random.NextDouble() * 2 - 1) * projectileState.Spread;
+            direction.y += ((float)_random.NextDouble() * 2 - 1) * projectileState.Spread;
 
             var rigidbody = projectileToUse.GetComponent<Rigidbody>();
 
             rigidbody.velocity = Vector3.zero;
-            rigidbody.AddForce(shooter.ProjectileGunBarrel.forward * projectileState.Speed, ForceMode.VelocityChange);
+            rigidbody.AddForce(direction * projectileState.Speed, ForceMode.VelocityChange);
 
             var singleDim = 0.5f * projectileState.Size;
 

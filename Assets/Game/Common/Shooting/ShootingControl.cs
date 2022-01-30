@@ -18,6 +18,11 @@ namespace Game.Common.Shooting
             shooting = !shooting;
         }
 
+        public void SetShooting(bool value)
+        {
+            shooting = value;
+        }
+
         public void Update() {
             if (shooting)
                 _projectileSystem.OnShoot(entityState);

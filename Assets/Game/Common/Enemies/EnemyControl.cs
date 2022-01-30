@@ -53,6 +53,8 @@ namespace Game.Common.Enemies
         private void OnTriggerExit (Collider other)
         {
             _target = null;
+
+            shootingControl.SetShooting(false);
         }
 
         private void Update ()

@@ -1,6 +1,6 @@
 using System;
+using Game.Common.Entities;
 using Game.Common.Projectiles;
-using StarterAssets;
 using UnityEngine;
 
 public class EntityState : MonoBehaviour
@@ -8,6 +8,8 @@ public class EntityState : MonoBehaviour
     public event Action<EntityState> OnDied;
 
     public event Action<float, float> OnHealthChanged;
+
+    public event Action<float, float> OnShieldChanged;
 
     public event Action<float, float> OnSpeedChanged;
 
@@ -19,6 +21,9 @@ public class EntityState : MonoBehaviour
 
     [SerializeField]
     private int maxHealth = 100;
+
+    [SerializeField]
+    private int maxShield = 100;
 
     [Header("Movement")]
     [SerializeField]
@@ -43,7 +48,11 @@ public class EntityState : MonoBehaviour
 
     private float _currentHealth;
 
+    private float _currentShield;
+
     public float MaxHealth => maxHealth;
+
+    public float MaxShield => maxShield;
 
     public float Health
     {
@@ -58,6 +67,19 @@ public class EntityState : MonoBehaviour
 
             if (_currentHealth <= 0)
                 OnDied?.Invoke(this);
+        }
+    }
+
+    public float Shield
+    {
+        get => _currentShield;
+        set
+        {
+            value = Mathf.Clamp(value, 0, maxShield);
+            float previous = _currentShield;
+            _currentShield = value;
+
+            OnShieldChanged?.Invoke(previous, _currentShield);
         }
     }
 
@@ -99,9 +121,15 @@ public class EntityState : MonoBehaviour
         }
     }
 
-    public ProjectileState ProjectileState => projectileState;
+    public ProjectileState ProjectileState
+    {
+        get => projectileState;
+        set => projectileState = value;
+    }
 
     public Transform ProjectileGunBarrel => projectileGunBarrel;
+
+    public EntityStats OriginalStats { get; private set; } 
 
     private void Awake ()
     {
@@ -109,5 +137,10 @@ public class EntityState : MonoBehaviour
         Speed = speed;
         JumpHeight = jumpHeight;
         Gravity = gravity;
+    }
+
+    private void Start ()
+    {
+        OriginalStats = new EntityStats(maxHealth, speed, jumpHeight, gravity, projectileState);
     }
 }

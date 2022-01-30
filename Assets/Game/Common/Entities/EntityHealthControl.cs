@@ -27,6 +27,17 @@ namespace Game.Common.Entities
 
         private void HandleHealth (ProjectileState state)
         {
+            if (entityState.Shield > 0)
+            {
+                float overDamage = state.Damage - entityState.Shield;
+                entityState.Shield -= state.Damage;
+
+                if (overDamage > 0)
+                    state.Damage = overDamage;
+                else
+                    return;
+            }
+
             entityState.Health -= state.Damage;
 
             if(HPBar)

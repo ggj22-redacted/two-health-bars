@@ -20,6 +20,9 @@ namespace Game.Common.Game
 
         private int _round = -1;
 
+        [Inject]
+        public EntityState PlayerState { get; private set; }
+
         public bool IsLastRound => _round == gameRounds.Length - 1;
 
         public bool IsInRound => _round >= 0;

@@ -43,11 +43,10 @@ namespace Game.Common.Enemies
                 return;
             }
 
+            shootingControl.SetShooting(entityState.allowfire);
+
             if (distance < minDistance)
                 movementControl.MoveTo(targetPosition - direction * minDistance);
-
-            if (entityState.allowfire)
-                shootingControl.OnShoot();
         }
 
         private void OnTriggerExit (Collider other)

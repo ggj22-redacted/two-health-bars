@@ -105,3 +105,57 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de392c6e5a73a3049b73b47fb42260d0, type: 3}
+--- !u!1 &1881553166313278636 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1308274094335942125, guid: de392c6e5a73a3049b73b47fb42260d0, type: 3}
+  m_PrefabInstance: {fileID: 593194192883159361}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &8529341807032909064
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881553166313278636}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
+--- !u!114 &1886759631378462756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881553166313278636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e646246c616d40578f349fe4b990a9e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alphaOverDistance:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 9
+      value: 1
+      inSlope: -0.16666667
+      outSlope: -0.16666667
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 15
+      value: 0
+      inSlope: -0.16666667
+      outSlope: -0.16666667
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  canvasGroup: {fileID: 8529341807032909064}

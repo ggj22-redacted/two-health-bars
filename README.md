@@ -18,11 +18,11 @@ This is the repository of the game by the team REDACTED for the GGJ22.
   - [ ] Projectile Spread
   - [ ] Projectile Count
   - [x] Projectile Fire Rate
-  - [ ] Jump Height
-  - [ ] Jump Speed
-  - [ ] Shield Decay
-  - [ ] Shield Regen
-  - [ ] Shield MAX
+  - [X] Jump Height
+  - [X] Jump Speed
+  - [X] Shield Decay
+  - [X] Shield Regen
+  - [X] Shield MAX
 
 ### Enemies
 
@@ -33,10 +33,10 @@ This is the repository of the game by the team REDACTED for the GGJ22.
 ### Stages/Arenas
 
 - [ ] Timer
-- [ ] Type: Chaos/Order (different visual design)
+- [X] Type: Chaos/Order (different visual design)
 - [ ] Win Condition: kill all enemies
 - [ ] Lose Condition: timer runs out
-- [ ] Level Design
+- [X] Level Design
 
 ### UI
 

@@ -14,7 +14,7 @@ public class TextPopup : MonoBehaviour
 
     public void Update() {
         float moveYSpeed = 80f;
-        float fadeSpeed = 0.8f;
+        float fadeSpeed = 0.6f;
         textMesh.color = new Color(textMesh.color.r, textMesh.color.g, textMesh.color.b, textMesh.color.a - (fadeSpeed * Time.deltaTime));
         transform.position += new Vector3(0, moveYSpeed) * Time.deltaTime;
     }

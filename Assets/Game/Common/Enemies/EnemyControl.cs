@@ -21,8 +21,8 @@ namespace Game.Common.Enemies
         [SerializeField, Min(0)]
         private float maxDistance;
 
-        [SerializeField]
-        private float accuracyUpdateRate;
+        [SerializeField, Range(0, 1)]
+        private float accuracy;
 
         private Vector3 _previousTargetPosition;
 
@@ -34,18 +34,13 @@ namespace Game.Common.Enemies
 
         private ShootingControl _shootingControl;
 
-        private float accuracy;
-
         private static Vector3 GetPredictedTargetPosition(Vector3 targetPosition, Vector3 shooterPosition, Vector3 targetVelocity, float projectileSpeed)
         {
             Vector3 displacement = targetPosition - shooterPosition;
             float targetMoveAngle = Vector3.Angle(-displacement, targetVelocity) * Mathf.Deg2Rad;
             //if the target is stopping or if it is impossible for the projectile to catch up with the target (Sine Formula)
             if (targetVelocity.magnitude == 0 || targetVelocity.magnitude > projectileSpeed && Mathf.Sin(targetMoveAngle) / projectileSpeed > Mathf.Cos(targetMoveAngle) / targetVelocity.magnitude)
-            {
-                Debug.Log("Position prediction is not feasible.");
                 return targetPosition;
-            }
             //also Sine Formula
             float shootAngle = Mathf.Asin(Mathf.Sin(targetMoveAngle) * targetVelocity.magnitude / projectileSpeed);
 
@@ -110,20 +105,31 @@ namespace Game.Common.Enemies
             Vector3 lookPosition = Vector3.LerpUnclamped(targetPosition, predictedTargetPosition, accuracy);
             referenceTransform.rotation = Quaternion.LookRotation(lookPosition - position);
 
-            UpdateAccuracy(_previousTargetPosition, targetPosition, predictedTargetPosition);
+            //UpdateAccuracy(_previousTargetPosition, targetPosition, predictedTargetPosition);
 
             _previousTargetPosition = targetPosition;
             _previousPredictedPosition = predictedTargetPosition;
         }
 
+        /*
         private void UpdateAccuracy (Vector3 startPosition, Vector3 actualPosition, Vector3 predictedPosition)
         {
-            Vector3 displacement = actualPosition - startPosition;
-            Vector3 predictedDisplacement = predictedPosition - startPosition;
-            float dot = Vector3.Dot(displacement, predictedDisplacement);
+            Debug.Log(_accuracy);
 
-            accuracy += dot * accuracyUpdateRate;
-            accuracy = Mathf.Clamp(accuracy, 0, 1);
+            if ((actualPosition - startPosition).sqrMagnitude < 0.01f)
+                return;
+
+            Vector3 direction = (actualPosition - startPosition).normalized;
+            Vector3 predictedDirection = (predictedPosition - startPosition).normalized;
+
+            float dot = Vector3.Dot(direction, predictedDirection);
+            dot -= penaltyOnMisPrediction;
+            
+            Debug.Log("Delta: " + dot);
+
+            _accuracy += dot * accuracyUpdateRate;
+            _accuracy = Mathf.Clamp(_accuracy, -1, 1);
         }
+        */
     }
 }

@@ -8,12 +8,19 @@ namespace Game.Common.Shooting
         [SerializeField]
         private EntityState entityState;
 
+        private bool shooting = false;
+
         [Inject]
         private ProjectileSystem _projectileSystem;
 
         public void OnShoot()
         {
-            _projectileSystem.OnShoot(entityState);
+            shooting = !shooting;
+        }
+
+        public void Update() {
+            if (shooting)
+                _projectileSystem.OnShoot(entityState);
         }
     }
 }

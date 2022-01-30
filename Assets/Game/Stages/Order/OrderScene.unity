@@ -123,9 +123,9 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &779738969 stripped
+--- !u!114 &299305582 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5512969924219862589, guid: f896b173c28e9c5458e304c3b86f0fdf, type: 3}
+  m_CorrespondingSourceObject: {fileID: 557648731018188820, guid: f896b173c28e9c5458e304c3b86f0fdf, type: 3}
   m_PrefabInstance: {fileID: 4615153271504201532}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -317,9 +317,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1ac52748b2e452b8ab2079ff0c816c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &1223543649 stripped
+--- !u!224 &1619313536 stripped
 RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7633387634586597459, guid: f896b173c28e9c5458e304c3b86f0fdf, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4617099852750499763, guid: f896b173c28e9c5458e304c3b86f0fdf, type: 3}
   m_PrefabInstance: {fileID: 4615153271504201532}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2975504413222510246
@@ -405,6 +405,14 @@ PrefabInstance:
     - target: {fileID: 4220637908808020670, guid: f896b173c28e9c5458e304c3b86f0fdf, type: 3}
       propertyPath: m_Name
       value: PlayerHealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 4473974074722398089, guid: f896b173c28e9c5458e304c3b86f0fdf, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504265681168543496, guid: f896b173c28e9c5458e304c3b86f0fdf, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4615153271573772208, guid: f896b173c28e9c5458e304c3b86f0fdf, type: 3}
       propertyPath: m_Pivot.x
@@ -496,6 +504,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4615153271573772214, guid: f896b173c28e9c5458e304c3b86f0fdf, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6850961151834023428, guid: f896b173c28e9c5458e304c3b86f0fdf, type: 3}
+      propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7633387634586597459, guid: f896b173c28e9c5458e304c3b86f0fdf, type: 3}
@@ -619,11 +631,11 @@ PrefabInstance:
     - target: {fileID: 1243917594126252659, guid: 4e3de6fc0ade8c9418f919acf62cd0f5, type: 3}
       propertyPath: HPBar
       value: 
-      objectReference: {fileID: 1223543649}
+      objectReference: {fileID: 1619313536}
     - target: {fileID: 1243917594126252659, guid: 4e3de6fc0ade8c9418f919acf62cd0f5, type: 3}
       propertyPath: HPText
       value: 
-      objectReference: {fileID: 779738969}
+      objectReference: {fileID: 299305582}
     - target: {fileID: 1878675301871723016, guid: 4e3de6fc0ade8c9418f919acf62cd0f5, type: 3}
       propertyPath: m_RootOrder
       value: 1

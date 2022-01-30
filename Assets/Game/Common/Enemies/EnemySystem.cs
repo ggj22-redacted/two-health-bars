@@ -28,6 +28,8 @@ namespace Game.Common.Enemies
             }
         }
 
+        public int EnemiesCount => _enemies.Count;
+
         private void OnEnable ()
         {
             _gameStateSystem.OnGameRoundChanged += SpawnEnemies;

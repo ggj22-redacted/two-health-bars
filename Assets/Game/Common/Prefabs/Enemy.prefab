@@ -140,6 +140,7 @@ MonoBehaviour:
     spread: 0.05
     lifetime: 5
     shootClip: {fileID: 0}
+    hitClip: {fileID: 0}
   projectileGunBarrel: {fileID: 19267364848910656}
 --- !u!114 &649326040917789296
 MonoBehaviour:
@@ -555,8 +556,8 @@ MonoBehaviour:
   referenceTransform: {fileID: 2671714842021524031}
   entityState: {fileID: 9137870335550141098}
   movementControl: {fileID: 649326040917789296}
-  minDistance: 15
-  maxDistance: 20
+  minDistance: 12
+  maxDistance: 15
   accuracy: 0.3
 --- !u!114 &4883816064271281742
 MonoBehaviour:

@@ -1121,6 +1121,7 @@ GameObject:
   - component: {fileID: 5050960871175092812}
   - component: {fileID: 4812668415778478497}
   - component: {fileID: 8276631154706882466}
+  - component: {fileID: 844251071777486899}
   m_Layer: 5
   m_Name: Enemy Counter
   m_TagString: Untagged
@@ -1210,6 +1211,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &844251071777486899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8241400494289350518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0849dbdd984e4c07b61f15af5fe5a2d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  label: {fileID: 1981705151559126426}
 --- !u!1001 &2595383389517156013
 PrefabInstance:
   m_ObjectHideFlags: 0

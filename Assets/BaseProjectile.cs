@@ -36,7 +36,7 @@ public class BaseProjectile : MonoBehaviour
             hittable.OnHit(State);
 
         if (hittables.Length > 0)
-        projectileCollision.Invoke();
+            projectileCollision.Invoke();
 
         OnProjectileHit?.Invoke(this, other);
     }

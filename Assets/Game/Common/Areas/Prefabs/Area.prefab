@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  damageRate: 0
+  updateRate: 0
   mutationRate: 0
   speedMin: 6
   speedMax: 18
@@ -162,9 +162,9 @@ MonoBehaviour:
   projectileDamageMutationDelta: 5
   projectileRangeMin: 5
   projectileRangeMax: 50
-  projectileRangeMutationDelta: 5
-  projectileFireRateMin: 0.05
-  projectileFireRateMax: 0.5
+  projectileRangeMutationDelta: 0.5
+  projectileFireRateMin: 0.5
+  projectileFireRateMax: 20
   projectileFireRateMutationDelta: 0.05
   projectileSpreadMin: 0.03
   projectileSpreadMax: 0.3

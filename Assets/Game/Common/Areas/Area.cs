@@ -7,9 +7,6 @@ namespace Game.Common.Areas
     public class Area : MonoBehaviour
     {
         [SerializeField]
-        private float damage;
-
-        [SerializeField]
         private float updateRate;
 
         [SerializeField]

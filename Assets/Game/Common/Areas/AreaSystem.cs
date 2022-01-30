@@ -42,7 +42,7 @@ namespace Game.Common.Areas
         {
             foreach (var area in _areas) {
                 if (!area.CanBeDestroyed)
-                    return;
+                    continue;
 
                 _areas.Remove(area);
                 Destroy(area.gameObject);

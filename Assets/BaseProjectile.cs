@@ -2,6 +2,7 @@ using System;
 using Game.Common.Projectiles;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class BaseProjectile : MonoBehaviour
 {
@@ -12,7 +13,10 @@ public class BaseProjectile : MonoBehaviour
     private UnityEvent onShoot;
 
     [SerializeField]
-    private AudioSource audioSource;
+    private AudioSource shootAudioSource;
+
+    [SerializeField]
+    private AudioSource hitAudioSource;
 
     public event Action<BaseProjectile, Collider> OnProjectileHit;
 
@@ -39,7 +43,8 @@ public class BaseProjectile : MonoBehaviour
     {
         State = state;
 
-        audioSource.clip = state.ShootClip;
+        shootAudioSource.clip = state.ShootClip;
+        hitAudioSource.clip = state.HitClip;
 
         onShoot.Invoke();
     }

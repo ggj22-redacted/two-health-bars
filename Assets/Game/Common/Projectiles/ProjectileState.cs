@@ -35,6 +35,9 @@ namespace Game.Common.Projectiles
         [SerializeField]
         private AudioClip shootClip;
 
+        [SerializeField]
+        private AudioClip hitClip;
+
         public float Damage
         {
             get => damage;
@@ -87,6 +90,12 @@ namespace Game.Common.Projectiles
         {
             get => shootClip;
             set => shootClip = value;
+        }
+
+        public AudioClip HitClip
+        {
+            get => hitClip;
+            set => hitClip = value;
         }
     }
 }

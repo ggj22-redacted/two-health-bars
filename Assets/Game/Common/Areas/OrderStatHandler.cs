@@ -50,6 +50,8 @@ namespace Game.Common.Areas
                         if (!Mathf.Approximately(originalProjectileState.Spread, entityState.ProjectileState.Spread))
                             return Stat.ProjectileSpread;
                         break;
+                    case Stat.None:
+                        break;
                     default:
                         throw new ArgumentOutOfRangeException(nameof(stat), stat, $"Encountered unknown {typeof(Stat)}: {stat.ToString()}");
                 }

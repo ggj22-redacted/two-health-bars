@@ -11,6 +11,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallHealthBarWidget Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1461561597991837093, guid: de392c6e5a73a3049b73b47fb42260d0, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4191222980438390847, guid: de392c6e5a73a3049b73b47fb42260d0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8765572853606772692, guid: de392c6e5a73a3049b73b47fb42260d0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -97,21 +105,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de392c6e5a73a3049b73b47fb42260d0, type: 3}
---- !u!1 &1881553166313278636 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1308274094335942125, guid: de392c6e5a73a3049b73b47fb42260d0, type: 3}
-  m_PrefabInstance: {fileID: 593194192883159361}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1763601780268628468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1881553166313278636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77021afc414ce704b8183b90fd2f1166, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}

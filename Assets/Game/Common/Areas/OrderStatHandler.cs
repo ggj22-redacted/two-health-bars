@@ -7,9 +7,12 @@ using UnityEngine;
 
 namespace Game.Common.Areas
 {
-    public class OrderStatHandler : MonoBehaviour, IStatProvider, IStatMutator
+    public class OrderStatHandler : MonoBehaviour, IStatProvider, IStatMutator, IStatUpdater
     {
         private static readonly Stat[] AllStats = Enum.GetValues(typeof(Stat)).Cast<Stat>().ToArray();
+
+        [SerializeField]
+        private float shieldRegenPerUpdate;
 
         public Stat GetStat (EntityState entityState)
         {
@@ -85,6 +88,11 @@ namespace Game.Common.Areas
                 default:
                     throw new ArgumentOutOfRangeException(nameof(stat), stat, $"Encountered unknown {typeof(Stat)}: {stat.ToString()}");
             }
+        }
+
+        public void UpdateStats (EntityState entityState)
+        {
+            entityState.Shield += shieldRegenPerUpdate;
         }
     }
 }

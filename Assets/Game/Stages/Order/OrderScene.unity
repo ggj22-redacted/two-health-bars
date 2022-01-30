@@ -487,6 +487,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2421872392607962110, guid: f896b173c28e9c5458e304c3b86f0fdf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4220637908808020670, guid: f896b173c28e9c5458e304c3b86f0fdf, type: 3}
       propertyPath: m_Name
       value: PlayerHealthBar
@@ -586,10 +590,6 @@ PrefabInstance:
     - target: {fileID: 4615153271573772214, guid: f896b173c28e9c5458e304c3b86f0fdf, type: 3}
       propertyPath: m_Name
       value: UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 4615153271573772214, guid: f896b173c28e9c5458e304c3b86f0fdf, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4615153271573772215, guid: f896b173c28e9c5458e304c3b86f0fdf, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag

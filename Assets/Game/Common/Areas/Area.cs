@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Linq;
 using Game.Common.Projectiles;
 using UnityEngine;
-using Random = System.Random;
 
 namespace Game.Common.Areas
 {
@@ -12,7 +10,7 @@ namespace Game.Common.Areas
         private float damage;
 
         [SerializeField]
-        private float damageRate;
+        private float updateRate;
 
         [SerializeField]
         private float mutationRate;
@@ -99,16 +97,18 @@ namespace Game.Common.Areas
 
         private IStatMutator _statMutator;
 
+        private IStatUpdater _statUpdater;
+
         private float _nextMutationMoment;
 
-        private float _nextDamageMoment;
+        private float _nextUpdateMoment;
 
         private void OnTriggerEnter (Collider other)
         {
             _currentEntityState = other.GetComponent<EntityState>();
 
             _nextMutationMoment = Time.time + 1f / mutationRate;
-            _nextDamageMoment = Time.time + 1f / damageRate;
+            _nextUpdateMoment = Time.time + 1f / updateRate;
         }
 
         private void OnTriggerExit (Collider other)
@@ -120,6 +120,7 @@ namespace Game.Common.Areas
         {
             _statProvider = GetComponent<IStatProvider>();
             _statMutator = GetComponent<IStatMutator>();
+            _statUpdater = GetComponent<IStatUpdater>();
         }
 
         private void Update ()
@@ -129,11 +130,11 @@ namespace Game.Common.Areas
 
             HandleStatMutation();
 
-            if (Time.time < _nextDamageMoment)
+            if (Time.time < _nextUpdateMoment)
                 return;
 
-            _currentEntityState.Health -= damage;
-            _nextDamageMoment = Time.time + 1f / damageRate;
+            _statUpdater.UpdateStats(_currentEntityState);
+            _nextUpdateMoment = Time.time + 1f / updateRate;
         }
 
         private void HandleStatMutation ()

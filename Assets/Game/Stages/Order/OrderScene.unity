@@ -210,6 +210,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8154032973118531338, guid: d06467e6decd43641948bd1ce7e15649, type: 3}
+      propertyPath: maxGameProjectiles
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8154032973118531338, guid: d06467e6decd43641948bd1ce7e15649, type: 3}
       propertyPath: baseProjectilePrefab
       value: 
       objectReference: {fileID: 8653661138935371127, guid: cd879e6259a59c541bbbae0d3f4de891, type: 3}

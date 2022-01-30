@@ -88,6 +88,26 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9137870335550141098, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
+      propertyPath: projectileState.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9137870335550141098, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
+      propertyPath: projectileState.speed
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 9137870335550141098, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
+      propertyPath: projectileState.damage
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9137870335550141098, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
+      propertyPath: projectileState.fireRate
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9137870335550141098, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
+      propertyPath: projectileState.lifetime
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9137870335550141098, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
       propertyPath: projectileState.material
       value: 
       objectReference: {fileID: 2100000, guid: 0922eadf95c052c42b4b2dfc89c7490e, type: 2}

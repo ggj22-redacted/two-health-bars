@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3234592128375435469, guid: 1d7af750426d9cb459c8de47fc98b034, type: 3}
+      propertyPath: updateRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234592128375435469, guid: 1d7af750426d9cb459c8de47fc98b034, type: 3}
+      propertyPath: mutationRate
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 6812636940495079941, guid: 1d7af750426d9cb459c8de47fc98b034, type: 3}
       propertyPath: m_Name
       value: GameStage_Heaven
@@ -59,5 +67,27 @@ PrefabInstance:
       propertyPath: enemyType
       value: 
       objectReference: {fileID: 11400000, guid: c92682749dc090a4dac10372e4a1e3ca, type: 2}
+    - target: {fileID: 7830969149108987154, guid: 1d7af750426d9cb459c8de47fc98b034, type: 3}
+      propertyPath: shieldDelta
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d7af750426d9cb459c8de47fc98b034, type: 3}
+--- !u!1 &4372941959531725290 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6812636940495079941, guid: 1d7af750426d9cb459c8de47fc98b034, type: 3}
+  m_PrefabInstance: {fileID: 7071943035329956847}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5840871735352002187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4372941959531725290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5b5231d0c944d07b7c104849dd831e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shieldRegenPerUpdate: 1

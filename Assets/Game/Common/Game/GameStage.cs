@@ -1,4 +1,5 @@
-﻿using Game.Common.Enemies.Types;
+﻿using Game.Common.Areas;
+using Game.Common.Enemies.Types;
 using UnityEngine;
 using Zenject;
 using Random = System.Random;
@@ -7,6 +8,12 @@ namespace Game.Common.Game
 {
     public class GameStage : MonoBehaviour
     {
+        [SerializeField]
+        private float shieldDelta;
+
+        [SerializeField]
+        private float shieldUpdateRate;
+
         [SerializeField]
         private EnemyType enemyType;
 
@@ -31,6 +38,17 @@ namespace Game.Common.Game
 
                 return spawnOrigin.position + new Vector3(x, 0, z);
             }
+        }
+
+        public float ShieldDelta => shieldDelta;
+
+        public float ShieldUpdateRate => shieldUpdateRate;
+
+        public Area Area { get; private set; }
+
+        private void Awake ()
+        {
+            Area = GetComponent<Area>();
         }
 
         private void OnDestroy ()

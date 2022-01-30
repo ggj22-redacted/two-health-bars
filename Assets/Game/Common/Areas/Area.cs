@@ -6,6 +6,10 @@ namespace Game.Common.Areas
 {
     public class Area : MonoBehaviour
     {
+        public event Action OnPlayerEntered;
+
+        public event Action OnPlayerLeft;
+
         public event Action<Stat, float> OnStatUpdated;
 
         [SerializeField]
@@ -92,8 +96,6 @@ namespace Game.Common.Areas
 
         private AreaSystem _areaSystem;
 
-        private EntityState _currentEntityState;
-
         private IStatProvider _statProvider;
 
         private IStatMutator _statMutator;
@@ -104,17 +106,26 @@ namespace Game.Common.Areas
 
         private float _nextUpdateMoment;
 
+        public EntityState EntityState { get; set; }
+
         private void OnTriggerEnter (Collider other)
         {
-            _currentEntityState = other.GetComponent<EntityState>();
+            EntityState = other.GetComponent<EntityState>();
 
             _nextMutationMoment = Time.time + 1f / mutationRate;
             _nextUpdateMoment = Time.time + 1f / updateRate;
+
+            if (EntityState)
+                OnPlayerEntered?.Invoke();
         }
 
         private void OnTriggerExit (Collider other)
         {
-            _currentEntityState = null;
+            if (!EntityState)
+                return;
+
+            EntityState = null;
+            OnPlayerLeft?.Invoke();
         }
 
         private void Awake ()
@@ -134,74 +145,69 @@ namespace Game.Common.Areas
 
         private void Update ()
         {
-            if (!_currentEntityState)
+            if (!EntityState)
                 return;
 
-            HandleStatMutation();
+            if (Time.time >= _nextMutationMoment)
+                HandleStatMutation(EntityState);
 
-            if (Time.time < _nextUpdateMoment)
-                return;
-
-            _statUpdater.UpdateStats(_currentEntityState);
-            _nextUpdateMoment = Time.time + 1f / updateRate;
+            if (Time.time >= _nextUpdateMoment)
+                HandleStatUpdate(EntityState);
         }
 
-        private void HandleStatMutation ()
+        public void HandleStatMutation (EntityState entityState)
         {
-            if (Time.time < _nextMutationMoment)
-                return;
-
-            Stat stat = _statProvider.GetStat(_currentEntityState);
+            Stat stat = _statProvider.GetStat(entityState);
 
             float delta = 0f;
-            ProjectileState projectileState = _currentEntityState.ProjectileState;
+            ProjectileState projectileState = entityState.ProjectileState;
             switch (stat) {
                 case Stat.Speed:
-                    delta = _currentEntityState.Speed;
-                    _currentEntityState.Speed =
-                        _statMutator.Mutate(_currentEntityState, stat, _currentEntityState.Speed, speedMin, speedMax, speedMutationDelta);
-                    delta = _currentEntityState.Speed - delta;
+                    delta = entityState.Speed;
+                    entityState.Speed =
+                        _statMutator.Mutate(entityState, stat, entityState.Speed, speedMin, speedMax, speedMutationDelta);
+                    delta = entityState.Speed - delta;
                     break;
                 case Stat.JumpHeight:
-                    delta = _currentEntityState.JumpHeight;
-                    _currentEntityState.JumpHeight =
-                        _statMutator.Mutate(_currentEntityState, stat, _currentEntityState.JumpHeight, jumpHeightMin, jumpHeightMax, jumpHeightMutationDelta);
-                    delta = _currentEntityState.JumpHeight - delta;
+                    delta = entityState.JumpHeight;
+                    entityState.JumpHeight =
+                        _statMutator.Mutate(entityState, stat, entityState.JumpHeight, jumpHeightMin, jumpHeightMax, jumpHeightMutationDelta);
+                    delta = entityState.JumpHeight - delta;
                     break;
                 case Stat.Gravity:
-                    delta = _currentEntityState.Gravity;
-                    _currentEntityState.Gravity =
-                        _statMutator.Mutate(_currentEntityState, stat, _currentEntityState.Gravity, gravityMin, gravityMax, gravityMutationDelta);
-                    delta = _currentEntityState.Gravity - delta;
+                    delta = entityState.Gravity;
+                    entityState.Gravity =
+                        _statMutator.Mutate(entityState, stat, entityState.Gravity, gravityMin, gravityMax, gravityMutationDelta);
+                    delta = entityState.Gravity - delta;
                     break;
                 case Stat.ProjectileSpeed:
                     delta = projectileState.Speed;
                     projectileState.Speed =
-                        _statMutator.Mutate(_currentEntityState, stat, projectileState.Speed, projectileSpeedMin, projectileSpeedMax, projectileSpeedMutationDelta);
+                        _statMutator.Mutate(entityState, stat, projectileState.Speed, projectileSpeedMin, projectileSpeedMax, projectileSpeedMutationDelta);
                     delta = projectileState.Speed - delta;
                     break;
                 case Stat.ProjectileDamage:
                     delta = projectileState.Damage;
                     projectileState.Damage =
-                        _statMutator.Mutate(_currentEntityState, stat, projectileState.Damage, projectileDamageMin, projectileDamageMax, projectileDamageMutationDelta);
+                        _statMutator.Mutate(entityState, stat, projectileState.Damage, projectileDamageMin, projectileDamageMax, projectileDamageMutationDelta);
                     delta = projectileState.Damage - delta;
                     break;
                 case Stat.ProjectileRange:
                     delta = projectileState.Range;
                     projectileState.Range =
-                        _statMutator.Mutate(_currentEntityState, stat, projectileState.Range, projectileRangeMin, projectileRangeMax, projectileRangeMutationDelta);
+                        _statMutator.Mutate(entityState, stat, projectileState.Range, projectileRangeMin, projectileRangeMax, projectileRangeMutationDelta);
                     delta = projectileState.Range - delta;
                     break;
                 case Stat.ProjectileFireRate:
                     delta = projectileState.FireRate;
                     projectileState.FireRate =
-                        _statMutator.Mutate(_currentEntityState, stat, projectileState.FireRate, projectileFireRateMin, projectileFireRateMax, projectileFireRateMutationDelta);
+                        _statMutator.Mutate(entityState, stat, projectileState.FireRate, projectileFireRateMin, projectileFireRateMax, projectileFireRateMutationDelta);
                     delta = projectileState.FireRate - delta;
                     break;
                 case Stat.ProjectileSpread:
                     delta = projectileState.Spread;
                     projectileState.Spread =
-                        _statMutator.Mutate(_currentEntityState, stat, projectileState.Spread, projectileSpreadMin, projectileSpreadMax, projectileSpreadMutationDelta);
+                        _statMutator.Mutate(entityState, stat, projectileState.Spread, projectileSpreadMin, projectileSpreadMax, projectileSpreadMutationDelta);
                     delta = projectileState.Spread - delta;
                     break;
                 case Stat.None:
@@ -210,11 +216,17 @@ namespace Game.Common.Areas
                     throw new ArgumentOutOfRangeException(nameof(stat), stat, $"Encountered unknown {typeof(Stat)}: {stat.ToString()}");
             }
 
-            _currentEntityState.ProjectileState = projectileState;
+            entityState.ProjectileState = projectileState;
 
             _nextMutationMoment = Time.time + 1f / mutationRate;
 
             OnStatUpdated?.Invoke(stat, delta);
+        }
+
+        public void HandleStatUpdate (EntityState entityState)
+        {
+            _statUpdater.UpdateStats(entityState);
+            _nextUpdateMoment = Time.time + 1f / updateRate;
         }
     }
 }

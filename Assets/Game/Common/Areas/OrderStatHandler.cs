@@ -55,7 +55,7 @@ namespace Game.Common.Areas
                 }
             }
 
-            throw new DataException($"There's no stats defined for {typeof(Stat)}");
+            return Stat.None;
         }
 
         public float Mutate (EntityState entityState, Stat stat, float value, float min, float max, float rate)

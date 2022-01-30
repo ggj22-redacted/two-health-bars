@@ -93,8 +93,6 @@ namespace Game.Common.Areas
         [SerializeField]
         private float projectileSpreadMutationDelta;
 
-        private readonly Random _random = new Random();
-
         private EntityState _currentEntityState;
 
         private IStatProvider _statProvider;
@@ -178,6 +176,8 @@ namespace Game.Common.Areas
                 case Stat.ProjectileSpread:
                     projectileState.Spread =
                         _statMutator.Mutate(_currentEntityState, stat, projectileState.Spread, projectileSpreadMin, projectileSpreadMax, projectileSpreadMutationDelta);
+                    break;
+                case Stat.None:
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(stat), stat, $"Encountered unknown {typeof(Stat)}: {stat.ToString()}");

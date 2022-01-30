@@ -103,7 +103,7 @@ public class EntityState : MonoBehaviour
 
     public Transform ProjectileGunBarrel => projectileGunBarrel;
 
-    private void Start ()
+    private void Awake ()
     {
         Health = maxHealth;
         Speed = speed;

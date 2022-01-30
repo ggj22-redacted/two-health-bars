@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 4223643740029393940}
   - component: {fileID: 4592139835108672786}
   - component: {fileID: 6877789307362727593}
+  - component: {fileID: 2795181855502983608}
   m_Layer: 5
   m_Name: Rounds
   m_TagString: Untagged
@@ -167,7 +168,7 @@ RectTransform:
   - {fileID: 7200382828792222786}
   - {fileID: 3455225438340155164}
   m_Father: {fileID: 4615153271573772208}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -235,6 +236,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &2795181855502983608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139978336758029915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ddc14f9c6064c2f94296275964ff0ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roundCountLabel: {fileID: 8897557838443385250}
 --- !u!1 &1738357725011300460
 GameObject:
   m_ObjectHideFlags: 0
@@ -774,7 +788,6 @@ RectTransform:
   - {fileID: 618452583676635656}
   - {fileID: 5508228392909480335}
   - {fileID: 4268850279651627187}
-  - {fileID: 3780861670490867202}
   - {fileID: 3494838720009506169}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1142,13 +1155,13 @@ RectTransform:
   m_Children:
   - {fileID: 4888931108054384166}
   - {fileID: 5161905476051627458}
-  m_Father: {fileID: 4615153271573772208}
-  m_RootOrder: 4
+  m_Father: {fileID: 3402610138636883062}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 258.1287}
+  m_SizeDelta: {x: 640, y: 580.2574}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5050960871175092812
 Canvas:
@@ -1493,6 +1506,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8fc2413ddb01ec42a2fc53e0890c702, type: 3}
+--- !u!224 &3402610138636883062 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6790334888967401801, guid: e8fc2413ddb01ec42a2fc53e0890c702, type: 3}
+  m_PrefabInstance: {fileID: 8143742321583711551}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &5508228392909480335 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4428528222054433968, guid: e8fc2413ddb01ec42a2fc53e0890c702, type: 3}

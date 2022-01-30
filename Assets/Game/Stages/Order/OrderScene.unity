@@ -499,6 +499,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2945745904452854921, guid: f896b173c28e9c5458e304c3b86f0fdf, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1032.0986
+      objectReference: {fileID: 0}
+    - target: {fileID: 2945745904452854921, guid: f896b173c28e9c5458e304c3b86f0fdf, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 577
+      objectReference: {fileID: 0}
     - target: {fileID: 4220637908808020670, guid: f896b173c28e9c5458e304c3b86f0fdf, type: 3}
       propertyPath: m_Name
       value: PlayerHealthBar
@@ -728,6 +736,10 @@ PrefabInstance:
     - target: {fileID: 877389711482191315, guid: 4e3de6fc0ade8c9418f919acf62cd0f5, type: 3}
       propertyPath: projectileSystem
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 877389711482191315, guid: 4e3de6fc0ade8c9418f919acf62cd0f5, type: 3}
+      propertyPath: projectileState.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1243917594126252659, guid: 4e3de6fc0ade8c9418f919acf62cd0f5, type: 3}
       propertyPath: HPBar

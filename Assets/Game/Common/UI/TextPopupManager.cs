@@ -7,8 +7,6 @@ public class TextPopupManager : MonoBehaviour
     [SerializeField]
     private TextPopup textPopupPrefab;
 
-    private bool spawnable = true;
-
     private float timeout = 0.2f;
     // Start is called before the first frame update
     void Start()

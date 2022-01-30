@@ -134,7 +134,7 @@ MonoBehaviour:
     damage: 10
     fireRate: 10
     speed: 15
-    size: 0
+    size: 3
     count: 0
     range: 0
     spread: 0

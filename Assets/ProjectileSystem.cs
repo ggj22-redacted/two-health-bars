@@ -81,8 +81,13 @@ public class ProjectileSystem : MonoBehaviour
             projectileToUse.State = projectileState;
 
             var rigidbody = projectileToUse.GetComponent<Rigidbody>();
+
             rigidbody.velocity = Vector3.zero;
             rigidbody.AddForce(shooter.ProjectileGunBarrel.forward * projectileState.Speed, ForceMode.VelocityChange);
+
+            var singleDim = 0.5f * projectileState.Size;
+
+            projectileToUse.transform.localScale = new Vector3(singleDim,singleDim,singleDim);
 
             StartCoroutine(DeactivateProjectile(projectileToUse, projectileState.Lifetime));
         }

@@ -285,7 +285,7 @@ MonoBehaviour:
     size: 0
     count: 0
     range: 0
-    spread: 0
+    spread: 0.05
     lifetime: 1
     shootClip: {fileID: 8300000, guid: 1595bce82c0792940895b971a6a4f5ef, type: 3}
   projectileGunBarrel: {fileID: 7773768968944697273}

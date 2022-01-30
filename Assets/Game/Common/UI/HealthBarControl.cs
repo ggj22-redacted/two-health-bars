@@ -15,6 +15,10 @@ namespace Game.Common.UI
         [Inject]
         private EntityState _entityState;
 
+        private void Start () {
+            UpdateHealth(0f, _entityState.Health);
+        }
+
         private void OnEnable ()
         {
             _entityState.OnHealthChanged += UpdateHealth;

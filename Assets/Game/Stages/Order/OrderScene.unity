@@ -629,6 +629,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4357925838356970, guid: f896b173c28e9c5458e304c3b86f0fdf, type: 3}
+      propertyPath: textPopupPrefab
+      value: 
+      objectReference: {fileID: -2598653230416690690, guid: db0964c3288ee63498bf2462753ae131, type: 3}
+    - target: {fileID: 618452583676635656, guid: f896b173c28e9c5458e304c3b86f0fdf, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 829649373191852902, guid: f896b173c28e9c5458e304c3b86f0fdf, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -644,6 +652,10 @@ PrefabInstance:
     - target: {fileID: 829649373191852902, guid: f896b173c28e9c5458e304c3b86f0fdf, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4155732939128876916, guid: f896b173c28e9c5458e304c3b86f0fdf, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4220637908808020670, guid: f896b173c28e9c5458e304c3b86f0fdf, type: 3}
       propertyPath: m_Name
@@ -931,6 +943,10 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1079784895}
+    - target: {fileID: 6835854930249545819, guid: 4e3de6fc0ade8c9418f919acf62cd0f5, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7012467406065102156, guid: 4e3de6fc0ade8c9418f919acf62cd0f5, type: 3}
       propertyPath: m_Name
       value: Gameplay
@@ -978,6 +994,18 @@ PrefabInstance:
     - target: {fileID: 7012467406065102159, guid: 4e3de6fc0ade8c9418f919acf62cd0f5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162681616670296667, guid: 4e3de6fc0ade8c9418f919acf62cd0f5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162681616670296667, guid: 4e3de6fc0ade8c9418f919acf62cd0f5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162681616670296667, guid: 4e3de6fc0ade8c9418f919acf62cd0f5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8650284164027742237, guid: 4e3de6fc0ade8c9418f919acf62cd0f5, type: 3}
       propertyPath: m_Materials.Array.data[0]

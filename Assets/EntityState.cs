@@ -134,6 +134,7 @@ public class EntityState : MonoBehaviour
     private void Awake ()
     {
         Health = maxHealth;
+        Shield = maxShield;
         Speed = speed;
         JumpHeight = jumpHeight;
         Gravity = gravity;
@@ -141,6 +142,6 @@ public class EntityState : MonoBehaviour
 
     private void Start ()
     {
-        OriginalStats = new EntityStats(maxHealth, speed, jumpHeight, gravity, projectileState);
+        OriginalStats = new EntityStats(maxHealth, maxShield, speed, jumpHeight, gravity, projectileState);
     }
 }

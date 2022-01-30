@@ -7,9 +7,12 @@ using UnityEngine;
 
 namespace Game.Common.Areas
 {
-    public class OrderStatHandler : MonoBehaviour, IStatProvider, IStatMutator
+    public class OrderStatHandler : MonoBehaviour, IStatProvider, IStatMutator, IStatUpdater
     {
         private static readonly Stat[] AllStats = Enum.GetValues(typeof(Stat)).Cast<Stat>().ToArray();
+
+        [SerializeField]
+        private float shieldRegenPerUpdate;
 
         public Stat GetStat (EntityState entityState)
         {
@@ -50,12 +53,14 @@ namespace Game.Common.Areas
                         if (!Mathf.Approximately(originalProjectileState.Spread, entityState.ProjectileState.Spread))
                             return Stat.ProjectileSpread;
                         break;
+                    case Stat.None:
+                        break;
                     default:
                         throw new ArgumentOutOfRangeException(nameof(stat), stat, $"Encountered unknown {typeof(Stat)}: {stat.ToString()}");
                 }
             }
 
-            throw new DataException($"There's no stats defined for {typeof(Stat)}");
+            return Stat.None;
         }
 
         public float Mutate (EntityState entityState, Stat stat, float value, float min, float max, float rate)
@@ -83,6 +88,11 @@ namespace Game.Common.Areas
                 default:
                     throw new ArgumentOutOfRangeException(nameof(stat), stat, $"Encountered unknown {typeof(Stat)}: {stat.ToString()}");
             }
+        }
+
+        public void UpdateStats (EntityState entityState)
+        {
+            entityState.Shield += shieldRegenPerUpdate;
         }
     }
 }

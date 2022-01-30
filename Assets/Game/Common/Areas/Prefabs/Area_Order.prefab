@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Area_Order
       objectReference: {fileID: 0}
+    - target: {fileID: 5907333021617120509, guid: 6cf28233c3e712544bfe5c00559d3122, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 08a20ca697d030d43a58716f860d3858, type: 2}
     - target: {fileID: 7436980919435856204, guid: 6cf28233c3e712544bfe5c00559d3122, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -55,13 +59,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8510976727620139304, guid: 6cf28233c3e712544bfe5c00559d3122, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 953c31281a2f30743ae1fc1a2a8f046d, type: 2}
     - target: {fileID: 8840307368704143366, guid: 6cf28233c3e712544bfe5c00559d3122, type: 3}
       propertyPath: damageRate
       value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 8840307368704143366, guid: 6cf28233c3e712544bfe5c00559d3122, type: 3}
+      propertyPath: updateRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8840307368704143366, guid: 6cf28233c3e712544bfe5c00559d3122, type: 3}
       propertyPath: mutationRate
       value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8960045431493032714, guid: 6cf28233c3e712544bfe5c00559d3122, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b3bbe8af5ac81fa4fb035e1b25047712, type: 2}
+    - target: {fileID: 9176670869883943073, guid: 6cf28233c3e712544bfe5c00559d3122, type: 3}
+      propertyPath: offsetSpeedX.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9176670869883943073, guid: 6cf28233c3e712544bfe5c00559d3122, type: 3}
+      propertyPath: offsetSpeedX.m_Curve.Array.data[1].value
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cf28233c3e712544bfe5c00559d3122, type: 3}
@@ -82,3 +106,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5b5231d0c944d07b7c104849dd831e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shieldRegenPerUpdate: 1

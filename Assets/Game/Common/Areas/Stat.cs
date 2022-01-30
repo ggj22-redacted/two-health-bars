@@ -2,6 +2,7 @@
 {
     public enum Stat
     {
+        None,
         Speed,
         JumpHeight,
         Gravity,

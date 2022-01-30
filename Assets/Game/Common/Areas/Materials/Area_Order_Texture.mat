@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Area_Chaos_Inside 1
+  m_Name: Area_Order_Texture
   m_Shader: {fileID: 4800000, guid: 1bc9862672a74b2f81aa23a4b16b313b, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -40,9 +40,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 34b0f8f2123367c40b16a9867b7f39e1, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+        m_Texture: {fileID: 2800000, guid: 563365d113ab5f3469e919afe41346d3, type: 3}
+        m_Scale: {x: 32, y: -8}
+        m_Offset: {x: 0, y: 8.29}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -74,6 +74,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.41762823, g: 0.015574936, b: 0.6603774, a: 0.7647059}
+    - _Color: {r: 1, g: 0.92769754, b: 0.48584908, a: 0.7647059}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

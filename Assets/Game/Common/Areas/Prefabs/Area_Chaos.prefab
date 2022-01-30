@@ -72,6 +72,10 @@ PrefabInstance:
       value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 8840307368704143366, guid: 6cf28233c3e712544bfe5c00559d3122, type: 3}
+      propertyPath: updateRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8840307368704143366, guid: 6cf28233c3e712544bfe5c00559d3122, type: 3}
       propertyPath: mutationRate
       value: 0.75
       objectReference: {fileID: 0}
@@ -98,3 +102,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d770f735604b5a8754868a6f4ec75d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shieldDecayPerUpdate: 1

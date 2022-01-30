@@ -10,6 +10,9 @@ namespace Game.Common.Entities
         [SerializeField]
         private int maxHealth = 100;
 
+        [SerializeField]
+        private int maxShield = 100;
+
         [Header("Movement")]
         [SerializeField]
         private float speed = 1;
@@ -26,6 +29,8 @@ namespace Game.Common.Entities
 
         public int MaxHealth => maxHealth;
 
+        public int MaxShield => maxShield;
+
         public float Speed => speed;
 
         public float JumpHeight => jumpHeight;
@@ -34,7 +39,7 @@ namespace Game.Common.Entities
 
         public ProjectileState ProjectileState => projectileState;
 
-        public EntityStats (int maxHealth, float speed, float jumpHeight, float gravity, ProjectileState projectileState)
+        public EntityStats (int maxHealth, int maxShield, float speed, float jumpHeight, float gravity, ProjectileState projectileState)
         {
             this.maxHealth = maxHealth;
             this.speed = speed;

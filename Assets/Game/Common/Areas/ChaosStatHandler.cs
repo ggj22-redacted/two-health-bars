@@ -5,9 +5,12 @@ using Random = System.Random;
 
 namespace Game.Common.Areas
 {
-    public class ChaosStatHandler : MonoBehaviour, IStatProvider, IStatMutator
+    public class ChaosStatHandler : MonoBehaviour, IStatProvider, IStatMutator, IStatUpdater
     {
         private static readonly Stat[] AllStats = Enum.GetValues(typeof(Stat)).Cast<Stat>().ToArray();
+
+        [SerializeField]
+        private float shieldDecayPerUpdate;
 
         private readonly Random _random = new Random();
 
@@ -26,6 +29,11 @@ namespace Game.Common.Areas
             value = Mathf.Clamp(value, min, max);
 
             return value;
+        }
+
+        public void UpdateStats (EntityState entityState)
+        {
+            entityState.Shield -= shieldDecayPerUpdate;
         }
     }
 }

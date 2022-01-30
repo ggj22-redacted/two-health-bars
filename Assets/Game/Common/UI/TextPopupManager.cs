@@ -27,7 +27,8 @@ public class TextPopupManager : MonoBehaviour
     }
 
     void OnStatUpdated(Stat stat, float amount) {
-        StartCoroutine(SpawnTextPopup(stat, amount));
+        if (stat != Stat.None)
+            StartCoroutine(SpawnTextPopup(stat, amount));
     }
 
     IEnumerator SpawnTextPopup(Stat stat, float amount) {

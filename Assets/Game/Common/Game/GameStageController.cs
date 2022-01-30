@@ -11,7 +11,7 @@ namespace Game.Common.Game
 
         [Inject]
         private AreaSystem _areaSystem;
-        
+
         [Inject]
         private GameStateSystem _gameStateSystem;
 

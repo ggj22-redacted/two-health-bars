@@ -108,6 +108,8 @@ namespace Game.Common.Areas
 
         public EntityState EntityState { get; set; }
 
+        public bool CanBeDestroyed { get; set; } = true;
+
         private void OnTriggerEnter (Collider other)
         {
             EntityState = other.GetComponent<EntityState>();

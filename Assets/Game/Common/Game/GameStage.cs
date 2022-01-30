@@ -49,6 +49,7 @@ namespace Game.Common.Game
         private void Awake ()
         {
             Area = GetComponent<Area>();
+            Area.CanBeDestroyed = false;
         }
 
         private void OnDestroy ()

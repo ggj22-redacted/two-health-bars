@@ -40,9 +40,13 @@ namespace Game.Common.Areas
 
         public void ResetAllAreas ()
         {
-            foreach (var area in _areas)
+            foreach (var area in _areas) {
+                if (!area.CanBeDestroyed)
+                    return;
+
+                _areas.Remove(area);
                 Destroy(area.gameObject);
-            _areas.Clear();
+            }
         }
 
         public void AddArea(Area area)

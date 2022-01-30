@@ -165,9 +165,9 @@ MonoBehaviour:
   projectileFireRateMin: 0.5
   projectileFireRateMax: 20
   projectileFireRateMutationDelta: 0.05
-  projectileSpreadMin: 0.03
+  projectileSpreadMin: 0.01
   projectileSpreadMax: 0.3
-  projectileSpreadMutationDelta: 0.03
+  projectileSpreadMutationDelta: 0.015
 --- !u!1 &2527533925621259193
 GameObject:
   m_ObjectHideFlags: 0

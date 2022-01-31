@@ -9,7 +9,6 @@
     }
 
     HLSLINCLUDE
-
     #include "UnityCG.cginc"
 
     sampler2D _MainTex;
@@ -46,18 +45,20 @@
         uv = floor(uv * 256) / 256;
         half4 c = tex2D(_MainTex, uv);
         c = floor(c * 16) / 16;
-        UNITY_APPLY_FOG(input.fogCoord, c);
         c.rgba *= _Color;
+        UNITY_APPLY_FOG(input.fogCoord, c);
         return c;
     }
-
     ENDHLSL
 
     SubShader
     {
         Pass
         {
-            Tags { "Queue" = "Transparent" "LightMode" = "Transparent" "IgnoreProjector" = "True" "RenderType" = "Transparent" }
+            Tags
+            {
+                "Queue" = "Transparent" "LightMode" = "Transparent" "IgnoreProjector" = "True" "RenderType" = "Transparent"
+            }
             Cull [_Cull]
             ZWrite off
             Blend SrcAlpha OneMinusSrcAlpha

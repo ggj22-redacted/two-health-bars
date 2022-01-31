@@ -278,17 +278,18 @@ MonoBehaviour:
   jumpHeight: 3.5
   gravity: -98
   projectileState:
-    material: {fileID: 2100000, guid: 2b68ec13d67e5a34baa8a6ef252ce28d, type: 2}
     damage: 25
     fireRate: 10
     speed: 50
     size: 0
     count: 0
-    range: 0
+    range: 50
     spread: 0.05
     lifetime: 1
+    layer: PlayerProjectiles
     shootClip: {fileID: 8300000, guid: 1595bce82c0792940895b971a6a4f5ef, type: 3}
     hitClip: {fileID: 8300000, guid: 990b9b116538dcf4da23be493e45d336, type: 3}
+    material: {fileID: 2100000, guid: 2b68ec13d67e5a34baa8a6ef252ce28d, type: 2}
   projectileGunBarrel: {fileID: 7773768968944697273}
 --- !u!114 &8077003878407321782
 MonoBehaviour:

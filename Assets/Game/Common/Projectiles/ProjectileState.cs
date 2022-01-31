@@ -6,8 +6,6 @@ namespace Game.Common.Projectiles
     [Serializable]
     public struct ProjectileState
     {
-        public Material material;
-
         [SerializeField]
         private float damage;
 
@@ -33,10 +31,16 @@ namespace Game.Common.Projectiles
         private float lifetime;
 
         [SerializeField]
+        private string layer;
+
+        [SerializeField]
         private AudioClip shootClip;
 
         [SerializeField]
         private AudioClip hitClip;
+
+        [SerializeField]
+        private Material material;
 
         public float Damage
         {
@@ -86,6 +90,12 @@ namespace Game.Common.Projectiles
             set => lifetime = value;
         }
 
+        public string Layer
+        {
+            get => layer;
+            set => layer = value;
+        }
+
         public AudioClip ShootClip
         {
             get => shootClip;
@@ -96,6 +106,12 @@ namespace Game.Common.Projectiles
         {
             get => hitClip;
             set => hitClip = value;
+        }
+
+        public Material Material
+        {
+            get => material;
+            set => material = value;
         }
     }
 }

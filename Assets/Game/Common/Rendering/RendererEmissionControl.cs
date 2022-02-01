@@ -15,6 +15,20 @@ namespace Game.Common.Rendering
         [SerializeField, Range(-10, 10)]
         private float intensity;
 
+        [SerializeField]
+        private bool setOnAwake;
+
+        private void Awake()
+        {
+            if (!referenceRenderer)
+            {
+                referenceRenderer = GetComponentInChildren<Renderer>();
+            }
+
+            if (setOnAwake)
+                SetEmission();
+        }
+
         private void OnValidate()
         {
             if (Application.isPlaying)

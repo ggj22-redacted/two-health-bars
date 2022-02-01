@@ -55,16 +55,20 @@ namespace Retro3D
                 ScriptableCullingParameters scp;
                 camera.TryGetCullingParameters(out scp);
                 var culled = context.Cull(ref scp);
-                
+
                 //// Render visible objects that has "Base" light mode tag.
                 var sorting = new SortingSettings(camera);
                 var settings = new DrawingSettings(new ShaderTagId("Base"), sorting);
                 var filter = FilteringSettings.defaultValue;
+                filter.renderQueueRange = RenderQueueRange.opaque;
                 context.DrawRenderers(culled, ref settings, ref filter);
-                
+
+                context.DrawSkybox(camera);
+
                 sorting = new SortingSettings(camera);
                 settings = new DrawingSettings(new ShaderTagId("Transparent"), sorting);
                 filter = FilteringSettings.defaultValue;
+                //filter.renderQueueRange = RenderQueueRange.transparent;
                 context.DrawRenderers(culled, ref settings, ref filter);
 
                 // Blit the render result to the camera destination.
@@ -75,7 +79,6 @@ namespace Retro3D
                 
                 context.Submit();
             }
-
         }
     }
 }

@@ -5,6 +5,7 @@
         _MainTex("Texture", 2D) = "white" {}
         _Scale("Scale", Vector) = (1, 1, 0, 0)
         _Color("Tint", Color) = (0.5, 0.5, 0.5)
+        [Gamma] _Exposure ("Exposure", Range(0, 8)) = 1.0
         [HDR] _Emission("Color", Color) = (0, 0, 0)
         [Toggle] _useAffineTextureWarping ("Use Affine Texture Warping", Float) = 1
         [Enum(UnityEngine.Rendering.CullMode)] _Cull ("Cull", Float) = 0
@@ -21,6 +22,7 @@
     float4 _MainTex_ST;
     float2 _Scale;
     half3 _Color;
+    half _Exposure;
     fixed4 _Emission;
     uniform float _CutOff;
 
@@ -64,7 +66,7 @@
         c = floor(c * 16) / 16;
         if (c.a < _CutOff)
             discard;
-        c.rgb *= _Color;
+        c.rgb *= _Color * _Exposure;
         c.rgb += _Emission;
         UNITY_APPLY_FOG(input.fogCoord, c);
         return c;

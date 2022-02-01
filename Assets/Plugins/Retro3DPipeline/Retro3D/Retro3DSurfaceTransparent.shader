@@ -5,6 +5,7 @@
         _MainTex("Texture", 2D) = "white" {}
         //_MainTex ("Color (RGB) Alpha (A)", 2D) = "white" {}
         _Color("Tint", Color) = (0.5, 0.5, 0.5, 1)
+        [HDR] _Emission("Color", Color) = (0, 0, 0)
         [Enum(UnityEngine.Rendering.CullMode)] _Cull ("Cull", Float) = 0
     }
 
@@ -14,6 +15,7 @@
     sampler2D _MainTex;
     float4 _MainTex_ST;
     half4 _Color;
+    fixed4 _Emission;
 
     struct Attributes
     {
@@ -46,6 +48,7 @@
         half4 c = tex2D(_MainTex, uv);
         c = floor(c * 16) / 16;
         c.rgba *= _Color;
+        c.rgb += _Emission;
         UNITY_APPLY_FOG(input.fogCoord, c);
         return c;
     }

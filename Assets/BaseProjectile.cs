@@ -42,8 +42,6 @@ public class BaseProjectile : MonoBehaviour
     private void Awake()
     {
         _random = new Random(Guid.NewGuid().GetHashCode());
-
-        referenceRenderer = GetComponent<ParticleSystemRenderer>();
     }
 
     private void OnTriggerEnter(Collider other)

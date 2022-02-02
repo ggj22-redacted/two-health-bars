@@ -24,6 +24,9 @@ namespace Game.Common.Enemies
         [SerializeField, Range(0, 1)]
         private float accuracy;
 
+        [SerializeField, Range(1, 10)]
+        private float aimingSpeed;
+
         private Vector3 _previousTargetPosition;
 
         private Vector3 _previousPredictedPosition;
@@ -103,7 +106,9 @@ namespace Game.Common.Enemies
             Vector3 predictedTargetPosition = GetPredictedTargetPosition(targetPosition, position, velocity, entityState.ProjectileState.Speed);
 
             Vector3 lookPosition = Vector3.LerpUnclamped(targetPosition, predictedTargetPosition, accuracy);
-            referenceTransform.rotation = Quaternion.LookRotation(lookPosition - position);
+            Quaternion targetRotation = Quaternion.LookRotation(lookPosition - position);
+            referenceTransform.rotation =
+                Quaternion.LerpUnclamped(referenceTransform.rotation, targetRotation, Time.deltaTime * aimingSpeed);
 
             //UpdateAccuracy(_previousTargetPosition, targetPosition, predictedTargetPosition);
 

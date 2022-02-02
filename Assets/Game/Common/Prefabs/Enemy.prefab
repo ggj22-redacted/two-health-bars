@@ -559,7 +559,9 @@ MonoBehaviour:
   movementControl: {fileID: 649326040917789296}
   minDistance: 12
   maxDistance: 15
-  accuracy: 0.3
+  accuracy: 1
+  aimingSpeed: 7.5
+  maximumShotLeadingDistance: 6
 --- !u!114 &4883816064271281742
 MonoBehaviour:
   m_ObjectHideFlags: 0

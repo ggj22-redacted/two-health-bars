@@ -15,9 +15,6 @@ namespace Game.Common.Entities
         private Transform respawnPosition;
 
         [SerializeField]
-        private float respawnDelay;
-
-        [SerializeField]
         private float restartDelay;
 
         [Inject]
@@ -25,13 +22,11 @@ namespace Game.Common.Entities
 
         private void OnEnable()
         {
-            entityState.OnDied += RestartOnDeath;
             _gameStateSystem.OnTimerEnd += RestartOnTimerEnd;
         }
 
         private void OnDisable()
         {
-            entityState.OnDied -= RestartOnDeath;
             _gameStateSystem.OnTimerEnd -= RestartOnTimerEnd;
         }
 
@@ -40,23 +35,26 @@ namespace Game.Common.Entities
             entityState.Health -= float.MaxValue;
         }
 
-        private async void RestartOnDeath (EntityState state)
+        public async void RestartStage ()
         {
-            await UniTask.Delay(TimeSpan.FromSeconds(respawnDelay));
-
             if (!entityState || !_gameStateSystem)
                 return;
 
             _gameStateSystem.StopRound();
 
-            entityState.transform.position = respawnPosition.position;
-            entityState.gameObject.SetActive(true);
-            entityState.ResetStats();
+            Respawn(entityState);
 
             await UniTask.Delay(TimeSpan.FromSeconds(restartDelay));
 
             if (_gameStateSystem)
                 _gameStateSystem.RestartRound();
+        }
+
+        private void Respawn(EntityState entity)
+        {
+            entity.transform.position = respawnPosition.position;
+            entity.gameObject.SetActive(true);
+            entity.ResetStats();
         }
     }
 }

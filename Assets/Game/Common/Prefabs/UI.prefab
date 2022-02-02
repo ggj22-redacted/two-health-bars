@@ -1758,6 +1758,7 @@ GameObject:
   - component: {fileID: 4615153271573772208}
   - component: {fileID: 4615153271573772215}
   - component: {fileID: 4615153271573772209}
+  - component: {fileID: 1527167915611028970}
   - component: {fileID: 4357925838356970}
   m_Layer: 5
   m_Name: UI
@@ -1838,6 +1839,23 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 0
+--- !u!114 &1527167915611028970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4615153271573772214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!114 &4357925838356970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2492,8 +2510,8 @@ GameObject:
   - component: {fileID: 351933335742245418}
   - component: {fileID: 4664814196682734587}
   - component: {fileID: 2591253905253407650}
-  - component: {fileID: 4592011570991605119}
   - component: {fileID: 626008197117921523}
+  - component: {fileID: 4592011570991605119}
   m_Layer: 5
   m_Name: DeathScreen
   m_TagString: Untagged
@@ -2622,6 +2640,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &626008197117921523
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5914872851349120577}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!114 &4592011570991605119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2635,20 +2665,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToShow: 2
-  textMessage: {fileID: 0}
-  buttonCanvasGroup: []
---- !u!225 &626008197117921523
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5914872851349120577}
-  m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
+  textLabel: {fileID: 4811300476997909511}
+  buttonsCanvasGroups:
+  - {fileID: 7695761024305317610}
+  - {fileID: 3725626595642672337}
+  backButton: {fileID: 0}
+  restartButton: {fileID: 4002014764336690658}
 --- !u!1 &7539861211807927507
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,116 +1,129 @@
 using System.Collections;
-using System.Collections.Generic;
+using Game.Common.Entities;
+using TMPro;
 using UnityEngine;
-using Zenject;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using Zenject;
 
-public class DeathMessage : MonoBehaviour
+namespace Game.Common.UI
 {
-    [Inject]
-    EntityState playerState;
-
-    //playerState.OnDied+=  
-
-    private CanvasGroup screenCanvasGroup;
-    private bool activeScreen;
-    private float timeElapsed;
-    public float timeToShow;
-    public TMPro.TextMeshProUGUI textMessage;
-    public CanvasGroup[] buttonCanvasGroup;
-
-    private void Awake()
+    public class DeathMessage : MonoBehaviour
     {
-        screenCanvasGroup = gameObject.GetComponent<CanvasGroup>();
-        activeScreen = false;
-        timeElapsed = 0;
-        textMessage = gameObject.GetComponentInChildren<TMPro.TextMeshProUGUI>();
-        buttonCanvasGroup = gameObject.GetComponentsInChildren<CanvasGroup>();
-    }
+        [Header("Settings")]
+        [SerializeField]
+        private float timeToShow;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+        [SerializeField]
+        private TMP_Text textLabel;
 
-    }
+        [Header("Buttons")]
+        [SerializeField]
+        private CanvasGroup[] buttonsCanvasGroups;
 
-    private void OnEnable()
-    {
-        playerState.OnDied += ActivateScreen;
-        playerState.OnRespawned += DeActivateScreen;
-    }
+        [SerializeField]
+        private Button backButton;
 
-    private void OnDisable()
-    {
-        playerState.OnDied -= ActivateScreen;
-        playerState.OnRespawned -= DeActivateScreen;
-    }
+        [SerializeField]
+        private Button restartButton;
 
-    string ChooseMessage(string sceneName)
-    {
-        string message = "Death Comes\n";
+        [Inject]
+        private EntityState _playerState;
 
-        switch (sceneName)
+        [Inject]
+        private EntityRespawner _entityRespawner;
+
+        private CanvasGroup _screenCanvasGroup;
+
+        private bool _activeScreen;
+
+        private float _timeElapsed;
+
+        private static string ChooseMessage (string sceneName)
         {
-            case "ChaosScene":
-                message = message + "! Order Reigns Supreme !";
-                break;
-            case "OrderScene":
-                message = message + "! Chaos Consumes All !";
-                break;
+            string message = "Death Comes\n";
+
+            switch (sceneName) {
+                case "ChaosScene":
+                    message += "! Order Reigns Supreme !";
+                    break;
+                case "OrderScene":
+                    message += "! Chaos Consumes All !";
+                    break;
+            }
+
+            return message;
         }
 
-        return message;
-    }
-
-    void DeActivateScreen(EntityState state)
-    {
-        screenCanvasGroup.alpha = 0f;
-        timeElapsed = 0;
-        for (int x= 0; x < buttonCanvasGroup.Length; x++)
+        private void Awake ()
         {
-            buttonCanvasGroup[x].alpha = 0;
-            buttonCanvasGroup[x].interactable = false;
+            _screenCanvasGroup = gameObject.GetComponent<CanvasGroup>();
+            textLabel = gameObject.GetComponentInChildren<TMP_Text>();
+            buttonsCanvasGroups = gameObject.GetComponentsInChildren<CanvasGroup>();
+
+            _activeScreen = false;
+            _timeElapsed = 0;
         }
-    }
 
-    void ActivateScreen(EntityState state)
-    {
-        activeScreen = true;
-        textMessage.text = ChooseMessage(SceneManager.GetActiveScene().name);
-        StartCoroutine(ShowButtons(timeToShow));
-    }
-
-    IEnumerator ShowButtons(float time)
-    {
-        yield return new WaitForSeconds(time);
-        for (int x = 0; x < buttonCanvasGroup.Length; x++)
+        private void OnEnable ()
         {
-            buttonCanvasGroup[x].alpha = 1;
-            buttonCanvasGroup[x].interactable = true;
+            _playerState.OnDied += ActivateScreen;
+            _playerState.OnRespawned += DeactivateScreen;
+            restartButton.onClick.AddListener(RestartStage);
         }
-    }
 
-    void ShowCanvas()
-    {
-        if (screenCanvasGroup.alpha < 1)
+        private void OnDisable ()
         {
-            screenCanvasGroup.alpha = (Mathf.Lerp(0f, 1f, timeElapsed/timeToShow));
-            timeElapsed += Time.deltaTime;
-
+            _playerState.OnDied -= ActivateScreen;
+            _playerState.OnRespawned -= DeactivateScreen;
+            restartButton.onClick.RemoveListener(RestartStage);
         }
-        else
-        {
-            activeScreen = false;
-        }
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (activeScreen)
+        private void Update ()
         {
-            ShowCanvas();
+            if (_activeScreen)
+                ShowCanvas();
+        }
+
+        private void ShowCanvas ()
+        {
+            if (_screenCanvasGroup.alpha < 1) {
+                _screenCanvasGroup.alpha = Mathf.Lerp(0f, 1f, _timeElapsed / timeToShow);
+                _timeElapsed += Time.deltaTime;
+            } else {
+                _activeScreen = false;
+            }
+        }
+
+        private void ActivateScreen (EntityState state)
+        {
+            _activeScreen = true;
+            textLabel.text = ChooseMessage(SceneManager.GetActiveScene().name);
+            StartCoroutine(ShowButtons(timeToShow));
+        }
+
+        private void DeactivateScreen (EntityState state)
+        {
+            _screenCanvasGroup.alpha = 0f;
+            _timeElapsed = 0;
+            foreach (CanvasGroup canvasGroup in buttonsCanvasGroups) {
+                canvasGroup.alpha = 0;
+                canvasGroup.interactable = false;
+            }
+        }
+
+        private IEnumerator ShowButtons (float time)
+        {
+            yield return new WaitForSeconds(time);
+            foreach (CanvasGroup canvasGroup in buttonsCanvasGroups) {
+                canvasGroup.alpha = 1;
+                canvasGroup.interactable = true;
+            }
+        }
+
+        private void RestartStage ()
+        {
+            _entityRespawner.RestartStage();
         }
     }
 }

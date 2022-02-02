@@ -1,7 +1,9 @@
 using System.Collections;
 using System;
 using System.Collections.Generic;
+using Game.Common.Game;
 using UnityEngine;
+using Zenject;
 
 public class ProjectileSystem : MonoBehaviour
 {
@@ -12,6 +14,9 @@ public class ProjectileSystem : MonoBehaviour
 
     [SerializeField]
     private int maxInstantiationsPerFrame = 10;
+
+    [Inject]
+    private EntityState _playerState;
 
     private BaseProjectile[] _projectilePool;
 
@@ -25,6 +30,16 @@ public class ProjectileSystem : MonoBehaviour
         _projectilePool = new BaseProjectile[maxGameProjectiles];
 
         StartCoroutine(InstantiatePool(_projectilePool, projectilePrefab));
+    }
+
+    private void OnEnable ()
+    {
+        _playerState.OnRespawned += DisableAllProjectiles;
+    }
+
+    private void OnDisable ()
+    {
+        _playerState.OnRespawned -= DisableAllProjectiles;
     }
 
     private IEnumerator InstantiatePool (IList<BaseProjectile> pool, BaseProjectile projectilePrefab)
@@ -43,6 +58,13 @@ public class ProjectileSystem : MonoBehaviour
 
             currentInstantiations = 0;
             yield return null;
+        }
+    }
+
+    private void DisableAllProjectiles (EntityState entityState)
+    {
+        foreach (BaseProjectile projectile in _projectilePool) {
+            projectile.gameObject.SetActive(false);
         }
     }
 

@@ -272,7 +272,8 @@ namespace StarterAssets
 					if (_hasAnimator)
 					{
 						_animator.SetTrigger(_animIDJump);
-					}
+                        _input.jump = false;
+                    }
 				}
 
 				// jump timeout

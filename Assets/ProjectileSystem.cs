@@ -1,7 +1,6 @@
 using System.Collections;
 using System;
 using System.Collections.Generic;
-using Game.Common.Game;
 using UnityEngine;
 using Zenject;
 
@@ -20,8 +19,12 @@ public class ProjectileSystem : MonoBehaviour
 
     private BaseProjectile[] _projectilePool;
 
-    private static void DisableProjectile (BaseProjectile projectile, Collider targetHit)
+    private static async void PoolProjectile (BaseProjectile projectile, Collider targetHit)
     {
+        projectile.Hide();
+
+        await projectile.PostHitTask;
+
         projectile.gameObject.SetActive(false);
     }
 
@@ -47,7 +50,7 @@ public class ProjectileSystem : MonoBehaviour
         int currentInstantiations = 0;
         for (int i = 0; i < pool.Count; i++) {
             BaseProjectile projectile = Instantiate(projectilePrefab);
-            projectile.OnProjectileHit += DisableProjectile;
+            projectile.OnProjectileHit += PoolProjectile;
 
             projectile.gameObject.SetActive(false);
 

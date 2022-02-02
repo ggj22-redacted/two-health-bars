@@ -1,4 +1,6 @@
 using System;
+using Cysharp.Threading.Tasks;
+using Game.Common.Areas;
 using Game.Common.Projectiles;
 using UnityEngine;
 using UnityEngine.Events;
@@ -35,6 +37,8 @@ public class BaseProjectile : MonoBehaviour
 
     public ProjectileState State { get; private set; }
 
+    public UniTask PostHitTask { get; private set; } = UniTask.CompletedTask;
+
     private bool IsLifetimeReached => Time.time - _startMoment >= State.Lifetime;
 
     private bool IsRangeReached => (transform.position - _startPosition).sqrMagnitude >= State.Range * State.Range;
@@ -53,7 +57,15 @@ public class BaseProjectile : MonoBehaviour
         if (hittables.Length > 0)
             onHit.Invoke();
 
+        if (State.HitClip)
+            PostHitTask = UniTask.Delay(TimeSpan.FromSeconds(State.HitClip.length), true);
+
         OnProjectileHit?.Invoke(this, other);
+    }
+
+    public void Hide ()
+    {
+        referenceRenderer.enabled = false;
     }
 
     public void Shoot (ProjectileState state, Vector3 position, Vector3 direction, string layer)
@@ -67,7 +79,9 @@ public class BaseProjectile : MonoBehaviour
         State = state;
 
         shootAudioSource.clip = state.ShootClip;
+        shootAudioSource.Stop();
         hitAudioSource.clip = state.HitClip;
+        hitAudioSource.Stop();
 
         transform.position = position;
         transform.localScale = new Vector3(State.Size,State.Size,State.Size) * .5f;
@@ -77,7 +91,10 @@ public class BaseProjectile : MonoBehaviour
         direction.y += ((float)_random.NextDouble() * 2 - 1) * State.Spread;
         referenceRigidbody.AddForce(direction.normalized * State.Speed, ForceMode.VelocityChange);
 
+        referenceRenderer.enabled = true;
         referenceRenderer.sharedMaterial = state.Material;
+
+        PostHitTask = UniTask.CompletedTask;
 
         onShoot.Invoke();
     }

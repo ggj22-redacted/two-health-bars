@@ -73,7 +73,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8840307368704143366, guid: 6cf28233c3e712544bfe5c00559d3122, type: 3}
       propertyPath: updateRate
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8840307368704143366, guid: 6cf28233c3e712544bfe5c00559d3122, type: 3}
       propertyPath: mutationRate

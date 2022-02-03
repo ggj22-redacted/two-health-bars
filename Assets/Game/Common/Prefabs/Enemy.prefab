@@ -509,7 +509,7 @@ GameObject:
   - component: {fileID: 2346318290771199967}
   - component: {fileID: 4883816064271281742}
   m_Layer: 11
-  m_Name: PlayerDetector
+  m_Name: EnemyControl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -559,9 +559,8 @@ MonoBehaviour:
   movementControl: {fileID: 649326040917789296}
   minDistance: 12
   maxDistance: 15
-  accuracy: 1
-  aimingSpeed: 7.5
-  maximumShotLeadingDistance: 6
+  accuracy: 0.5
+  aimingSpeed: 4
 --- !u!114 &4883816064271281742
 MonoBehaviour:
   m_ObjectHideFlags: 0

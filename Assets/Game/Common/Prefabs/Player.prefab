@@ -289,7 +289,7 @@ MonoBehaviour:
     lifetime: 1
     layer: PlayerProjectiles
     shootClip: {fileID: 8300000, guid: 1595bce82c0792940895b971a6a4f5ef, type: 3}
-    hitClip: {fileID: 8300000, guid: 990b9b116538dcf4da23be493e45d336, type: 3}
+    hitClip: {fileID: 8300000, guid: 9a0dbd56bd03ee840a0ba9cf4aa19c54, type: 3}
     material: {fileID: 2100000, guid: 2b68ec13d67e5a34baa8a6ef252ce28d, type: 2}
   projectileGunBarrel: {fileID: 7773768968944697273}
 --- !u!114 &8077003878407321782
@@ -335,6 +335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityState: {fileID: 3664297256592486292}
+  onHitSound: {fileID: 0}
 --- !u!114 &4243004093699811840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5637,7 +5638,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6703358945840600654}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0049, y: 0, z: -0.0076}
+  m_LocalPosition: {x: -0.0049, y: 0, z: -0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3733437605316695519}
@@ -5895,7 +5896,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.7
+      scalar: 0.85
       minScalar: 1
       maxCurve:
         serializedVersion: 2

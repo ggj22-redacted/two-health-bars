@@ -36,7 +36,7 @@ Transform:
   - {fileID: 6186538496524922694}
   - {fileID: 1480447116095521700}
   - {fileID: 6347872682130527580}
-  - {fileID: 2671714842021524031}
+  - {fileID: 5295286388204659485}
   - {fileID: 7620543297625293673}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -155,6 +155,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f55ed0fa0645b6a80bd299ceeb878b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1215680405467338042
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5295286388204659485}
+  m_Layer: 0
+  m_Name: ModelContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5295286388204659485
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215680405467338042}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2671714842021524031}
+  m_Father: {fileID: 5195862383388780044}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1479241155771889797
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,14 +488,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3969788955585692825}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 19267364848910656}
   - {fileID: 3621154122113370029}
-  m_Father: {fileID: 5195862383388780044}
-  m_RootOrder: 3
+  m_Father: {fileID: 5295286388204659485}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4732960732282578445
 GameObject:
@@ -554,7 +585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 495e685b3a9542f1a7cdb060f1652f6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  referenceTransform: {fileID: 2671714842021524031}
+  referenceTransform: {fileID: 5295286388204659485}
   entityState: {fileID: 9137870335550141098}
   movementControl: {fileID: 649326040917789296}
   minDistance: 12

@@ -123,8 +123,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allowfire: 1
-  maxHealth: 100
-  maxShield: 100
+  maxHealth: 10
+  maxShield: 5
   speed: 1
   accelerationFactor: 1
   jumpHeight: 1
@@ -135,7 +135,7 @@ MonoBehaviour:
     speed: 15
     size: 3
     count: 0
-    range: 50
+    range: 30
     spread: 0.05
     lifetime: 5
     layer: EnemyProjectiles

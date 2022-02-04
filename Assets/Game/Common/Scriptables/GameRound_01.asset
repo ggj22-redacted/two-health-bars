@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameRound:
     duration: 120
-    enemyCount: 20
+    enemyCount: 10
     enemyType: {fileID: 11400000, guid: c92682749dc090a4dac10372e4a1e3ca, type: 2}

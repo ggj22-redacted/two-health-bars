@@ -91,8 +91,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26e54e5a728a9234ab24fcf1460ed8a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 12
-  SprintSpeed: 12
+  MoveSpeed: 10
+  SprintSpeed: 10
   RotationSmoothTime: 0.25
   SpeedChangeRate: 5
   JumpHeight: 3.5
@@ -273,20 +273,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allowfire: 1
   maxHealth: 100
-  maxShield: 100
-  speed: 12
+  maxShield: 30
+  speed: 10
   accelerationFactor: 0.5
   jumpHeight: 3.5
   gravity: -98
   projectileState:
-    damage: 25
-    fireRate: 10
-    speed: 50
+    damage: 5
+    fireRate: 5
+    speed: 20
     size: 1
     count: 0
     range: 50
     spread: 0.05
-    lifetime: 1
+    lifetime: 80
     layer: PlayerProjectiles
     shootClip: {fileID: 8300000, guid: 1595bce82c0792940895b971a6a4f5ef, type: 3}
     hitClip: {fileID: 8300000, guid: 9a0dbd56bd03ee840a0ba9cf4aa19c54, type: 3}

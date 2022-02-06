@@ -137,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9137870335550141098, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
       propertyPath: projectileState.size
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9137870335550141098, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
       propertyPath: projectileState.speed

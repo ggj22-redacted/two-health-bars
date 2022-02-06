@@ -95,10 +95,10 @@ MonoBehaviour:
   SprintSpeed: 10
   RotationSmoothTime: 0.25
   SpeedChangeRate: 5
-  JumpHeight: 3.5
-  Gravity: -98
+  JumpHeight: 2
+  Gravity: -49.8
   JumpTimeout: 0
-  FallTimeout: 0.15
+  FallTimeout: 0.1
   Grounded: 1
   GroundedOffset: -0.14
   GroundedRadius: 0.28
@@ -276,15 +276,15 @@ MonoBehaviour:
   maxShield: 30
   speed: 10
   accelerationFactor: 0.5
-  jumpHeight: 3.5
-  gravity: -98
+  jumpHeight: 2
+  gravity: -49.8
   projectileState:
     damage: 5
-    fireRate: 5
-    speed: 20
-    size: 1
+    fireRate: 3
+    speed: 50
+    size: 0.75
     count: 0
-    range: 50
+    range: 20
     spread: 0.05
     lifetime: 80
     layer: PlayerProjectiles

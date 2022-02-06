@@ -58,6 +58,11 @@ namespace StarterAssets
         {
             SprintInput(value.isPressed);
         }
+
+        public void OnPause(InputValue value)
+        {
+            PauseResumeGame();
+        }
 #else
 	// old input sys if we do decide to have it (most likely wont)...
 #endif
@@ -81,6 +86,18 @@ namespace StarterAssets
         public void SprintInput (bool newSprintState)
         {
             sprint = newSprintState;
+        }
+
+        public void PauseResumeGame()
+        {
+            if (Time.timeScale == 0)
+            {
+                Time.timeScale = 1;
+            }
+            else
+            {
+                Time.timeScale = 0;
+            }
         }
 
 #if !UNITY_IOS || !UNITY_ANDROID

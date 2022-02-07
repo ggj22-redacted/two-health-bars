@@ -6,7 +6,7 @@
         _Scale("Scale", Vector) = (1, 1, 0, 0)
         _Color("Tint", Color) = (0.5, 0.5, 0.5)
         [Gamma] _Exposure ("Exposure", Range(0, 8)) = 1.0
-        [HDR] _Emission("Color", Color) = (0, 0, 0)
+        [HDR] _Emission("Emission", Color) = (0, 0, 0)
         [Toggle] _useAffineTextureWarping ("Use Affine Texture Warping", Float) = 1
         [Enum(UnityEngine.Rendering.CullMode)] _Cull ("Cull", Float) = 0
         _CutOff("Cut off", float) = 0.1

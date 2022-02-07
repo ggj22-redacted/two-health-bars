@@ -5,7 +5,7 @@
         _MainTex("Texture", 2D) = "white" {}
         _Color("Tint", Color) = (0.5, 0.5, 0.5, 1)
         [Gamma] _Exposure ("Exposure", Range(0, 8)) = 1.0
-        [HDR] _Emission("Color", Color) = (0, 0, 0)
+        [HDR] _Emission("Emission", Color) = (0, 0, 0)
         [Enum(UnityEngine.Rendering.CullMode)] _Cull ("Cull", Float) = 0
     }
 

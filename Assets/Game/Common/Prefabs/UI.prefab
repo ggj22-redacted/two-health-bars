@@ -281,7 +281,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: dc8754c2085f1e842b31a4f5adcb3f0f, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -435,7 +435,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: dc8754c2085f1e842b31a4f5adcb3f0f, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -476,7 +476,7 @@ RectTransform:
   - {fileID: 7200382828792222786}
   - {fileID: 3455225438340155164}
   m_Father: {fileID: 4615153271573772208}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -997,7 +997,7 @@ RectTransform:
   - {fileID: 7044626126732059848}
   - {fileID: 9031097190417875796}
   m_Father: {fileID: 4615153271573772208}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1398,6 +1398,7 @@ GameObject:
   - component: {fileID: 2258222268900967186}
   - component: {fileID: 7227727950275382501}
   - component: {fileID: 5556368221980173975}
+  - component: {fileID: 5165023985375444164}
   m_Layer: 5
   m_Name: PauseScreen
   m_TagString: Untagged
@@ -1420,7 +1421,7 @@ RectTransform:
   - {fileID: 6472673132795888811}
   - {fileID: 611462127340972244}
   m_Father: {fileID: 4615153271573772208}
-  m_RootOrder: 8
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1538,6 +1539,18 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &5165023985375444164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3683082573895883693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99c1514214ea9a14d8f70c33dc15805d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3785763973522988761
 GameObject:
   m_ObjectHideFlags: 0
@@ -1572,7 +1585,7 @@ RectTransform:
   - {fileID: 488858355019844061}
   - {fileID: 5527664311563122349}
   m_Father: {fileID: 4615153271573772208}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1821,12 +1834,12 @@ RectTransform:
   - {fileID: 4504265681168543496}
   - {fileID: 618452583676635656}
   - {fileID: 5508228392909480335}
+  - {fileID: 8236123846752119751}
   - {fileID: 3780861670490867202}
   - {fileID: 4268850279651627187}
   - {fileID: 3494838720009506169}
   - {fileID: 4184756432443410296}
   - {fileID: 5879334045903899696}
-  - {fileID: 8236123846752119751}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2594,7 +2607,7 @@ RectTransform:
   - {fileID: 7027853508240835371}
   - {fileID: 3597169460890025158}
   m_Father: {fileID: 4615153271573772208}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3012,7 +3025,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: dc8754c2085f1e842b31a4f5adcb3f0f, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -3187,7 +3200,7 @@ RectTransform:
   - {fileID: 4888931108054384166}
   - {fileID: 5161905476051627458}
   m_Father: {fileID: 4615153271573772208}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3415,7 +3428,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: dc8754c2085f1e842b31a4f5adcb3f0f, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 

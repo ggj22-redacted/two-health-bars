@@ -282,7 +282,7 @@ MonoBehaviour:
     damage: 5
     fireRate: 3
     speed: 50
-    size: 0.75
+    size: 0.3
     count: 0
     range: 1000
     spread: 0.05

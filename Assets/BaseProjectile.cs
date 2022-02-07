@@ -1,6 +1,5 @@
 using System;
 using Cysharp.Threading.Tasks;
-using Game.Common.Areas;
 using Game.Common.Projectiles;
 using UnityEngine;
 using UnityEngine.Events;
@@ -43,14 +42,14 @@ public class BaseProjectile : MonoBehaviour
 
     private bool IsRangeReached => (transform.position - _startPosition).sqrMagnitude >= State.Range * State.Range;
 
-    private void Awake()
+    private void Awake ()
     {
         _random = new Random(Guid.NewGuid().GetHashCode());
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter (Collider other)
     {
-        IHittable[] hittables = other.GetComponents<IHittable>();
+        IHittable[] hittables = other.GetComponentsInChildren<IHittable>();
         foreach (IHittable hittable in hittables)
             hittable.OnHit(State);
 
@@ -84,7 +83,7 @@ public class BaseProjectile : MonoBehaviour
         hitAudioSource.Stop();
 
         transform.position = position;
-        transform.localScale = new Vector3(State.Size,State.Size,State.Size) * .5f;
+        transform.localScale = new Vector3(State.Size, State.Size, State.Size);
 
         referenceRigidbody.velocity = Vector3.zero;
         direction.x += ((float)_random.NextDouble() * 2 - 1) * State.Spread;

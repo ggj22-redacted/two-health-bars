@@ -7,8 +7,19 @@ namespace Game.Common.Enemies
     public class MovementControl : MonoBehaviour
     {
         private NavMeshAgent _agent;
+    
+        private bool _isNavigationAllowed = true;
 
-        public bool IsNavigationAllowed { get; set; } = true;
+        public bool IsNavigationAllowed
+        {
+            get => _isNavigationAllowed;
+            set
+            {
+                if (!value && _isNavigationAllowed && _agent.enabled && _agent.isOnNavMesh)
+                    _agent.destination = _agent.nextPosition;
+                _isNavigationAllowed = value;
+            }
+        }
 
         private void Awake ()
         {
@@ -17,13 +28,13 @@ namespace Game.Common.Enemies
 
         public void MoveTo (Vector3 position)
         {
-            if (_agent.enabled && _agent.isOnNavMesh && IsNavigationAllowed)
+            if (_agent.enabled && _agent.isOnNavMesh && _isNavigationAllowed)
                 _agent.SetDestination(position);
         }
 
         public void Stop ()
         {
-            if (_agent.enabled && _agent.isOnNavMesh && IsNavigationAllowed)
+            if (_agent.enabled && _agent.isOnNavMesh && _isNavigationAllowed)
                 _agent.SetDestination(_agent.nextPosition);
         }
     }

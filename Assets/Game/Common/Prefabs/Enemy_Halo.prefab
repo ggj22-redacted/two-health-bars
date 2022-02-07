@@ -160,14 +160,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6186538496524922694, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
+    - target: {fileID: 5295286388204659485, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6186538496524922694, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6347872682130527580, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7064746179037151733, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 355e227b4ef46a144a0b4c5c53e2805b, type: 2}
     - target: {fileID: 9137870335550141098, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
       propertyPath: projectileState.speed
       value: 25

@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 namespace Game.Common.Enemies
@@ -9,6 +8,8 @@ namespace Game.Common.Enemies
     {
         private NavMeshAgent _agent;
 
+        public bool IsNavigationAllowed { get; set; } = true;
+
         private void Awake ()
         {
             _agent = GetComponent<NavMeshAgent>();
@@ -16,12 +17,14 @@ namespace Game.Common.Enemies
 
         public void MoveTo (Vector3 position)
         {
-            _agent.SetDestination(position);
+            if (_agent.enabled && _agent.isOnNavMesh && IsNavigationAllowed)
+                _agent.SetDestination(position);
         }
 
         public void Stop ()
         {
-            _agent.SetDestination(_agent.nextPosition);
+            if (_agent.enabled && _agent.isOnNavMesh && IsNavigationAllowed)
+                _agent.SetDestination(_agent.nextPosition);
         }
     }
 }

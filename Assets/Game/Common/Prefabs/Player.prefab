@@ -284,7 +284,7 @@ MonoBehaviour:
     speed: 50
     size: 0.75
     count: 0
-    range: 20
+    range: 1000
     spread: 0.05
     lifetime: 80
     layer: PlayerProjectiles

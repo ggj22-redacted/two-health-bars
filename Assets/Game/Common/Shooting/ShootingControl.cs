@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 using Zenject;
 
@@ -13,31 +12,33 @@ namespace Game.Common.Shooting
         [SerializeField]
         private UnityEvent onShoot;
 
-        private bool shooting = false;
+        private bool _isShooting = false;
 
         [Inject]
         private ProjectileSystem _projectileSystem;
 
+        public bool IsShootingAllowed { get; set; } = true;
+
         private void Awake () => InitializeProjectileSystem();
-
-        public void OnShoot()
-        {
-            shooting = !shooting;
-        }
-
-        public void SetShooting(bool value)
-        {
-            shooting = value;
-        }
 
         public void Update()
         {
-            if (!shooting)
+            if (!_isShooting || !IsShootingAllowed)
                 return;
 
             _projectileSystem.OnShoot(entityState);
 
             onShoot.Invoke();
+        }
+
+        public void OnShoot()
+        {
+            _isShooting = !_isShooting;
+        }
+
+        public void SetShooting(bool value)
+        {
+            _isShooting = value;
         }
 
         private void InitializeProjectileSystem ()

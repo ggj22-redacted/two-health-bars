@@ -8,6 +8,8 @@ using Random = System.Random;
 
 public class BaseProjectile : MonoBehaviour
 {
+    private static Quaternion _upRotation = Quaternion.Euler(0, 90, 0);
+
     public event Action<BaseProjectile, Collider> OnProjectileHit;
 
     [SerializeField]
@@ -86,9 +88,11 @@ public class BaseProjectile : MonoBehaviour
         transform.localScale = new Vector3(State.Size, State.Size, State.Size);
 
         referenceRigidbody.velocity = Vector3.zero;
-        direction.x += ((float)_random.NextDouble() * 2 - 1) * State.Spread;
-        direction.y += ((float)_random.NextDouble() * 2 - 1) * State.Spread;
-        referenceRigidbody.AddForce(direction.normalized * State.Speed, ForceMode.VelocityChange);
+        Vector3 up = _upRotation * direction;
+        Vector3 right = Vector3.Cross(direction, up);
+        up *= ((float)_random.NextDouble() * 2 - 1) * State.Spread;
+        right *= ((float)_random.NextDouble() * 2 - 1) * State.Spread;
+        referenceRigidbody.AddForce((direction + up + right).normalized * State.Speed, ForceMode.VelocityChange);
 
         referenceRenderer.enabled = true;
         referenceRenderer.sharedMaterial = state.Material;

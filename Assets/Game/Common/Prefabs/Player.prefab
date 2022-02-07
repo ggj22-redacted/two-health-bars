@@ -546,6 +546,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7663879757489844904}
   - component: {fileID: 3653386142875164583}
+  - component: {fileID: 5402454988708232366}
   m_Layer: 6
   m_Name: EntityEvents
   m_TagString: Untagged
@@ -697,6 +698,20 @@ MonoBehaviour:
   onHealthChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5402454988708232366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3822144641701536951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f52c0ff255548329c4b741a04669afa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invincibilityTime: 0.5
+  characterController: {fileID: 657153824873659739}
 --- !u!1 &4360306486382011804
 GameObject:
   m_ObjectHideFlags: 0
@@ -5759,6 +5774,7 @@ GameObject:
   - component: {fileID: 6628441154583045885}
   - component: {fileID: 5393783503980536755}
   - component: {fileID: 4225229092779278279}
+  - component: {fileID: 7478491554402555727}
   m_Layer: 6
   m_Name: Model
   m_TagString: Untagged
@@ -5826,6 +5842,20 @@ MonoBehaviour:
     pitch: 0.65
   playSound1: {fileID: 486417056267289021}
   playSound2: {fileID: 248148090842509815}
+--- !u!114 &7478491554402555727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6128731287202594150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3f94190b03d427f8847e0c5e15316ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 5393783503980536755}
+  cooldown: 0.5
 --- !u!1 &6703358945840600654
 GameObject:
   m_ObjectHideFlags: 0
@@ -10810,13 +10840,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5478e87a8bfd44342a08d4d0a4395827, type: 3}
---- !u!4 &3733437605316695519 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4167280743394806330, guid: 5478e87a8bfd44342a08d4d0a4395827, type: 3}
-  m_PrefabInstance: {fileID: 728160893067796453}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &977363600028891150 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5478e87a8bfd44342a08d4d0a4395827, type: 3}
+  m_PrefabInstance: {fileID: 728160893067796453}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3733437605316695519 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4167280743394806330, guid: 5478e87a8bfd44342a08d4d0a4395827, type: 3}
   m_PrefabInstance: {fileID: 728160893067796453}
   m_PrefabAsset: {fileID: 0}

@@ -29,12 +29,11 @@ namespace Game.Common.Areas
 
         private void Update ()
         {
-            float speedX = offsetSpeedX.Evaluate(start + Time.time) * speed;
-            float speedY = offsetSpeedY.Evaluate(start + Time.time) * speed;
+            float currentTime = Time.time;
+            float offsetX = currentTime + offsetSpeedX.Evaluate(start + currentTime) * speed;
+            float offsetY = currentTime + offsetSpeedY.Evaluate(start + currentTime) * speed;
 
-            _offset += new Vector2(speedX, speedY);
-
-            _renderer.material.SetTextureOffset("_MainTex", _offset);
+            _renderer.material.SetTextureOffset("_MainTex",  new Vector2(offsetX, offsetY));
         }
     }
 }

@@ -6,14 +6,14 @@ using Game.Common.Areas;
 
 public class TextPopupManager : MonoBehaviour
 {
-    [SerializeField]
-    private TextPopup textPopupPrefab;
 
+    [SerializeField]
+    private GameObject StatUpCanvasPrefab;
 
     [Inject]
     private AreaSystem areaSystem;
 
-    private float timeout = 2f;
+    private float timeout = 4f;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,12 +32,15 @@ public class TextPopupManager : MonoBehaviour
     }
 
     IEnumerator SpawnTextPopup(Stat stat, float amount) {
-        TextPopup textPopup = Instantiate(textPopupPrefab, Vector3.zero, Quaternion.identity);
-        textPopup.transform.SetParent(transform, false);
-        textPopup.gameObject.layer = LayerMask.NameToLayer("UI");
-        textPopup.transform.localPosition = new Vector3(150f, -200f, 0f);
-        textPopup.Setup(stat.ToString(), amount);
+        GameObject statUp = Instantiate(StatUpCanvasPrefab, Vector3.zero, Quaternion.identity);
+        StatPopUp newPopUp = statUp.GetComponent<StatPopUp>();
+        statUp.transform.SetParent(transform, false);
+        statUp.gameObject.layer = LayerMask.NameToLayer("UI");
+        statUp.transform.localPosition = new Vector3(250f, -200f, 0f);
+        newPopUp.timeOut = timeout;
+        newPopUp.statText = stat.ToString();
+        newPopUp.value = amount;
         yield return new WaitForSeconds(timeout);
-        Destroy(textPopup.gameObject);
+        Destroy(statUp.gameObject);
     }
 }

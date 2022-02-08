@@ -16189,6 +16189,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textPopupPrefab: {fileID: -2598653230416690690, guid: db0964c3288ee63498bf2462753ae131, type: 3}
+  StatUpCanvasPrefab: {fileID: 4389690322477979184, guid: c37a6c3f3286ebb49bb5341056eeba4c, type: 3}
+  StatIcons:
+  - {fileID: 21300000, guid: 7d87396ba4639b14383095262430d3c9, type: 3}
+  - {fileID: 21300000, guid: c471bb0ecb992df4c9594273b3a155e0, type: 3}
+  - {fileID: 21300000, guid: 94787c3320c6fb84eb8177228793bf2c, type: 3}
+  - {fileID: 21300000, guid: 99c68d8b77338d64da55040aa5748ea7, type: 3}
+  - {fileID: 21300000, guid: 93362ca540e15a24f81fcd063f61c735, type: 3}
+  - {fileID: 21300000, guid: 9bdf1b990c28de941bb72ec4eb07e025, type: 3}
+  - {fileID: 21300000, guid: 7567d092c1a32444f9012a344e878b9f, type: 3}
+  - {fileID: 21300000, guid: aad1e93715814f245a59fd3f882720d0, type: 3}
+  - {fileID: 21300000, guid: 6057372391cb2fe4d9103700ad46f23f, type: 3}
+  - {fileID: 21300000, guid: 70db5b19522ceec4d8d5fc88a6f93185, type: 3}
+  ModIcons:
+  - {fileID: 21300000, guid: 8b0ba6d4d96e4c24ba22177b9cd4d3ae, type: 3}
+  - {fileID: 21300000, guid: c44d136d474416b489d51f1407e0dfb9, type: 3}
 --- !u!1 &4651306412243805781
 GameObject:
   m_ObjectHideFlags: 0

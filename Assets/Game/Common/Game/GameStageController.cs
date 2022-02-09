@@ -26,11 +26,13 @@ namespace Game.Common.Game
                 _areaSystem.CurrentArea.HandleStatUpdate(_playerState);
 
                 _gameStateSystem.CurrentStage.Area.UpdateMoments();
+                _gameStateSystem.CurrentStage.MusicController(false);
                 return;
             }
 
             _gameStateSystem.CurrentStage.Area.HandleStatMutation(_playerState);
             _gameStateSystem.CurrentStage.Area.HandleStatUpdate(_playerState);
+            _gameStateSystem.CurrentStage.MusicController(true);
         }
     }
 }

@@ -15,6 +15,14 @@ PrefabInstance:
       propertyPath: mutationRate
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 5061782248066841259, guid: 1d7af750426d9cb459c8de47fc98b034, type: 3}
+      propertyPath: m_Volume
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061782248066841259, guid: 1d7af750426d9cb459c8de47fc98b034, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6812636940495079941, guid: 1d7af750426d9cb459c8de47fc98b034, type: 3}
       propertyPath: m_Name
       value: GameStage_Hell
@@ -68,8 +76,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 8dd4be19a9a81f14c8b6718b4caea4ab, type: 2}
     - target: {fileID: 7830969149108987154, guid: 1d7af750426d9cb459c8de47fc98b034, type: 3}
+      propertyPath: stageclip
+      value: 
+      objectReference: {fileID: 8300000, guid: 62b0ef791335a034ea944d8457970bae, type: 3}
+    - target: {fileID: 7830969149108987154, guid: 1d7af750426d9cb459c8de47fc98b034, type: 3}
       propertyPath: shieldDelta
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8979648120559806393, guid: 1d7af750426d9cb459c8de47fc98b034, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d7af750426d9cb459c8de47fc98b034, type: 3}

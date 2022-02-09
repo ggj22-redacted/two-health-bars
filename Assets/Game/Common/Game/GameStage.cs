@@ -19,6 +19,9 @@ namespace Game.Common.Game
 
         public EnemyType EnemyType => enemyType;
 
+        public AudioClip stageclip;
+        private AudioSource[] stageAudios;
+
         private GameStateSystem _gameStateSystem;
 
         private Random _random;
@@ -40,12 +43,45 @@ namespace Game.Common.Game
         {
             Area = GetComponent<Area>();
             Area.CanBeDestroyed = false;
+            stageAudios = GetComponentsInChildren<AudioSource>();
         }
 
         private void OnDestroy ()
         {
             if (_gameStateSystem)
                 _gameStateSystem.UnregisterStage(this);
+        }
+
+        public void MusicController(bool stageMusic)
+        {
+            if (stageMusic)
+            {
+                for (int x = 0; x < stageAudios.Length; x++)
+                {
+                    if (stageclip == stageAudios[x].clip)
+                    {
+                        stageAudios[x].volume = 0.3f;
+                    }
+                    else
+                    {
+                        stageAudios[x].volume = 0f;
+                    }
+                }
+            }
+            else
+            {
+                for (int x = 0; x < stageAudios.Length; x++)
+                {
+                    if (stageclip == stageAudios[x].clip)
+                    {
+                        stageAudios[x].volume = 0f;
+                    }
+                    else
+                    {
+                        stageAudios[x].volume = 0.3f;
+                    }
+                }
+            }
         }
 
         [Inject]

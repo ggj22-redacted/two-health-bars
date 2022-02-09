@@ -1,4 +1,5 @@
 ﻿using System;
+using Game.Common.Entities;
 using Game.Common.Projectiles;
 using UnityEngine;
 
@@ -113,6 +114,11 @@ namespace Game.Common.Areas
         private void OnTriggerEnter (Collider other)
         {
             EntityState = other.GetComponent<EntityState>();
+            if (!EntityState) {
+                IEntityStateProvider provider = other.GetComponent<IEntityStateProvider>();
+                if (provider != null)
+                    EntityState = provider.Get();
+            }
 
             UpdateMoments();
 

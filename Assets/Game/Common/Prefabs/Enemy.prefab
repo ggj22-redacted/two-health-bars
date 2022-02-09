@@ -410,7 +410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   area: {fileID: 0}
-  spawnDelay: 0.5
+  spawnDelay: 0.3
 --- !u!1 &2446570378988321530
 GameObject:
   m_ObjectHideFlags: 0

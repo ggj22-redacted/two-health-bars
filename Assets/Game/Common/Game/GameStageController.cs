@@ -20,7 +20,10 @@ namespace Game.Common.Game
         private void Update ()
         {
             if (_playerState.IsDead || !_gameStateSystem.IsInRound)
+            {
+                _gameStateSystem.CurrentStage.MusicController(true);
                 return;
+            }
             if (_areaSystem.IsPlayerInArea) {
                 _areaSystem.CurrentArea.HandleStatMutation(_playerState);
                 _areaSystem.CurrentArea.HandleStatUpdate(_playerState);

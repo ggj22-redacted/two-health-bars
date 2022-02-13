@@ -9,11 +9,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3234592128375435469, guid: 1d7af750426d9cb459c8de47fc98b034, type: 3}
       propertyPath: updateRate
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3234592128375435469, guid: 1d7af750426d9cb459c8de47fc98b034, type: 3}
       propertyPath: mutationRate
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5061782248066841259, guid: 1d7af750426d9cb459c8de47fc98b034, type: 3}
       propertyPath: m_PlayOnAwake

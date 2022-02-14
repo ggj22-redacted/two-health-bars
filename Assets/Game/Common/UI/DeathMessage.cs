@@ -87,6 +87,8 @@ namespace Game.Common.UI
 
         private void ShowCanvas ()
         {
+            _screenCanvasGroup.interactable = true;
+            _screenCanvasGroup.blocksRaycasts = true;
             if (_screenCanvasGroup.alpha < 1) {
                 _screenCanvasGroup.alpha = Mathf.Lerp(0f, 1f, _timeElapsed / timeToShow);
                 _timeElapsed += Time.deltaTime;
@@ -104,6 +106,8 @@ namespace Game.Common.UI
 
         private void DeactivateScreen (EntityState state)
         {
+            _screenCanvasGroup.interactable = true;
+            _screenCanvasGroup.blocksRaycasts = true;
             _screenCanvasGroup.alpha = 0f;
             _timeElapsed = 0;
             foreach (CanvasGroup canvasGroup in buttonsCanvasGroups) {

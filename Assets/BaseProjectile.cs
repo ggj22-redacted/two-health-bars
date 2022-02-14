@@ -36,6 +36,8 @@ public class BaseProjectile : MonoBehaviour
 
     private Random _random;
 
+    private Animator projectileAnim;
+
     public ProjectileState State { get; private set; }
 
     public UniTask PostHitTask { get; private set; } = UniTask.CompletedTask;
@@ -47,6 +49,7 @@ public class BaseProjectile : MonoBehaviour
     private void Awake ()
     {
         _random = new Random(Guid.NewGuid().GetHashCode());
+        projectileAnim = gameObject.GetComponent<Animator>();
     }
 
     private void OnTriggerEnter (Collider other)
@@ -71,11 +74,14 @@ public class BaseProjectile : MonoBehaviour
 
     public void Shoot (ProjectileState state, Vector3 position, Vector3 direction, string layer)
     {
+
         _startPosition = position;
         _startMoment = Time.time;
 
         gameObject.layer = LayerMask.NameToLayer(layer);
         gameObject.SetActive(true);
+
+        projectileAnim.Play("ProjectileAnimation");
 
         State = state;
 

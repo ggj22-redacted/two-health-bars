@@ -86,7 +86,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 19267364848910656, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 150010631283845434, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
       propertyPath: m_Name
@@ -99,6 +99,18 @@ PrefabInstance:
     - target: {fileID: 1942815081366320837, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2615837472467385938, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2615837472467385938, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2615837472467385938, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2671714842021524031, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
       propertyPath: m_RootOrder
@@ -512,6 +524,38 @@ PrefabInstance:
       propertyPath: InitialModule.startRotationY.maxCurve.m_Curve.Array.data[1].tangentMode
       value: 34
       objectReference: {fileID: 0}
+    - target: {fileID: 4883816064271281742, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
+      propertyPath: onShoot.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883816064271281742, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
+      propertyPath: onShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883816064271281742, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
+      propertyPath: onShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1969506739746805865}
+    - target: {fileID: 4883816064271281742, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
+      propertyPath: onShoot.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883816064271281742, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
+      propertyPath: onShoot.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883816064271281742, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
+      propertyPath: onShoot.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.Animator, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883816064271281742, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
+      propertyPath: onShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Shot
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883816064271281742, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
+      propertyPath: onShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4903100019405864364, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
@@ -572,10 +616,18 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6394763045664150436, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1969506739746805865}
     - target: {fileID: 7064746179037151733, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0cb3c5d192c11e14dbed099b416827ca, type: 2}
+    - target: {fileID: 8262186808242483017, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1be64c263c6c4d8489ee709a17052d97, type: 2}
     - target: {fileID: 9137870335550141098, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
       propertyPath: projectileState.size
       value: 1

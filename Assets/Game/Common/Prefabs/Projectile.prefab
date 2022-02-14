@@ -234,6 +234,7 @@ GameObject:
   - component: {fileID: 1023748676812103283}
   - component: {fileID: 4060580488001947819}
   - component: {fileID: 8653661138935371127}
+  - component: {fileID: 6040494418979607729}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
@@ -333,6 +334,25 @@ MonoBehaviour:
         m_CallState: 2
   shootAudioSource: {fileID: 6496723669161022756}
   hitAudioSource: {fileID: 3605748124816471813}
+--- !u!95 &6040494418979607729
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3359030420365714461}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0dce5f37fa32cee49bc88ee50c91a201, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8171851679261155132
 GameObject:
   m_ObjectHideFlags: 0

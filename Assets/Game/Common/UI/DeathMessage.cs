@@ -17,6 +17,9 @@ namespace Game.Common.UI
         [SerializeField]
         private TMP_Text textLabel;
 
+        [SerializeField]
+        private CanvasGroup statMessageCanvas;
+
         [Header("Buttons")]
         [SerializeField]
         private CanvasGroup[] buttonsCanvasGroups;
@@ -109,6 +112,7 @@ namespace Game.Common.UI
             _screenCanvasGroup.interactable = true;
             _screenCanvasGroup.blocksRaycasts = true;
             _screenCanvasGroup.alpha = 0f;
+            statMessageCanvas.alpha = 1f;
             _timeElapsed = 0;
             foreach (CanvasGroup canvasGroup in buttonsCanvasGroups) {
                 canvasGroup.alpha = 0;
@@ -123,6 +127,9 @@ namespace Game.Common.UI
                 canvasGroup.alpha = 1;
                 canvasGroup.interactable = true;
             }
+
+            statMessageCanvas.alpha = 1f;
+
         }
 
         private void RestartStage ()

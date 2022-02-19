@@ -20,7 +20,7 @@ namespace StarterAssets
 		[Tooltip("Sprint speed of the character in m/s")]
 		public float SprintSpeed = 5.335f;
 		[Tooltip("How fast the character turns to face movement direction")]
-		[Range(0.0f, 0.3f)]
+		[Range(0.0f, 1f)]
 		public float RotationSmoothTime = 0.12f;
 		[Tooltip("Acceleration and deceleration")]
 		public float SpeedChangeRate = 10.0f;
@@ -50,6 +50,8 @@ namespace StarterAssets
 		[Header("Cinemachine")]
 		[Tooltip("The follow target set in the Cinemachine Virtual Camera that the camera will follow")]
 		public GameObject CinemachineCameraTarget;
+		[Tooltip("The target set in the Cinemachine Virtual Camera that the camera will look at")]
+		public Transform CinemachineCameraLookAtTarget;
 		[Tooltip("How far in degrees can you move the camera up")]
 		public float TopClamp = 70.0f;
 		[Tooltip("How far in degrees can you move the camera down")]
@@ -166,6 +168,10 @@ namespace StarterAssets
 				_cinemachineTargetYaw += _input.look.x * Time.deltaTime;
 				_cinemachineTargetPitch += _input.look.y * Time.deltaTime;
 			}
+			
+			//Vector3 direction = (CinemachineCameraLookAtTarget.position - CinemachineCameraTarget.transform.position).normalized;
+			//Quaternion lookAtRotation = Quaternion.FromToRotation(CinemachineCameraTarget.transform.forward, direction);
+			//CinemachineCameraTarget.transform.rotation *= lookAtRotation;
 
 			// clamp our rotations so our values are limited 360 degrees
 			_cinemachineTargetYaw = ClampAngle(_cinemachineTargetYaw, float.MinValue, float.MaxValue);

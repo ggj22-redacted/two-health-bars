@@ -26,9 +26,10 @@ namespace Game.Common.Shooting
             if (!_isShooting || !IsShootingAllowed)
                 return;
 
-            _projectileSystem.OnShoot(entityState);
+            bool shot = _projectileSystem.OnShoot(entityState);
 
-            onShoot.Invoke();
+            if (shot)
+                onShoot.Invoke();
         }
 
         public void OnShoot()

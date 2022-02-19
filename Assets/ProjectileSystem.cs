@@ -71,10 +71,14 @@ public class ProjectileSystem : MonoBehaviour
         }
     }
 
-    public void OnShoot (EntityState shooter)
+    public bool OnShoot (EntityState shooter)
     {
-        if (shooter.allowfire)
-            StartCoroutine(Shoot(shooter));
+        if (!shooter.allowfire)
+            return false;
+    
+        StartCoroutine(Shoot(shooter));
+
+        return true;
     }
 
     private IEnumerator Shoot (EntityState shooter)

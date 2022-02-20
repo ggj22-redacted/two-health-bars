@@ -134,7 +134,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4318417643065174419, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
       propertyPath: simulationSpeed
-      value: 4.5
+      value: 4.85
       objectReference: {fileID: 0}
     - target: {fileID: 4318417643065174419, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
       propertyPath: NoiseModule.quality

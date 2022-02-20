@@ -288,7 +288,7 @@ MonoBehaviour:
     size: 0.3
     count: 0
     range: 20
-    spread: 0.05
+    spread: 0.02
     lifetime: 80
     layer: PlayerProjectiles
     shootClip: {fileID: 8300000, guid: 1595bce82c0792940895b971a6a4f5ef, type: 3}

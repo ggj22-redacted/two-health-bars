@@ -399,7 +399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   area: {fileID: 0}
-  spawnDelay: 0.8
+  spawnDelay: 1
 --- !u!114 &7693738270132534217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,9 +413,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 1215680405467338042}
-  modelDeactivationDelay: 0.5
+  modelDeactivationDelay: 0.7
   deathEffect: {fileID: 4318417643065174419}
-  effectPlayDelay: 0.5
+  effectPlayDelay: 0.7
   animator: {fileID: 0}
 --- !u!1 &2446570378988321530
 GameObject:

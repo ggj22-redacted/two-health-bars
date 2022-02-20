@@ -727,6 +727,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7693738270132534217, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 6013934230479362624}
     - target: {fileID: 8262186808242483017, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

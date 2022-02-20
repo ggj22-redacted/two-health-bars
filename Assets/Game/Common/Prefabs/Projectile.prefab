@@ -334,6 +334,7 @@ MonoBehaviour:
         m_CallState: 2
   shootAudioSource: {fileID: 6496723669161022756}
   hitAudioSource: {fileID: 3605748124816471813}
+  poolDelay: 1
 --- !u!95 &6040494418979607729
 Animator:
   serializedVersion: 3

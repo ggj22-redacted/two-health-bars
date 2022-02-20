@@ -12,7 +12,6 @@ namespace Game.Common.Player
         [SerializeField]
         private CharacterController characterController;
 
-        [SerializeField]
         private Coroutine _hitHandler;
 
         public void OnHit (ProjectileState state)

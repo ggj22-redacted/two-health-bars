@@ -39,7 +39,7 @@ namespace Game.Common.Enemies
 
             animator.SetBool(Death, true);
 
-            while (!model.activeSelf || !effectPlayed) {
+            while (model.activeSelf || !effectPlayed) {
                 if (model.activeSelf && Time.time - startMoment >= modelDeactivationDelay)
                     model.SetActive(false);
 

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2336094783886802428}
   - component: {fileID: 8334527624043444654}
-  - component: {fileID: 8631111254431809664}
   - component: {fileID: 6174049460927343229}
   - component: {fileID: 8310179397943920166}
   m_Layer: 5
@@ -77,22 +76,6 @@ Camera:
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &8631111254431809664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1056883428533443897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2a568e48c634730a982a8ec347b37d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shader: {fileID: 4800000, guid: 77fa88d936564041822eaabaa6f214ce, type: 3}
-  lineWidth: 1
-  hardness: 0.9
-  displacementSpeed: 0.1
 --- !u!114 &6174049460927343229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,15 +91,15 @@ MonoBehaviour:
   shader: {fileID: 4800000, guid: 4b0f4a6d98dd42269adf6acea3de59ae, type: 3}
   vignetSize: 0
   vignetDarkening: 0.15
-  scanlineIntensity: 0.25
-  colorShift: 0.1
+  scanlineIntensity: 0.05
+  colorShift: 0.05
   noiseX: 0
   rgbNoise: 0
   sinNoiseScale: 0
   sinNoiseWidth: 0
   sinNoiseOffset: 0
   offset: {x: 0, y: 0}
-  scanLineTail: 1.98
+  scanLineTail: 1.988
   scanLineSpeed: 1
 --- !u!114 &8310179397943920166
 MonoBehaviour:

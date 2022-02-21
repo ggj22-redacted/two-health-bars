@@ -59,8 +59,8 @@ Camera:
   near clip plane: 0.2
   far clip plane: 50
   field of view: 40
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 112
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -118,7 +118,7 @@ MonoBehaviour:
   format: 1
   graphicsFormat: 101
   renderTextureFormat: 7
-  depthBufferBits: 24
+  depthBufferBits: 0
 --- !u!1 &1958846793891815928
 GameObject:
   m_ObjectHideFlags: 0

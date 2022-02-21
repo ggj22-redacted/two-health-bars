@@ -48,10 +48,10 @@ namespace Game.Common.UI
 
             switch (sceneName) {
                 case "ChaosScene":
-                    message += "! Order Reigns Supreme !";
+                    message += "!Order Reigns Supreme!";
                     break;
                 case "OrderScene":
-                    message += "! Chaos Consumes All !";
+                    message += "!Chaos Consumes All!";
                     break;
             }
 

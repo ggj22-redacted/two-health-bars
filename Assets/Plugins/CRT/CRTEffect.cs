@@ -23,6 +23,9 @@ namespace CRT
         private float colorShift = 0.2f;
 
         [SerializeField, Range(0, 1)]
+        private float colorGradient = 1;
+
+        [SerializeField, Range(0, 1)]
         private float noiseX;
 
         [SerializeField, Range(0, 1)]
@@ -78,6 +81,7 @@ namespace CRT
             Material.SetFloat("_VignetDarkening", vignetDarkening);
             Material.SetFloat("_ScanlineIntensity", scanlineIntensity);
             Material.SetFloat("_ColorShift", colorShift);
+            Material.SetFloat("_ColorGradient", colorGradient);
             Material.SetFloat("_NoiseX", noiseX);
             Material.SetFloat("_RGBNoise", rgbNoise);
             Material.SetFloat("_SinNoiseScale", sinNoiseScale);

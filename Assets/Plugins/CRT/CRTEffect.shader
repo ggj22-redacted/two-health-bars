@@ -9,6 +9,7 @@ Shader "PostEffects/CRT"
         _VignetDarkening("Vignet Darkening", Range(0, 10)) = 1.3
         _ScanlineIntensity("Scanline Intensity", Range(0, 1)) = 1
         _ColorShift("Color Shift", Range(0, 1)) = 0.2
+        _ColorGradient("Color Gradient", Range(0, 1)) = 1
         _NoiseX("NoiseX", Range(0, 1)) = 0
         _Offset("Offset", Vector) = (0, 0, 0, 0)
         _RGBNoise("RGBNoise", Range(0, 1)) = 0
@@ -67,6 +68,7 @@ Shader "PostEffects/CRT"
             float _VignetDarkening;
             float _ScanlineIntensity;
             float _ColorShift;
+            float _ColorGradient;
             float _NoiseX;
             float2 _Offset;
             float _RGBNoise;
@@ -118,9 +120,9 @@ Shader "PostEffects/CRT"
 
                 // Determine the RGB to draw for each pixel
                 const float floorX = fmod(inUV.x * _ScreenParams.x / 3, 1);
-                col.r *= floorX > 0.3333;
-                col.g *= floorX < 0.3333 || floorX > 0.6666;
-                col.b *= floorX < 0.6666;
+                col.r -= col.r * (floorX <= 1. / 3) * _ColorGradient;
+                col.g -= col.g * (floorX >= 1. / 3 && floorX <= 2. / 3) * _ColorGradient;
+                col.b -= col.b * (floorX >= 2. / 3) * _ColorGradient;
 
                 // Draw scanline
                 const float scanLineColor = _ScanlineIntensity * sin(_CurrentTime * 10 + uv.y * 500) / 2 + 0.5;

@@ -93,6 +93,7 @@ MonoBehaviour:
   vignetDarkening: 0.15
   scanlineIntensity: 0.05
   colorShift: 0.05
+  colorGradient: 0.05
   noiseX: 0
   rgbNoise: 0
   sinNoiseScale: 0

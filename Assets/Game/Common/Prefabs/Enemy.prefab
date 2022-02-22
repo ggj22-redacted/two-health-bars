@@ -5689,6 +5689,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7620543297625293673}
     m_Modifications:
+    - target: {fileID: 329293127126124173, guid: 9880c7e7a743934409baf6c35699e585, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 409236886164593205, guid: 9880c7e7a743934409baf6c35699e585, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -5715,7 +5719,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2050246679944744164, guid: 9880c7e7a743934409baf6c35699e585, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 12.5
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5233631082005924233, guid: 9880c7e7a743934409baf6c35699e585, type: 3}
       propertyPath: m_fontSize
@@ -5811,7 +5815,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8187228460677725845, guid: 9880c7e7a743934409baf6c35699e585, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8187228460677725845, guid: 9880c7e7a743934409baf6c35699e585, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5887,6 +5891,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7620543297625293673}
     m_Modifications:
+    - target: {fileID: 329293127126124173, guid: 9880c7e7a743934409baf6c35699e585, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1881553166313278636, guid: 9880c7e7a743934409baf6c35699e585, type: 3}
       propertyPath: m_Name
       value: SmallHealthBarWidget

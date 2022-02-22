@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 912700904266045388, guid: de392c6e5a73a3049b73b47fb42260d0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1308274094335942125, guid: de392c6e5a73a3049b73b47fb42260d0, type: 3}
       propertyPath: m_Name
       value: SmallHealthBarWidget Variant
@@ -17,6 +21,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4191222980438390847, guid: de392c6e5a73a3049b73b47fb42260d0, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7495120980937116417, guid: de392c6e5a73a3049b73b47fb42260d0, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8765572853606772692, guid: de392c6e5a73a3049b73b47fb42260d0, type: 3}
@@ -159,3 +167,4 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   canvasGroup: {fileID: 8529341807032909064}
+  referenceTransform: {fileID: 0}

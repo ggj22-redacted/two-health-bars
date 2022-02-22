@@ -38,7 +38,7 @@ namespace Game.Common.UI
             }
 
             if(shieldLabel)
-                shieldLabel.text = $"{_entityState.Shield}/{_entityState.MaxShield}";
+                shieldLabel.text = $"{_entityState.Shield}|{_entityState.MaxShield}";
         }
     }
 }

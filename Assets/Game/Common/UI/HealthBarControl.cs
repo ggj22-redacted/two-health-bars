@@ -41,7 +41,7 @@ namespace Game.Common.UI
             }
 
             if(healthLabel)
-                healthLabel.text = $"{_entityState.Health}/{_entityState.MaxHealth}";
+                healthLabel.text = $"{_entityState.Health}|{_entityState.MaxHealth}";
         }
 
         private void InitializeEntityState ()

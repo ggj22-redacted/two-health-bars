@@ -15,7 +15,7 @@ namespace Game.Common.UI
         private float timeToShow;
 
         [SerializeField]
-        private TMP_Text textLabel;
+        private Text textLabel;
 
         [SerializeField]
         private CanvasGroup statMessageCanvas;
@@ -61,7 +61,7 @@ namespace Game.Common.UI
         private void Awake ()
         {
             _screenCanvasGroup = gameObject.GetComponent<CanvasGroup>();
-            textLabel = gameObject.GetComponentInChildren<TMP_Text>();
+            textLabel = gameObject.GetComponentInChildren<Text>();
             buttonsCanvasGroups = gameObject.GetComponentsInChildren<CanvasGroup>();
 
             _activeScreen = false;

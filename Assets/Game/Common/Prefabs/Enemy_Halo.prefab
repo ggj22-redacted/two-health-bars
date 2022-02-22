@@ -524,6 +524,10 @@ PrefabInstance:
       propertyPath: InitialModule.startRotationY.maxCurve.m_Curve.Array.data[1].tangentMode
       value: 34
       objectReference: {fileID: 0}
+    - target: {fileID: 4411032553896120942, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 4883816064271281742, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
       propertyPath: onShoot.m_PersistentCalls.m_Calls.Array.size
       value: 1

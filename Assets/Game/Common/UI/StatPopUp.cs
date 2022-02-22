@@ -17,7 +17,7 @@ public class StatPopUp : MonoBehaviour
     private float startAlpha;
     private float endAlpha;
     private CanvasGroup canvas;
-    private TMPro.TextMeshProUGUI textChild;
+    private Text textChild;
     private Image[] imgComponents;
     private Color32 upColor = new Color32(0,255,0,255);
     private Color32 downColor = new Color32(255, 0, 0, 255);
@@ -26,16 +26,17 @@ public class StatPopUp : MonoBehaviour
     void Start()
     {
         canvas = gameObject.GetComponent<CanvasGroup>();
-        textChild = transform.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+        textChild = transform.GetComponentInChildren<Text>();
         imgComponents = transform.GetComponentsInChildren<Image>();
         //textChild.text = statText;
         startPosition = transform.localPosition;
-        endPosition = transform.localPosition + new Vector3(0, 150, 0);
+        endPosition = transform.localPosition + new Vector3(0, 100, 0);
         timeOutPos = timeOut / 2;
         timeOut = timeOut / 3;
         startAlpha = canvas.alpha;
         endAlpha = 0;
         SetValue(value, statText, imgComponents[1]);
+        SetValue(value, statText, imgComponents[2]);
         SetIcon(statText, imgComponents[0]);
         
     }
@@ -46,44 +47,44 @@ public class StatPopUp : MonoBehaviour
         {
             case "Shield":
                 icon.sprite = statIcons[0];
-                textChild.text = stat;
+                //textChild.text = stat;
                 break;
             case "Speed":
                 icon.sprite = statIcons[1];
-                textChild.text = stat;
+                //textChild.text = stat;
                 break;
             case "Gravity": //remove gravity mod
             case "JumpHeight":
                 icon.sprite = statIcons[2];
-                textChild.text = "Booster Pack";
+                //textChild.text = "BoostPwr";
                 break;
             case "ProjectileDamage":
                 icon.sprite = statIcons[3];
-                textChild.text = "Projectile Damage";
+                //textChild.text = "ProjDmg";
                 break;
             case "ProjectileFireRate":
                 icon.sprite = statIcons[4];
-                textChild.text = "Projectile Fire Rate";
+                //textChild.text = "ProjRate";
                 break;
             case "ProjectileSpeed":
                 icon.sprite = statIcons[5];
-                textChild.text = "Projectile Speed";
+                //textChild.text = "ProjSpd";
                 break;
             case "ProjectileSize":
                 icon.sprite = statIcons[6];
-                textChild.text = "Projectile Size";
+                //textChild.text = "ProjSize";
                 break;
             case "ProjectileRange":
                 icon.sprite = statIcons[7];
-                textChild.text = "Projectile Range";
+                //textChild.text = "ProjRang";
                 break;
             case "ProjectileSpread":
                 icon.sprite = statIcons[8];
-                textChild.text = "Projectile Spread";
+                //textChild.text = "ProjSprd";
                 break;
             case "ProjectileCount":
                 icon.sprite = statIcons[8];
-                textChild.text = "Projectile Number";
+                //textChild.text = "ProjNmbr";
                 break;
         }
     }

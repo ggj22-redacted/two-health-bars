@@ -30,13 +30,12 @@ public class StatPopUp : MonoBehaviour
         imgComponents = transform.GetComponentsInChildren<Image>();
         //textChild.text = statText;
         startPosition = transform.localPosition;
-        endPosition = transform.localPosition + new Vector3(0, 100, 0);
+        endPosition = transform.localPosition + new Vector3(0, 56, 0);
         timeOutPos = timeOut / 2;
         timeOut = timeOut / 3;
         startAlpha = canvas.alpha;
         endAlpha = 0;
         SetValue(value, statText, imgComponents[1]);
-        SetValue(value, statText, imgComponents[2]);
         SetIcon(statText, imgComponents[0]);
         
     }
@@ -47,44 +46,44 @@ public class StatPopUp : MonoBehaviour
         {
             case "Shield":
                 icon.sprite = statIcons[0];
-                //textChild.text = stat;
+                textChild.text = stat;
                 break;
             case "Speed":
                 icon.sprite = statIcons[1];
-                //textChild.text = stat;
+                textChild.text = stat;
                 break;
             case "Gravity": //remove gravity mod
             case "JumpHeight":
                 icon.sprite = statIcons[2];
-                //textChild.text = "BoostPwr";
+                textChild.text = "BoostPwr";
                 break;
             case "ProjectileDamage":
                 icon.sprite = statIcons[3];
-                //textChild.text = "ProjDmg";
+                textChild.text = "ProjDmg";
                 break;
             case "ProjectileFireRate":
                 icon.sprite = statIcons[4];
-                //textChild.text = "ProjRate";
+                textChild.text = "ProjRate";
                 break;
             case "ProjectileSpeed":
                 icon.sprite = statIcons[5];
-                //textChild.text = "ProjSpd";
+                textChild.text = "ProjSpd";
                 break;
             case "ProjectileSize":
                 icon.sprite = statIcons[6];
-                //textChild.text = "ProjSize";
+                textChild.text = "ProjSize";
                 break;
             case "ProjectileRange":
                 icon.sprite = statIcons[7];
-                //textChild.text = "ProjRang";
+                textChild.text = "ProjRang";
                 break;
             case "ProjectileSpread":
                 icon.sprite = statIcons[8];
-                //textChild.text = "ProjSprd";
+                textChild.text = "ProjSprd";
                 break;
             case "ProjectileCount":
                 icon.sprite = statIcons[8];
-                //textChild.text = "ProjNmbr";
+                textChild.text = "ProjNmbr";
                 break;
         }
     }
@@ -109,8 +108,8 @@ public class StatPopUp : MonoBehaviour
     {
         if (time < timeOutPos)
         {
-            transform.localPosition = Vector3.Lerp(startPosition, endPosition, time / timeOutPos);
-            canvas.alpha = Mathf.Lerp(startAlpha, endAlpha, time/timeOut);
+            transform.localPosition = Vector3.Lerp(startPosition, endPosition, (time / timeOutPos)*1.2f);
+            canvas.alpha = Mathf.Lerp(startAlpha, endAlpha, (time/timeOut));
             time += Time.deltaTime;
         }
     }

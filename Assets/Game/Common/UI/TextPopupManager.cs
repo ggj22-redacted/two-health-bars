@@ -36,7 +36,7 @@ public class TextPopupManager : MonoBehaviour
         StatPopUp newPopUp = statUp.GetComponent<StatPopUp>();
         statUp.transform.SetParent(transform, false);
         statUp.gameObject.layer = LayerMask.NameToLayer("UI");
-        statUp.transform.localPosition = new Vector3(70f, -100f, 0f);
+        statUp.transform.localPosition = new Vector3(50f, -100f, 0f);
         newPopUp.timeOut = timeout;
         newPopUp.statText = stat.ToString();
         newPopUp.value = amount;

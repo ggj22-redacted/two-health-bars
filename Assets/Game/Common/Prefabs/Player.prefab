@@ -5947,6 +5947,9 @@ MonoBehaviour:
   - clip: {fileID: 8300000, guid: 757611d39291e6d459c4ed3650d088c8, type: 3}
     volume: 0.025
     pitch: 0.65
+  - clip: {fileID: 8300000, guid: 4779d94bad33e844ca37f9e7061159c0, type: 3}
+    volume: 0.16
+    pitch: 0.8
   playSound1: {fileID: 486417056267289021}
   playSound2: {fileID: 248148090842509815}
 --- !u!114 &7478491554402555727

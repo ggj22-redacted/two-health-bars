@@ -86,7 +86,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 19267364848910656, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 150010631283845434, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
       propertyPath: m_Name
@@ -120,9 +120,41 @@ PrefabInstance:
       propertyPath: area
       value: 
       objectReference: {fileID: 7962530989960508486, guid: 4404e346f82022847989a4c95d18ae55, type: 3}
+    - target: {fileID: 3420132049301019077, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
+      propertyPath: soundClips.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3420132049301019077, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
+      propertyPath: soundClips.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8ee5c8ee34f86b04b99aad098cc71f3c, type: 3}
+    - target: {fileID: 3420132049301019077, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
+      propertyPath: soundClips.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1d54b7b07ab3a544b80bbc88ecff8823, type: 3}
+    - target: {fileID: 3420132049301019077, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
+      propertyPath: soundClips.Array.data[0].pitch
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3420132049301019077, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
+      propertyPath: soundClips.Array.data[1].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3420132049301019077, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
+      propertyPath: soundClips.Array.data[0].volume
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3420132049301019077, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
+      propertyPath: soundClips.Array.data[1].volume
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 3754539790776056281, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3968714861657857284, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4318417643065174419, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
       propertyPath: UVModule.fps

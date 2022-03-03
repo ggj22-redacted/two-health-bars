@@ -109,14 +109,15 @@ namespace Game.Common.UI
 
         private void DeactivateScreen (EntityState state)
         {
-            _screenCanvasGroup.interactable = true;
-            _screenCanvasGroup.blocksRaycasts = true;
+            _screenCanvasGroup.interactable = false;
+            _screenCanvasGroup.blocksRaycasts = false;
             _screenCanvasGroup.alpha = 0f;
             statMessageCanvas.alpha = 1f;
             _timeElapsed = 0;
             foreach (CanvasGroup canvasGroup in buttonsCanvasGroups) {
                 canvasGroup.alpha = 0;
                 canvasGroup.interactable = false;
+                canvasGroup.blocksRaycasts = false;
             }
         }
 
@@ -126,6 +127,7 @@ namespace Game.Common.UI
             foreach (CanvasGroup canvasGroup in buttonsCanvasGroups) {
                 canvasGroup.alpha = 1;
                 canvasGroup.interactable = true;
+                canvasGroup.blocksRaycasts = true;
             }
 
             statMessageCanvas.alpha = 1f;

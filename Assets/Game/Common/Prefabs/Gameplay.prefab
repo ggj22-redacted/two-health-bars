@@ -213,7 +213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entityState: {fileID: 877389711482191315}
   respawnPosition: {fileID: 4892092202809018353}
-  restartDelay: 3
+  restartDelay: 4.3
 --- !u!114 &5986600413928592507
 MonoBehaviour:
   m_ObjectHideFlags: 0

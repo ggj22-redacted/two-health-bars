@@ -1,30 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
+using UnityEngine.InputSystem;
 
-public class PauseCanvasControl : MonoBehaviour
+
+namespace Game.Common.UI
 {
-
-    private CanvasGroup groupCanvas;
-
-    // Start is called before the first frame update
-    void Start()
+    public class PauseCanvasControl : MonoBehaviour
     {
-        groupCanvas = gameObject.GetComponent<CanvasGroup>();
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Time.timeScale == 0)
+        private CanvasGroup groupCanvas;
+        private bool activeScreen;
+
+        [Inject]
+        private UISystemEntity _uiSystemEntity;
+
+        // Start is called before the first frame update
+        void Start()
         {
-            groupCanvas.interactable = true;
-            groupCanvas.alpha = 1;
+            groupCanvas = gameObject.GetComponent<CanvasGroup>();
+            activeScreen = false;
         }
-        else
+
+        // Update is called once per frame
+        void Update()
         {
-            groupCanvas.interactable = false;
-            groupCanvas.alpha = 0;
+            if (Time.timeScale == 0 && activeScreen == false)
+            {
+                activeScreen = true;
+                groupCanvas.interactable = true;
+                groupCanvas.alpha = 1;
+                groupCanvas.blocksRaycasts = true;
+                _uiSystemEntity.ActivateMenu();
+            }
+            if (Time.timeScale == 1 && activeScreen == true)
+            {
+                activeScreen = false;
+                groupCanvas.interactable = false;
+                groupCanvas.alpha = 0;
+                groupCanvas.blocksRaycasts = false;
+                _uiSystemEntity.DeactivateMenu();
+            }
         }
     }
 }

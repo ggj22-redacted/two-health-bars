@@ -15,7 +15,7 @@ namespace Game.Common.UI
         private float timeToShow;
 
         [SerializeField]
-        private Text textLabel;
+        private Text[] textLabel;
 
         [SerializeField]
         private CanvasGroup statMessageCanvas;
@@ -36,6 +36,9 @@ namespace Game.Common.UI
         [Inject]
         private EntityRespawner _entityRespawner;
 
+        [Inject]
+        private UISystemEntity _uiSystemEntity;
+
         private CanvasGroup _screenCanvasGroup;
 
         private bool _activeScreen;
@@ -44,14 +47,14 @@ namespace Game.Common.UI
 
         private static string ChooseMessage (string sceneName)
         {
-            string message = "Death Comes\n";
+            string message = "";
 
             switch (sceneName) {
                 case "ChaosScene":
-                    message += "!Order Reigns Supreme!";
+                    message = "- Order Will Reign Supreme -";
                     break;
                 case "OrderScene":
-                    message += "!Chaos Consumes All!";
+                    message = "- Chaos Will Consume All -";
                     break;
             }
 
@@ -61,7 +64,7 @@ namespace Game.Common.UI
         private void Awake ()
         {
             _screenCanvasGroup = gameObject.GetComponent<CanvasGroup>();
-            textLabel = gameObject.GetComponentInChildren<Text>();
+            textLabel = gameObject.GetComponentsInChildren<Text>();
             buttonsCanvasGroups = gameObject.GetComponentsInChildren<CanvasGroup>();
 
             _activeScreen = false;
@@ -103,8 +106,10 @@ namespace Game.Common.UI
         private void ActivateScreen (EntityState state)
         {
             _activeScreen = true;
-            textLabel.text = ChooseMessage(SceneManager.GetActiveScene().name);
+            textLabel[0].text = "MISSION FAILED \n";
+            textLabel[1].text = ChooseMessage(SceneManager.GetActiveScene().name);
             StartCoroutine(ShowButtons(timeToShow));
+            _uiSystemEntity.ActivateMenu();
         }
 
         private void DeactivateScreen (EntityState state)
@@ -119,6 +124,7 @@ namespace Game.Common.UI
                 canvasGroup.interactable = false;
                 canvasGroup.blocksRaycasts = false;
             }
+            _uiSystemEntity.DeactivateMenu();
         }
 
         private IEnumerator ShowButtons (float time)

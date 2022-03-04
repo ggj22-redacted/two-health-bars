@@ -120,8 +120,8 @@ namespace Game.Common.Game
 
         public void RestartRound ()
         {
-            if (_round < 0)
-                return;
+            //if (_round < 0)
+            //    return;
 
             GameRound gameRound = CurrentRound;
             OnGameRoundChanged?.Invoke(gameRound);

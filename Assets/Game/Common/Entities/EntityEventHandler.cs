@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using Zenject;
+using Game.Common.UI;
 
 namespace Game.Common.Entities
 {
@@ -9,6 +10,9 @@ namespace Game.Common.Entities
     {
         [Inject]
         private EntityState _entityState;
+
+        [Inject]
+        private UISystemEntity _uiSystemEntity;
 
         [SerializeField]
         private UnityEntityEvent onDeath;
@@ -19,6 +23,12 @@ namespace Game.Common.Entities
         [SerializeField]
         private UnityStatEvent onHealthChanged;
 
+        [SerializeField]
+        private UnityUIEvent onMenu;
+
+        [SerializeField]
+        private UnityUIEvent offMenu;
+
         private void Awake () => InitializeEntityState();
 
         private void OnEnable ()
@@ -26,6 +36,8 @@ namespace Game.Common.Entities
             _entityState.OnHealthChanged += onHealthChanged.Invoke;
             _entityState.OnDied += onDeath.Invoke;
             _entityState.OnRespawned += onRespawn.Invoke;
+            _uiSystemEntity.OnMenu += onMenu.Invoke;
+            _uiSystemEntity.OffMenu += offMenu.Invoke;
         }
 
         private void OnDisable ()
@@ -33,6 +45,8 @@ namespace Game.Common.Entities
             _entityState.OnHealthChanged -= onHealthChanged.Invoke;
             _entityState.OnDied -= onDeath.Invoke;
             _entityState.OnRespawned -= onRespawn.Invoke;
+            _uiSystemEntity.OnMenu -= onMenu.Invoke;
+            _uiSystemEntity.OffMenu -= offMenu.Invoke;
         }
 
         private void InitializeEntityState ()
@@ -47,4 +61,7 @@ namespace Game.Common.Entities
 
     [Serializable]
     public class UnityEntityEvent : UnityEvent<EntityState> { }
+
+    [Serializable]
+    public class UnityUIEvent : UnityEvent<UISystemEntity> { }
 }

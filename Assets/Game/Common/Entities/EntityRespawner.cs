@@ -8,6 +8,9 @@ namespace Game.Common.Entities
 {
     public class EntityRespawner : MonoBehaviour
     {
+
+        public event Action<EntityRespawner> OnRespawn;
+
         [SerializeField]
         private EntityState entityState;
 
@@ -43,6 +46,8 @@ namespace Game.Common.Entities
             _gameStateSystem.StopRound();
 
             Respawn(entityState);
+
+            OnRespawn?.Invoke(this);
 
             await UniTask.Delay(TimeSpan.FromSeconds(restartDelay));
 

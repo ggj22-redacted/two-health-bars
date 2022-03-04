@@ -8,7 +8,7 @@ namespace Game.Common.Game
         private GameStateSystem gameStateSystem;
 
         [SerializeField]
-        private float roundStartDelay = 3f;
+        private float roundStartDelay = 4.3f;
 
         private float _countdownEndMoment;
 

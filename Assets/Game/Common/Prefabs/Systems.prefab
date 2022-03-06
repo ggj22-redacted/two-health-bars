@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameStateSystem: {fileID: 2152511989228106351}
-  roundStartDelay: 4.3
+  roundStartDelay: 4.5
 --- !u!1 &1869793072333428039
 GameObject:
   m_ObjectHideFlags: 0

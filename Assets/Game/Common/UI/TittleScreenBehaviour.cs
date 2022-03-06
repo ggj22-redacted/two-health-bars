@@ -18,6 +18,7 @@ namespace Game.Common.UI
         private EntityState _playerState;
 
         private CanvasGroup CanvasGroup;
+        private Animator thisAnim;
 
         public Button startButton;
         private bool _activeScreen;
@@ -25,6 +26,7 @@ namespace Game.Common.UI
         private void Awake()
         {
             CanvasGroup = GetComponent<CanvasGroup>();
+            thisAnim = GetComponent<Animator>();
             _activeScreen = true;
         }
 
@@ -49,6 +51,7 @@ namespace Game.Common.UI
             CanvasGroup.alpha = 0;
             CanvasGroup.interactable = false;
             CanvasGroup.blocksRaycasts = false;
+            thisAnim.SetTrigger("Close");
             _uiSystemEntity.DeactivateMenu();
         }
 

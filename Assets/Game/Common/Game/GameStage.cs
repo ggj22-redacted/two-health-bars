@@ -56,7 +56,7 @@ namespace Game.Common.Game
         {
             if (stageMusic)
             {
-                for (int x = 0; x < stageAudios.Length; x++)
+                for (int x = 0; x < stageAudios.Length - 1; x++)
                 {
                     if (stageclip == stageAudios[x].clip)
                     {

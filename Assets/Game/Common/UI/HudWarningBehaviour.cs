@@ -20,7 +20,7 @@ namespace Game.Common.UI
 
         [SerializeField]
         private TMP_Text counterText;
-        public float delayWave;
+        private float delayWave;
         private bool waveActive;
 
         void Awake()
@@ -33,7 +33,7 @@ namespace Game.Common.UI
         // Start is called before the first frame update
         void Start()
         {
-
+            delayWave = _entityRespawner.restartDelay - 0.5f;
         }
 
         void WaveStart(EntityRespawner _entityRespawner)

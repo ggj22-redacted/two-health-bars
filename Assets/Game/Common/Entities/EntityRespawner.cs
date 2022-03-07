@@ -18,7 +18,7 @@ namespace Game.Common.Entities
         private Transform respawnPosition;
 
         [SerializeField]
-        private float restartDelay;
+        public float restartDelay;
 
         [Inject]
         private GameStateSystem _gameStateSystem;

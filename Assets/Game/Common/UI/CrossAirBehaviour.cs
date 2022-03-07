@@ -11,7 +11,7 @@ namespace Game.Common.UI
         [Inject]
         private EntityRespawner _entityRespawner;
         private CanvasGroup thisGroup;
-        public float delayCounter;
+        private float delayCounter;
         private float counter;
         // Start is called before the first frame update
 
@@ -25,6 +25,7 @@ namespace Game.Common.UI
 
         void Start()
         {
+            delayCounter = _entityRespawner.restartDelay;
         }
 
         void HideCanvas(EntityRespawner _entityRespawner)

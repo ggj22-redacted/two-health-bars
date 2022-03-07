@@ -9897,7 +9897,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counterText: {fileID: 6820843438323618719}
-  delayWave: 4
 --- !u!1 &8887319341946330525
 GameObject:
   m_ObjectHideFlags: 0
@@ -10926,7 +10925,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43bbbcbdc4ed8104db6cca03e79a0ffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayCounter: 4.5
 --- !u!1001 &3070861925004504364
 PrefabInstance:
   m_ObjectHideFlags: 0

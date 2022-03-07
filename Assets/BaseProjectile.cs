@@ -71,10 +71,10 @@ public class BaseProjectile : MonoBehaviour
         if (hittables.Length > 0)
             onHit.Invoke();
 
-        if (State.HitClip) {
-            float delay = Mathf.Max(0, poolDelay, State.HitClip.length);
-            PostHitTask = UniTask.Delay(TimeSpan.FromSeconds(delay), true);
-        }
+        float delay = Mathf.Max(0, poolDelay);
+        if (State.HitClip)
+            delay = Mathf.Max(delay, State.HitClip.length);
+        PostHitTask = UniTask.Delay(TimeSpan.FromSeconds(delay), true);
 
         OnProjectileHit?.Invoke(this, other);
     }

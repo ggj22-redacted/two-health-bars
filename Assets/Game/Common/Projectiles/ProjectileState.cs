@@ -42,6 +42,9 @@ namespace Game.Common.Projectiles
         [SerializeField]
         private Material material;
 
+        [SerializeField]
+        private Material burstMaterial;
+
         public float Damage
         {
             get => damage;
@@ -112,6 +115,12 @@ namespace Game.Common.Projectiles
         {
             get => material;
             set => material = value;
+        }
+
+        public Material BurstMaterial
+        {
+            get => burstMaterial;
+            set => burstMaterial = value;
         }
     }
 }

@@ -791,6 +791,10 @@ PrefabInstance:
       propertyPath: projectileState.material
       value: 
       objectReference: {fileID: 2100000, guid: 0922eadf95c052c42b4b2dfc89c7490e, type: 2}
+    - target: {fileID: 9137870335550141098, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
+      propertyPath: projectileState.burstMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 8a3001a1821a3cc4caa686b87a54684f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89cc55dbb9007984b94ebbb0ae996305, type: 3}
 --- !u!1 &2880134624522376280 stripped

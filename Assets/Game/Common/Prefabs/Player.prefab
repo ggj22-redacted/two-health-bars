@@ -294,6 +294,7 @@ MonoBehaviour:
     shootClip: {fileID: 8300000, guid: 1595bce82c0792940895b971a6a4f5ef, type: 3}
     hitClip: {fileID: 8300000, guid: 9a0dbd56bd03ee840a0ba9cf4aa19c54, type: 3}
     material: {fileID: 2100000, guid: 2b68ec13d67e5a34baa8a6ef252ce28d, type: 2}
+    burstMaterial: {fileID: 2100000, guid: 45b9047acb911fe4db5f0224a236894c, type: 2}
   projectileGunBarrel: {fileID: 7773768968944697273}
 --- !u!114 &8077003878407321782
 MonoBehaviour:

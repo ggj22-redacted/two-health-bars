@@ -18,6 +18,11 @@ public class BaseProjectile : MonoBehaviour
     [SerializeField]
     private Renderer referenceRenderer;
 
+    [SerializeField]
+    private ParticleSystem burstEffect;
+
+    private ParticleSystemRenderer burstEffectRenderer;
+
     [FormerlySerializedAs("projectileCollision")] [SerializeField]
     private UnityEvent onHit;
 
@@ -55,18 +60,32 @@ public class BaseProjectile : MonoBehaviour
     {
         _random = new Random(Guid.NewGuid().GetHashCode());
         _projectileAnim = gameObject.GetComponent<Animator>();
+        burstEffectRenderer = burstEffect.gameObject.GetComponent<ParticleSystemRenderer>();
     }
 
     private void OnTriggerEnter (Collider other)
     {
+
         if (_hasHit)
             return;
 
         _hasHit = true;
 
+
         IHittable[] hittables = other.GetComponentsInChildren<IHittable>();
         foreach (IHittable hittable in hittables)
             hittable.OnHit(State);
+
+        if (referenceRenderer)
+            if (other.gameObject.layer != 10) /*obstaclesLayer*/
+            {
+                burstEffectRenderer.material = other.gameObject.GetComponent<EntityState>().ProjectileState.BurstMaterial;
+                burstEffectRenderer.trailMaterial = other.gameObject.GetComponent<EntityState>().ProjectileState.BurstMaterial;
+                burstEffect.Play();
+            }
+
+        referenceRigidbody.velocity = Vector3.zero;
+        referenceRigidbody.angularVelocity = Vector3.zero;
 
         if (hittables.Length > 0)
             onHit.Invoke();
@@ -75,7 +94,6 @@ public class BaseProjectile : MonoBehaviour
         if (State.HitClip)
             delay = Mathf.Max(delay, State.HitClip.length);
         PostHitTask = UniTask.Delay(TimeSpan.FromSeconds(delay), true);
-
         OnProjectileHit?.Invoke(this, other);
     }
 
@@ -120,7 +138,7 @@ public class BaseProjectile : MonoBehaviour
 
         // enable the renderer
         referenceRenderer.enabled = true;
-        referenceRenderer.sharedMaterial = state.Material;
+        referenceRenderer.material = state.Material;
 
         // reset the post hit task
         PostHitTask = UniTask.CompletedTask;

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PlayerProjectile
+  m_Name: HornProjectile_Burst
   m_Shader: {fileID: 4800000, guid: 1bc9862672a74b2f81aa23a4b16b313b, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 0
@@ -40,7 +40,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: cbd530eeda35bf3439c02ceaf1e71a0e, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -72,7 +72,7 @@ Material:
     - _DistortionStrengthScaled: 0.1
     - _DstBlend: 0
     - _EmissionEnabled: 0
-    - _Exposure: 1
+    - _Exposure: 4.37
     - _FlipbookMode: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
@@ -92,9 +92,9 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
-    - _Color: {r: 0, g: 1, b: 0.7833333, a: 1}
+    - _Color: {r: 0.7830189, g: 0, b: 0.015598009, a: 0.9019608}
     - _ColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
-    - _Emission: {r: 0.08962262, g: 0.31453943, b: 1, a: 1}
+    - _Emission: {r: 1, g: 0.21226418, b: 0.33559656, a: 1}
     - _EmissionColor: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 1}
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

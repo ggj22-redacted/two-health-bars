@@ -34,6 +34,7 @@ namespace Game.Common.UI
         void Start()
         {
             delayWave = _entityRespawner.restartDelay - 0.5f;
+            RestartCounter();
         }
 
         void WaveStart(EntityRespawner _entityRespawner)

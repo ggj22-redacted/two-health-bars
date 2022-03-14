@@ -26,6 +26,7 @@ namespace Game.Common.UI
         void Start()
         {
             delayCounter = _entityRespawner.restartDelay;
+            counter = delayCounter;
         }
 
         void HideCanvas(EntityRespawner _entityRespawner)

@@ -19,6 +19,7 @@ public class StageMusicBehaviour : MonoBehaviour
     {
         delayCounter = _entityRespawner.restartDelay;
         stageMusic = transform.parent.GetComponentsInChildren<AudioSource>();
+        StartCoroutine(DelayStart());
     }
 
     void CallMusicStart(EntityRespawner _entityRespawner)

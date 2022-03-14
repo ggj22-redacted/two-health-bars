@@ -10,9 +10,6 @@ namespace Game.Common.UI
     public class UISystemEntity : MonoBehaviour
     {
 
-        [Inject]
-        private EntityState _playerState;
-
         public event Action<UISystemEntity> OnStart;
         public event Action<UISystemEntity> OnMenu;
         public event Action<UISystemEntity> OffMenu;

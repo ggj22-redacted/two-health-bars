@@ -11,60 +11,107 @@ namespace Game.Common.UI
     {
 
         [Inject]
-        private EntityRespawner _entityRespawner;
-        [Inject]
         private UISystemEntity _uiSystemEntity;
-        [Inject]
-        private EntityState _playerState;
 
-        private CanvasGroup CanvasGroup;
+        public CanvasGroup[] CanvasGroup;
         private Animator thisAnim;
 
-        public Button startButton;
+        public Button[] MenuButtons;
+        public Button[] CloseButton;
         private bool _activeScreen;
 
         private void Awake()
         {
-            CanvasGroup = GetComponent<CanvasGroup>();
             thisAnim = GetComponent<Animator>();
             _activeScreen = true;
         }
 
-        void RoundStart()
+        void ExitGame()
         {
-            _entityRespawner.RestartStage();
-            DeactivateScreen();
+            Application.Quit();
         }
 
-        private void ActivateScreen(UISystemEntity state)
+        private void ActivateTittleScreen(UISystemEntity state)
         {
-            _activeScreen = true;
-            CanvasGroup.alpha = 1;
-            CanvasGroup.interactable = true;
-            CanvasGroup.blocksRaycasts = true;
-            _uiSystemEntity.ActivateMenu();
+            ActivateScreen(CanvasGroup[0]);
         }
 
-        private void DeactivateScreen()
+        private void DeactivateScreen(CanvasGroup screen)
         {
-            _activeScreen = false;
-            CanvasGroup.alpha = 0;
-            CanvasGroup.interactable = false;
-            CanvasGroup.blocksRaycasts = false;
-            thisAnim.SetTrigger("Close");
+            screen.alpha = 0;
+            screen.interactable = false;
+            screen.blocksRaycasts = false;
             _uiSystemEntity.DeactivateMenu();
+        }
+
+        void CallLeaderboardScreen()
+        {
+            if (CanvasGroup[1].alpha < 1)
+            {
+                ActivateScreen(CanvasGroup[1]);
+            }
+            else
+            {
+                DeactivateScreen(CanvasGroup[1]);
+            }
+        }
+
+        void CallOptionScreen()
+        {
+            if (CanvasGroup[2].alpha < 1)
+            {
+                ActivateScreen(CanvasGroup[2]);
+            }
+            else
+            {
+                DeactivateScreen(CanvasGroup[2]);
+            }
+        }
+
+        void CallCreditsScreen()
+        {
+            if (CanvasGroup[3].alpha < 1)
+            {
+                ActivateScreen(CanvasGroup[3]);
+            }
+            else
+            {
+                DeactivateScreen(CanvasGroup[3]);
+            }
+        }
+
+        void ActivateScreen(CanvasGroup screen)
+        {
+            screen.alpha = 1;
+            screen.interactable = true;
+            screen.blocksRaycasts = true;
+            _uiSystemEntity.ActivateMenu();
         }
 
         private void OnEnable()
         {
-            _uiSystemEntity.OnStart += ActivateScreen;
-            startButton.onClick.AddListener(RoundStart);
+            _uiSystemEntity.OnStart += ActivateTittleScreen;
+            //startButton.onClick.AddListener();
+            MenuButtons[1].onClick.AddListener(CallLeaderboardScreen);
+            MenuButtons[2].onClick.AddListener(CallOptionScreen);
+            MenuButtons[3].onClick.AddListener(CallCreditsScreen);
+            CloseButton[0].onClick.AddListener(CallLeaderboardScreen);
+            CloseButton[1].onClick.AddListener(CallOptionScreen);
+            CloseButton[2].onClick.AddListener(CallCreditsScreen);
+            MenuButtons[4].onClick.AddListener(ExitGame);
         }
 
         private void OnDisable()
         {
-            _uiSystemEntity.OnStart -= ActivateScreen;
-            startButton.onClick.RemoveListener(RoundStart);
+            _uiSystemEntity.OnStart -= ActivateTittleScreen;
+            //startButton.onClick.RemoveListener()
+            MenuButtons[1].onClick.RemoveListener(CallLeaderboardScreen);
+            MenuButtons[2].onClick.RemoveListener(CallOptionScreen);
+            MenuButtons[3].onClick.RemoveListener(CallCreditsScreen);
+            CloseButton[0].onClick.RemoveListener(CallLeaderboardScreen);
+            CloseButton[1].onClick.RemoveListener(CallOptionScreen);
+            CloseButton[2].onClick.RemoveListener(CallCreditsScreen);
+            MenuButtons[4].onClick.RemoveListener(ExitGame);
         }
 
 

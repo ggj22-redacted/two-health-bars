@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
+    path: Assets/Game/Stages/TitleScreen/TitleScreen.unity
+    guid: d1ec1e733c9b56f4b89835b0a466bb74
+  - enabled: 1
     path: Assets/Game/Stages/Chaos/Scenes/ChaosScene.unity
     guid: 43d1ee47ce0e0fd488d0d0190cfd1a35
   - enabled: 1

@@ -4,6 +4,7 @@ using UnityEngine;
 using Zenject;
 using Game.Common.Entities;
 using UnityEngine.UI;
+using Game.Common.GameSettings;
 
 namespace Game.Common.UI
 {
@@ -19,6 +20,9 @@ namespace Game.Common.UI
         public Button[] MenuButtons;
         public Button[] CloseButton;
         private bool _activeScreen;
+
+        [Inject]
+        private GameSettingsEntity _gameSettings;
 
         private void Awake()
         {
@@ -60,10 +64,12 @@ namespace Game.Common.UI
         {
             if (CanvasGroup[2].alpha < 1)
             {
+                CanvasGroup[2].gameObject.GetComponent<OptionsBehaviour>().SetSliders();
                 ActivateScreen(CanvasGroup[2]);
             }
             else
             {
+                _gameSettings.SettingsSave();
                 DeactivateScreen(CanvasGroup[2]);
             }
         }

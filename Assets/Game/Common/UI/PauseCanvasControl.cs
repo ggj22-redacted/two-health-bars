@@ -4,6 +4,7 @@ using UnityEngine;
 using Zenject;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using Game.Common.GameSettings;
 
 
 namespace Game.Common.UI
@@ -13,13 +14,16 @@ namespace Game.Common.UI
 
         private CanvasGroup groupCanvas;
         private bool activeScreen;
-        public CanvasGroup optionCanvas;
+        public GameObject optionCanvas;
+        private CanvasGroup optionCanvasGroup;
         public Button optionButton;
         public Button optionBackButton;
 
         [Inject]
         private UISystemEntity _uiSystemEntity;
 
+        [Inject]
+        private GameSettingsEntity _gameSettings;
 
         void ShowCanvas(CanvasGroup showGroup, bool value, int alpha)
         {
@@ -32,17 +36,20 @@ namespace Game.Common.UI
         void Start()
         {
             groupCanvas = gameObject.GetComponent<CanvasGroup>();
+            optionCanvasGroup = optionCanvas.GetComponent<CanvasGroup>();
             activeScreen = false;
         }
 
         void CallOptions()
         {
-            ShowCanvas(optionCanvas, true, 1);
+            optionCanvas.GetComponent<OptionsBehaviour>().SetSliders();
+            ShowCanvas(optionCanvasGroup, true, 1);
         }
 
         void CloseOptions()
         {
-            ShowCanvas(optionCanvas, false, 0);
+            _gameSettings.SettingsSave();
+            ShowCanvas(optionCanvasGroup, false, 0);
         }
 
         private void OnEnable()

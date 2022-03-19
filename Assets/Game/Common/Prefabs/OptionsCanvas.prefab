@@ -1095,7 +1095,7 @@ GameObject:
   - component: {fileID: 2244697985315640982}
   - component: {fileID: 2244697985315640969}
   m_Layer: 5
-  m_Name: MainSlider
+  m_Name: MasterSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1168,7 +1168,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 2244697984851779416}
   m_HandleRect: {fileID: 2244697986305124023}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 0.5
@@ -1370,7 +1370,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 2244697986461715791}
   m_HandleRect: {fileID: 2244697985103526218}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 0.5
@@ -1968,7 +1968,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: main
+  m_text: master
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3d0ab1321a4bb624cb38f68bddad3f54, type: 2}
   m_sharedMaterial: {fileID: 4978336371797527364, guid: 3d0ab1321a4bb624cb38f68bddad3f54, type: 2}
@@ -3243,7 +3243,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 2244697985390665185}
   m_HandleRect: {fileID: 2244697985982137098}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 0.5
@@ -3731,6 +3731,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenToggle: {fileID: 2244697985760217167}
   screenSize: {fileID: 2244697984407540070}
+  masterAudio: {fileID: 2244697985315640969}
+  musicAudio: {fileID: 2244697986277243377}
+  effectAudio: {fileID: 2244697985413917302}
 --- !u!1 &8045958248303196575
 GameObject:
   m_ObjectHideFlags: 0

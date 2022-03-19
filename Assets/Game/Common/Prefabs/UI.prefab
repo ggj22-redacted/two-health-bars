@@ -6019,7 +6019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99c1514214ea9a14d8f70c33dc15805d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  optionCanvas: {fileID: 2206555501084683431}
+  optionCanvas: {fileID: 497301338765188553}
   optionButton: {fileID: 5795226959816374326}
   optionBackButton: {fileID: 4033807529646108064}
 --- !u!1 &3761161831905253994
@@ -14144,14 +14144,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &497301338765188553 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3965246664299823469, guid: b2a04947048a3d54a8b3883be0aabf14, type: 3}
+  m_PrefabInstance: {fileID: 3594336753492171940}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &8806665140279482921 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5464600771173844621, guid: b2a04947048a3d54a8b3883be0aabf14, type: 3}
-  m_PrefabInstance: {fileID: 3594336753492171940}
-  m_PrefabAsset: {fileID: 0}
---- !u!225 &2206555501084683431 stripped
-CanvasGroup:
-  m_CorrespondingSourceObject: {fileID: 3422424221083381763, guid: b2a04947048a3d54a8b3883be0aabf14, type: 3}
   m_PrefabInstance: {fileID: 3594336753492171940}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4362544554647856997

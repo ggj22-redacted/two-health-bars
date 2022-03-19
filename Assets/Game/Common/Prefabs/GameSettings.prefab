@@ -47,6 +47,7 @@ MonoBehaviour:
   fullscreen: 0
   width: 298
   height: 224
+  audioMixer: {fileID: 24100000, guid: ef83867887163b94ab7660fb20a99dd7, type: 2}
 --- !u!114 &3784515256155918330
 MonoBehaviour:
   m_ObjectHideFlags: 0

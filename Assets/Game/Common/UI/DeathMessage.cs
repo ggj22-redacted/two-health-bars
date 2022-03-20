@@ -18,6 +18,9 @@ namespace Game.Common.UI
         private Text[] textLabel;
 
         [SerializeField]
+        private TMP_Text bigTextLabel;
+
+        [SerializeField]
         private CanvasGroup statMessageCanvas;
 
         [Header("Buttons")]
@@ -106,7 +109,8 @@ namespace Game.Common.UI
         private void ActivateScreen (EntityState state)
         {
             _activeScreen = true;
-            textLabel[0].text = "MISSION FAILED \n";
+            bigTextLabel.text = "MISSION FAILED";
+            textLabel[0].text = ChooseMessage(SceneManager.GetActiveScene().name);
             textLabel[1].text = ChooseMessage(SceneManager.GetActiveScene().name);
             StartCoroutine(ShowButtons(timeToShow));
             _uiSystemEntity.ActivateMenu();

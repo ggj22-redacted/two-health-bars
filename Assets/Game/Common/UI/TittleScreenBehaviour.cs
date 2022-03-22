@@ -20,6 +20,9 @@ namespace Game.Common.UI
         public Button[] MenuButtons;
         public Button[] CloseButton;
         private bool _activeScreen;
+        public GameObject inputWindow;
+        public GameObject loadWindow;
+        private GameObject createdWindow;
 
         [Inject]
         private GameSettingsEntity _gameSettings;
@@ -60,6 +63,14 @@ namespace Game.Common.UI
             }
         }
 
+        void CallInputWindow()
+        {
+            createdWindow = Instantiate(inputWindow,transform.parent);
+            createdWindow.GetComponent<WindowBehaviour>().recoverCanvas = CanvasGroup[0];
+            CanvasGroup[0].interactable = false;
+        }
+
+
         void CallOptionScreen()
         {
             if (CanvasGroup[2].alpha < 1)
@@ -97,7 +108,7 @@ namespace Game.Common.UI
         private void OnEnable()
         {
             _uiSystemEntity.OnStart += ActivateTittleScreen;
-            //startButton.onClick.AddListener();
+            MenuButtons[0].onClick.AddListener(CallInputWindow);
             MenuButtons[1].onClick.AddListener(CallLeaderboardScreen);
             MenuButtons[2].onClick.AddListener(CallOptionScreen);
             MenuButtons[3].onClick.AddListener(CallCreditsScreen);
@@ -110,7 +121,7 @@ namespace Game.Common.UI
         private void OnDisable()
         {
             _uiSystemEntity.OnStart -= ActivateTittleScreen;
-            //startButton.onClick.RemoveListener()
+            MenuButtons[0].onClick.RemoveListener(CallInputWindow);
             MenuButtons[1].onClick.RemoveListener(CallLeaderboardScreen);
             MenuButtons[2].onClick.RemoveListener(CallOptionScreen);
             MenuButtons[3].onClick.RemoveListener(CallCreditsScreen);
@@ -124,7 +135,7 @@ namespace Game.Common.UI
         // Start is called before the first frame update
         void Start()
         {
-
+           
         }
 
         // Update is called once per frame

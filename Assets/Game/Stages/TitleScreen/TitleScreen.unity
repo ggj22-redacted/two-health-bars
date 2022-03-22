@@ -1074,6 +1074,8 @@ MonoBehaviour:
   - {fileID: 4766023975029426829}
   - {fileID: 1818772847451810045}
   - {fileID: 4266657409936210803}
+  inputWindow: {fileID: 3897346398929313446, guid: 7d5833fd07fa75248802390f0e5422b5, type: 3}
+  loadWindow: {fileID: 6105136879058126182, guid: a08f96f4260a81c44a76fd8f80a22bff, type: 3}
 --- !u!1 &651669856899847971
 GameObject:
   m_ObjectHideFlags: 0

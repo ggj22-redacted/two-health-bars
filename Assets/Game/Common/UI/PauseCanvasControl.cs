@@ -20,6 +20,7 @@ namespace Game.Common.UI
         public Button optionBackButton;
         public Button titleButton;
         public GameObject leaveWindow;
+        public CanvasGroup[] hideCanvas;
 
         private GameObject createdWindow;
 
@@ -77,6 +78,14 @@ namespace Game.Common.UI
             titleButton.onClick.RemoveListener(CallWindow);
         }
 
+        private void OnPressPauseCanvas(int value)
+        {
+            for(int x = 0; x < hideCanvas.Length; x++)
+            {
+                ShowCanvas(hideCanvas[x], false, value);
+            }
+        }
+
         // Update is called once per frame
         void Update()
         {
@@ -85,12 +94,14 @@ namespace Game.Common.UI
                 activeScreen = true;
                 ShowCanvas(groupCanvas, true, 1);
                 _uiSystemEntity.ActivateMenu();
+                OnPressPauseCanvas(0);
             }
             if (Time.timeScale == 1 && activeScreen == true)
             {
                 activeScreen = false;
                 ShowCanvas(groupCanvas, false, 0);
                 _uiSystemEntity.DeactivateMenu();
+                OnPressPauseCanvas(1);
             }
         }
     }

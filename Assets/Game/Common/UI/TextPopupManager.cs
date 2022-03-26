@@ -10,6 +10,10 @@ public class TextPopupManager : MonoBehaviour
     [SerializeField]
     private GameObject StatUpCanvasPrefab;
 
+    [SerializeField]
+    private GameObject parentObject;
+    private CanvasGroup parentCanvas;
+
     [Inject]
     private AreaSystem areaSystem;
 
@@ -18,12 +22,20 @@ public class TextPopupManager : MonoBehaviour
     void Start()
     {
         areaSystem.OnStatUpdated += OnStatUpdated;
+        parentCanvas = parentObject.GetComponent<CanvasGroup>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (Time.timeScale == 0)
+        {
+            parentCanvas.alpha = 0;
+        }
+        if (Time.timeScale == 1)
+        {
+            parentCanvas.alpha = 1;
+        }
     }
 
     void OnStatUpdated(Stat stat, float amount) {
@@ -32,9 +44,8 @@ public class TextPopupManager : MonoBehaviour
     }
 
     IEnumerator SpawnTextPopup(Stat stat, float amount) {
-        GameObject statUp = Instantiate(StatUpCanvasPrefab, Vector3.zero, Quaternion.identity);
+        GameObject statUp = Instantiate(StatUpCanvasPrefab, Vector3.zero, Quaternion.identity, parentObject.transform);
         StatPopUp newPopUp = statUp.GetComponent<StatPopUp>();
-        statUp.transform.SetParent(transform, false);
         statUp.gameObject.layer = LayerMask.NameToLayer("UI");
         statUp.transform.localPosition = new Vector3(50f, -100f, 0f);
         newPopUp.timeOut = timeout;

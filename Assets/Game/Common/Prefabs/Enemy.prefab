@@ -158,6 +158,7 @@ MonoBehaviour:
     shootClip: {fileID: 0}
     hitClip: {fileID: 0}
     material: {fileID: 0}
+    burstMaterial: {fileID: 0}
   projectileGunBarrel: {fileID: 19267364848910656}
 --- !u!114 &7423987241668622704
 MonoBehaviour:
@@ -386,6 +387,12 @@ MonoBehaviour:
   onHealthChanged:
     m_PersistentCalls:
       m_Calls: []
+  onMenu:
+    m_PersistentCalls:
+      m_Calls: []
+  offMenu:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2851206392104266960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -603,7 +610,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1000
   m_TargetDisplay: 0
 --- !u!114 &1125676342814873082
 MonoBehaviour:

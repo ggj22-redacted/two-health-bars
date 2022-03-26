@@ -18,6 +18,10 @@ namespace Game.Common.UI
         private CanvasGroup optionCanvasGroup;
         public Button optionButton;
         public Button optionBackButton;
+        public Button titleButton;
+        public GameObject leaveWindow;
+
+        private GameObject createdWindow;
 
         [Inject]
         private UISystemEntity _uiSystemEntity;
@@ -46,6 +50,13 @@ namespace Game.Common.UI
             ShowCanvas(optionCanvasGroup, true, 1);
         }
 
+        void CallWindow()
+        {
+            createdWindow = Instantiate(leaveWindow, gameObject.transform.parent);
+            createdWindow.GetComponent<WindowBehaviour>().recoverCanvas = groupCanvas;
+            groupCanvas.interactable = false;
+        }
+
         void CloseOptions()
         {
             _gameSettings.SettingsSave();
@@ -56,12 +67,14 @@ namespace Game.Common.UI
         {
             optionButton.onClick.AddListener(CallOptions);
             optionBackButton.onClick.AddListener(CloseOptions);
+            titleButton.onClick.AddListener(CallWindow);
         }
 
         private void OnDisable()
         {
             optionButton.onClick.RemoveListener(CallOptions);
             optionBackButton.onClick.RemoveListener(CloseOptions);
+            titleButton.onClick.RemoveListener(CallWindow);
         }
 
         // Update is called once per frame

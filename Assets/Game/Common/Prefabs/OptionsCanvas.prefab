@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 4677399612154196664}
   - component: {fileID: 3745497107676916982}
   m_Layer: 5
-  m_Name: BackTitle Button
+  m_Name: Back Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3734,6 +3734,7 @@ MonoBehaviour:
   masterAudio: {fileID: 2244697985315640969}
   musicAudio: {fileID: 2244697986277243377}
   effectAudio: {fileID: 2244697985413917302}
+  thisGroup: {fileID: 0}
 --- !u!1 &8045958248303196575
 GameObject:
   m_ObjectHideFlags: 0

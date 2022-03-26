@@ -26,10 +26,17 @@ namespace Game.Common.UI
 
         private void Update ()
         {
-            var playerState = _gameStateSystem.PlayerState;
-            var distance = Vector3.Distance (playerState.transform.position, referenceTransform.position);
-            var alpha = alphaOverDistance.Evaluate (distance);
-            canvasGroup.alpha = alpha;
+            if (Time.timeScale == 0)
+            {
+                canvasGroup.alpha = 0;
+            }
+            if (Time.timeScale == 1)
+            {
+                var playerState = _gameStateSystem.PlayerState;
+                var distance = Vector3.Distance(playerState.transform.position, referenceTransform.position);
+                var alpha = alphaOverDistance.Evaluate(distance);
+                canvasGroup.alpha = alpha;
+            }
         }
 
         private void InitializeGameStateSystem ()

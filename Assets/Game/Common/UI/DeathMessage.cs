@@ -44,6 +44,11 @@ namespace Game.Common.UI
 
         private CanvasGroup _screenCanvasGroup;
 
+        private GameObject createdWindow;
+
+        public GameObject leaveWindow;
+        public CanvasGroup[] hideCanvas;
+
         private bool _activeScreen;
 
         private float _timeElapsed;
@@ -74,11 +79,19 @@ namespace Game.Common.UI
             _timeElapsed = 0;
         }
 
+        void CallWindow()
+        {
+            createdWindow = Instantiate(leaveWindow, gameObject.transform.parent);
+            createdWindow.GetComponent<WindowBehaviour>().recoverCanvas = _screenCanvasGroup;
+            _screenCanvasGroup.interactable = false;
+        }
+
         private void OnEnable ()
         {
             _playerState.OnDied += ActivateScreen;
             _playerState.OnRespawned += DeactivateScreen;
             restartButton.onClick.AddListener(RestartStage);
+            backButton.onClick.AddListener(CallWindow);
         }
 
         private void OnDisable ()
@@ -86,6 +99,7 @@ namespace Game.Common.UI
             _playerState.OnDied -= ActivateScreen;
             _playerState.OnRespawned -= DeactivateScreen;
             restartButton.onClick.RemoveListener(RestartStage);
+            backButton.onClick.RemoveListener(CallWindow);
         }
 
         private void Update ()
@@ -109,6 +123,10 @@ namespace Game.Common.UI
         private void ActivateScreen (EntityState state)
         {
             _activeScreen = true;
+            for (int x = 0; x < hideCanvas.Length; x++)
+            {
+                hideCanvas[x].alpha = 0;
+            }
             bigTextLabel.text = "MISSION FAILED";
             textLabel[0].text = ChooseMessage(SceneManager.GetActiveScene().name);
             textLabel[1].text = ChooseMessage(SceneManager.GetActiveScene().name);
@@ -118,6 +136,10 @@ namespace Game.Common.UI
 
         private void DeactivateScreen (EntityState state)
         {
+            for (int x = 0; x < hideCanvas.Length; x++)
+            {
+                hideCanvas[x].alpha = 1;
+            }
             _screenCanvasGroup.interactable = false;
             _screenCanvasGroup.blocksRaycasts = false;
             _screenCanvasGroup.alpha = 0f;

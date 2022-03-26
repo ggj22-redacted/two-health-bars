@@ -10067,15 +10067,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dffcaf70b76c14244a7cfd53e523eab9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToShow: 2
+  timeToShow: 1
   textLabel: []
   bigTextLabel: {fileID: 8369777761707414571}
   statMessageCanvas: {fileID: 7246326702979958796}
   buttonsCanvasGroups:
   - {fileID: 7695761024305317610}
   - {fileID: 3725626595642672337}
-  backButton: {fileID: 0}
+  backButton: {fileID: 7842702227440583063}
   restartButton: {fileID: 4002014764336690658}
+  leaveWindow: {fileID: 5141502853079427628, guid: 2e9e87888ba56fa42b3a42b92449fdcf, type: 3}
+  hideCanvas:
+  - {fileID: 3076678747831348014}
+  - {fileID: 7999729509664023895}
 --- !u!1 &6061934295976556699
 GameObject:
   m_ObjectHideFlags: 0
@@ -14235,6 +14239,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3211497715685483685, guid: 89e85cab3c981584489cf4094926a058, type: 3}
   m_PrefabInstance: {fileID: 2595383389517156013}
   m_PrefabAsset: {fileID: 0}
+--- !u!225 &7999729509664023895 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 5404346954042141690, guid: 89e85cab3c981584489cf4094926a058, type: 3}
+  m_PrefabInstance: {fileID: 2595383389517156013}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8366847765398820677 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5771825574444046824, guid: 89e85cab3c981584489cf4094926a058, type: 3}
@@ -16465,6 +16474,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40c74f4bcbeca814a8611841dbcc58a8, type: 3}
+--- !u!224 &8887376381987442684 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1432479373375491533, guid: 40c74f4bcbeca814a8611841dbcc58a8, type: 3}
+  m_PrefabInstance: {fileID: 7545638092842992177}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8685471678263931339 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1170799171325867002, guid: 40c74f4bcbeca814a8611841dbcc58a8, type: 3}
@@ -16476,11 +16490,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &8887376381987442684 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1432479373375491533, guid: 40c74f4bcbeca814a8611841dbcc58a8, type: 3}
-  m_PrefabInstance: {fileID: 7545638092842992177}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8143742321583711551
 PrefabInstance:
   m_ObjectHideFlags: 0

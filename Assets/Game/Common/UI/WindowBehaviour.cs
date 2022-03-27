@@ -16,17 +16,29 @@ namespace Game.Common.UI
         private CanvasGroup thisCanvas;
         public CanvasGroup recoverCanvas;
 
+        [SerializeField]
+        private GameObject audioObject;
+
+        private AudioSource[] audioObjectSources;
+        private AudioSource moveSound;
+        private AudioSource positiveSound;
+        private AudioSource negativeSound;
+
         // Start is called before the first frame update
         void Start()
         {
             thisCanvas = GetComponent<CanvasGroup>();
-            //CanvastoDestroy = gameObject.transform.parent.GetComponent<CanvasGroup>();
-
+            audioObject = transform.parent.transform.Find("UiSoundsFX").gameObject;
+            audioObjectSources = audioObject.GetComponentsInChildren<AudioSource>();
+            moveSound = audioObjectSources[0];
+            positiveSound = audioObjectSources[1];
+            negativeSound = audioObjectSources[2];
         }
-
 
         void CallWindowDestruction()
         {
+            negativeSound.Play();
+
             if (firstWindow)
             {
                 createdWindow = Instantiate(secndWindow, gameObject.transform.parent);
@@ -34,6 +46,11 @@ namespace Game.Common.UI
             }
 
             Destroy(gameObject);
+        }
+
+        public void PlayMoveSound()
+        {
+            moveSound.Play();
         }
 
         private void OnEnable()

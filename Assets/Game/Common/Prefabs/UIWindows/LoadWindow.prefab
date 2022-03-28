@@ -172,8 +172,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstWindow: 1
+  inputWindow: 0
   backButton: {fileID: 6105136879553997760}
-  secndWindow: {fileID: 3897346398929313446, guid: 7d5833fd07fa75248802390f0e5422b5, type: 3}
+  secondWindow: {fileID: 3897346398929313446, guid: 7d5833fd07fa75248802390f0e5422b5, type: 3}
   recoverCanvas: {fileID: 0}
   audioObject: {fileID: 0}
 --- !u!225 &6105136879058126183

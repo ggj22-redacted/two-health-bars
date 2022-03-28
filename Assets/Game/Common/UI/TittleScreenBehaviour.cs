@@ -68,6 +68,7 @@ namespace Game.Common.UI
             createdWindow = Instantiate(inputWindow,transform.parent);
             createdWindow.GetComponent<WindowBehaviour>().recoverCanvas = CanvasGroup[0];
             CanvasGroup[0].interactable = false;
+            CanvasGroup[0].blocksRaycasts = false;
         }
 
 
